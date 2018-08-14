@@ -1,0 +1,7 @@
+{
+  "transform": {
+    "^.+\\.(js|jsx)$": "babel-jest",
+    "^.+\\.css$": "jest-css",
+    "^(?!.*\\.(js|jsx|css|json)$)": "jest-file"
+  }
+}

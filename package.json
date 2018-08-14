@@ -15,10 +15,17 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "test:debug": "react-scripts --inspect-brk test --config jest.config.json --runInBand --env=jsdom",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
     "enzyme": "^3.4.1",
     "enzyme-adapter-react-16": "^1.2.0"
+  },
+  "babel": {
+    "sourceMaps": "inline",
+    "presets": [
+      "react-app"
+    ]
   }
 }
