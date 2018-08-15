@@ -50,3 +50,17 @@ Now that we have both state and a component to present our search bar feature, w
 - Verify that your state is correctly mapped to your component props
 - Verify that the correct action(s) are dispatched in response to user activities
 - Repeat the TDD cycle
+
+## Step 4
+
+### Recap: What did we learn?
+- Testing containers requires additional plumbing
+- Introduction to mocks
+
+### Objective
+Now that we can search for videos we need somewhere to store our search results. Let's design and build out our state for these results
+
+### TODO:
+- High level test cases written in plain english (BDD-style)
+- Repeat the TDD cycle
+
