@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Input } from '@procore/core-react';
 
-export default function Search(props) {
+export default function SearchBar(props) {
   const { onSearchChanged } = props;
   return (
     <Input onKeyUp={({ key, target: { value } }) => {

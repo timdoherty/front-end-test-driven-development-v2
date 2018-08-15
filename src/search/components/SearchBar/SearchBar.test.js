@@ -2,9 +2,9 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { Input } from '@procore/core-react';
 
-import Search from './Search';
+import SearchBar from './SearchBar';
 
-describe('<Search/>', () => {
+describe('<SearchBar/>', () => {
   beforeEach(() => {
     // setup each test here (or use before() for all)
   });
@@ -15,7 +15,7 @@ describe('<Search/>', () => {
 
   it('has somewhere to enter search text', () => {
     const wrapper = shallow(
-      <Search />
+      <SearchBar />
     );
     expect(wrapper.find(Input).exists()).toBe.true;
   });
@@ -24,7 +24,7 @@ describe('<Search/>', () => {
     it('reacts when there is a search term', () => {
       const onSearchChangedMock= jest.fn();
       const wrapper = shallow(
-        <Search onSearchChanged={onSearchChangedMock} />
+        <SearchBar onSearchChanged={onSearchChangedMock} />
       );
 
       wrapper.find(Input).simulate('keyup', { key: 'Enter', target: { value: 'foo' } });
@@ -34,7 +34,7 @@ describe('<Search/>', () => {
     it('does not react when there is no search term', () => {
       const onSearchChangedMock= jest.fn();
       const wrapper = shallow(
-        <Search onSearchChanged={onSearchChangedMock} />
+        <SearchBar onSearchChanged={onSearchChangedMock} />
       );
 
       wrapper.find(Input).simulate('keyup', { key: 'Enter', target: { value: '' } });
