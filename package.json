@@ -5,27 +5,25 @@
   "private": true,
   "dependencies": {
     "@procore/core-react": "^6.0.0",
+    "babel-preset-env": "^1.7.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.4",
-    "redux": "^4.0.0"
+    "redux": "^4.0.0",
+    "redux-modules": "^1.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "test:debug": "react-scripts --inspect-brk test --config jest.config.json --runInBand --env=jsdom",
+    "test:debug": "node --inspect-brk ./node_modules/.bin/jest --watch --config jest.config.json --runInBand --env=jsdom",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-react": "^6.24.1",
     "enzyme": "^3.4.1",
     "enzyme-adapter-react-16": "^1.2.0"
-  },
-  "babel": {
-    "sourceMaps": "inline",
-    "presets": [
-      "react-app"
-    ]
   }
 }

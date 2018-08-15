@@ -1,7 +1,6 @@
 {
-  "transform": {
-    "^.+\\.(js|jsx)$": "babel-jest",
-    "^.+\\.css$": "jest-css",
-    "^(?!.*\\.(js|jsx|css|json)$)": "jest-file"
+  "setupTestFrameworkScriptFile": "./src/setupTests.js",
+  "moduleNameMapper": {
+    "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
   }
 }
