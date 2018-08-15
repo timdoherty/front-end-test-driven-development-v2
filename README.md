@@ -33,6 +33,5 @@ In this step we'll introduce some new tools and concepts for testing React compo
 
 ### TODO:
 - High level test cases written in plain english (BDD-style)
-- Introduction to React test rendering, specifically with Enzyme
-- Introduction to Test Driven Component Development (TDCD)
+- Write a search bar component using "Test Driven Component Development" (TDCD)
 - Repeat the TDD cycle from step 1
