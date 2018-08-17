@@ -1,12 +1,7 @@
-import moment from 'moment';
-
 import searchSelector from './selector';
 import searchResultsStubs from './stubs/searchResultsStub';
 import searchMetadataStubs from './stubs/searchMetadataStub';
-
-function formatDuration(duration) {
-  return moment.utc(moment.duration(duration).asMilliseconds()).format("HH:mm:ss");
-}
+import { formatDuration } from '../utils';
 
 describe('searchSelector', () => {
   describe('search term', () => {

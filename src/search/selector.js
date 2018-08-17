@@ -1,10 +1,5 @@
-import moment from 'moment';
-
 import { createSelector, createStructuredSelector } from 'reselect';
-
-function formatDuration(duration) {
-  return moment.utc(moment.duration(duration).asMilliseconds()).format("HH:mm:ss");
-}
+import { formatDuration } from '../utils';
 
 const baseSelector = state => state.search;
 
