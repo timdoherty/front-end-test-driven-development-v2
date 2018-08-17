@@ -1,4 +1,10 @@
+import moment from 'moment';
+
 import { createSelector, createStructuredSelector } from 'reselect';
+
+function formatDuration(duration) {
+  return moment.utc(moment.duration(duration).asMilliseconds()).format("HH:mm:ss");
+}
 
 const baseSelector = state => state.search;
 
@@ -26,7 +32,10 @@ const searchResultsSelector = createSelector(
     );
     return {
       ...result,
-      ...meta
+      ...meta,
+      contentDetails: {
+        duration: meta ? formatDuration(meta.contentDetails.duration) : ''
+      }
     };
   })
 );
