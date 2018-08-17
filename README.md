@@ -65,3 +65,15 @@ Now that we can search for videos we need somewhere to store our search results.
 - Make the tests pass by implementing search results state
 - Repeat the TDD cycle
 
+## Step 5
+
+### Recap: What did we learn?
+- Testing a module's interface vs. it's implementation
+
+### Objective
+We have search results in state, and a selector to read them. Let's build some components to display the results. We'll start with a thumbnail preview.
+
+### TODO:
+- High level test cases written in plain english (BDD-style)
+- Write a thumbnail preview component using "Test Driven Component Development" (TDCD)
+- Repeat the TDD cycle 
