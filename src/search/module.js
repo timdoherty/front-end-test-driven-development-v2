@@ -1,8 +1,10 @@
 import { createModule } from 'redux-modules';
+import { loop, Cmd } from 'redux-loop';
+import axios from 'axios';
 
 import searchSelector from './selector';
 
-export default createModule({
+const searchModule = createModule({
   name: 'search',
   initialState: {},
   selector: searchSelector,
@@ -19,6 +21,56 @@ export default createModule({
         searchMetadata: null
       };
     },
+    doSearch(state, action) {
+      const { payload: url } = action;
+      return loop(
+        {
+          ...state,
+          isLoading: true
+        },
+        Cmd.run(
+          axios.get,
+          {
+            args: [url],
+            successActionCreator: searchModule.actions.setSearchResults,
+            failActionCreator: searchModule.actions.onSearchFailure
+          }
+        )
+      );
+    },
+    getSearchMetadata(state, action) {
+      const { payload: url } = action;
+      return loop(
+        {
+          ...state,
+          isLoading: true
+        },
+        Cmd.run(
+          axios.get,
+          {
+            args: [url],
+            successActionCreator: searchModule.actions.setSearchMetadata,
+            failActionCreator: searchModule.actions.onSearchMetadataFailure
+          }
+        )
+      );
+    },
+    onSearchFailure(state, action) {
+      const { payload: error } = action;
+      return {
+        ...state,
+        isLoading: false,
+        error
+      };
+    },
+    onSearchMetadataFailure(state, action) {
+      const { payload: error } = action;
+      return {
+        ...state,
+        isLoading: false,
+        error
+      };
+    },
     setSearchMetadata(state, action) {
       const { payload: { data: searchMetadata } } = action;
       return {
@@ -30,6 +82,7 @@ export default createModule({
       const { payload: { data: searchResults } } = action;
       return {
         ...state,
+        isLoading: false,
         searchResults
       };
     },
@@ -48,3 +101,5 @@ export default createModule({
     }
   }
 });
+
+export default searchModule;
