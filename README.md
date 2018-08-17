@@ -77,3 +77,14 @@ We have search results in state, and a selector to read them. Let's build some c
 - High level test cases written in plain english (BDD-style)
 - Write a thumbnail preview component using "Test Driven Component Development" (TDCD)
 - Repeat the TDD cycle 
+
+## Step 6
+
+### Recap: What did we learn?
+- 
+
+### Objective
+Let's wrap our thumbnail preview in a search result wrapper that displays metadata about the video
+
+### TODO:
+
