@@ -1,6 +1,7 @@
 import searchSelector from './selector';
 import searchResultsStubs from './stubs/searchResultsStub';
 import searchMetadataStubs from './stubs/searchMetadataStub';
+import { formatDuration } from '../utils';
 
 describe('searchSelector', () => {
   describe('search term', () => {
@@ -35,7 +36,10 @@ describe('searchSelector', () => {
         );
         return {
           ...result,
-          ...meta
+          ...meta,
+          contentDetails: {
+            duration: meta ? formatDuration(meta.contentDetails.duration) : ''
+          }
         };
       });
 

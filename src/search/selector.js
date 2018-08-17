@@ -1,4 +1,5 @@
 import { createSelector, createStructuredSelector } from 'reselect';
+import { formatDuration } from '../utils';
 
 const baseSelector = state => state.search;
 
@@ -26,7 +27,10 @@ const searchResultsSelector = createSelector(
     );
     return {
       ...result,
-      ...meta
+      ...meta,
+      contentDetails: {
+        duration: meta ? formatDuration(meta.contentDetails.duration) : ''
+      }
     };
   })
 );
