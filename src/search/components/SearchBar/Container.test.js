@@ -13,7 +13,9 @@ describe('<SearchBarContainer/>', () => {
   function getInitialState() {
     return {
       search: {
-        searchTerm: 'foobarbaz'
+        searchTerm: 'foobarbaz',
+        searchResults: { items: [] },
+        searchMetadata: { items: [] }
       }
     };
   }

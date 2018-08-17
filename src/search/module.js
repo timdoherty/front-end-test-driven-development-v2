@@ -7,6 +7,32 @@ export default createModule({
   initialState: {},
   selector: searchSelector,
   transformations: {
+    clearSearchResults(state, action) {
+      return {
+        ...state,
+        searchResults: null
+      };
+    },
+    clearSearchMetadata(state, action) {
+      return {
+        ...state,
+        searchMetadata: null
+      };
+    },
+    setSearchMetadata(state, action) {
+      const { payload: { data: searchMetadata } } = action;
+      return {
+        ...state,
+        searchMetadata
+      };
+    },
+    setSearchResults(state, action) {
+      const { payload: { data: searchResults } } = action;
+      return {
+        ...state,
+        searchResults
+      };
+    },
     setSearchTerm(state, action) {
       const { payload } = action;
       return {
