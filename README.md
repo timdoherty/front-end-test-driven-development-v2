@@ -91,3 +91,16 @@ Let's wrap our thumbnail preview in a search result wrapper that displays metada
 - Reuse our previously built thumbnail component
 - Add metadata
 - Repeat the TDD cycle
+
+## Step 7
+
+### Recap: What did we learn?
+- Component behavior and logic can be built using TDD agnostic of presentational concerns
+- Validating textual content agnostic of presentational concerns
+
+### Objective
+Now that we have thumbnail and search result components, we need to be able to display a list of search results.
+
+### TODO:
+- High level test cases written in plain english (BDD-style)
+- Repeate the TDD cycle
