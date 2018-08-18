@@ -81,10 +81,13 @@ We have search results in state, and a selector to read them. Let's build some c
 ## Step 6
 
 ### Recap: What did we learn?
-- 
+- Reinforcement of the TDCD approach to building React components
 
 ### Objective
 Let's wrap our thumbnail preview in a search result wrapper that displays metadata about the video
 
 ### TODO:
-
+- High level test cases written in plain english (BDD-style)
+- Reuse our previously built thumbnail component
+- Add metadata
+- Repeat the TDD cycle
