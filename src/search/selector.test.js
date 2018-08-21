@@ -37,6 +37,7 @@ describe('searchSelector', () => {
         return {
           ...result,
           ...meta,
+          id: meta ? meta.id : result.id.videoId,
           contentDetails: {
             duration: meta ? formatDuration(meta.contentDetails.duration) : ''
           }
