@@ -104,3 +104,16 @@ Now that we have thumbnail and search result components, we need to be able to d
 ### TODO:
 - High level test cases written in plain english (BDD-style)
 - Repeate the TDD cycle
+
+## Step 8
+
+### Recap: What did we learn?
+- Component behavior and logic can be built using TDD agnostic of presentational concerns
+
+### Objective
+Now that we have a list of search results, we need to design state for the currently palying video when a search result is clicked
+
+### TODO:
+- High level test cases written in plain english (BDD-style)
+- Make the tests pass by implementing now playing state
+- Repeat the TDD cycle
