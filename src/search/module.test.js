@@ -9,6 +9,7 @@ import axios from 'axios';
 import searchModule from './module';
 import searchResultsStubs from './stubs/searchResultsStub';
 import searchMetadataStubs from './stubs/searchMetadataStub';
+import { KEY } from '../constants';
 
 const { actions, reducer } = searchModule;
 
@@ -34,7 +35,8 @@ describe('searchModule', () => {
     describe('search results', () => {
       it('gets search results', () => {
         const state = { isLoading: false };
-        const url = 'foo/bar';
+        const searchTerm = 'heisenberg';
+        const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=${searchTerm}&maxResults=20&key=${KEY}`;
         const expected = loop(
           { isLoading: true },
           Cmd.run(
@@ -47,7 +49,7 @@ describe('searchModule', () => {
           )
         );
 
-        const actual = reducer(state, actions.doSearch(url));
+        const actual = reducer(state, actions.doSearch(searchTerm));
         expect(getModel(actual)).toEqual(getModel(expected));
         expect(getCmd(actual)).toEqual(getCmd(expected));
       });

@@ -3,6 +3,7 @@ import { loop, Cmd } from 'redux-loop';
 import axios from 'axios';
 
 import searchSelector from './selector';
+import { KEY } from '../constants';
 
 const searchModule = createModule({
   name: 'search',
@@ -22,7 +23,8 @@ const searchModule = createModule({
       };
     },
     doSearch(state, action) {
-      const { payload: url } = action;
+      const { payload: searchTerm } = action;
+      const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=${searchTerm}&maxResults=20&key=${KEY}`;
       return loop(
         {
           ...state,
