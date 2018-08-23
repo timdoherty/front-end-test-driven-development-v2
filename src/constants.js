@@ -1,0 +1,2 @@
+export const KEY = 'foobarbaz';
+
