@@ -111,9 +111,23 @@ Now that we have thumbnail and search result components, we need to be able to d
 - Component behavior and logic can be built using TDD agnostic of presentational concerns
 
 ### Objective
-Now that we have a list of search results, we need to design state for the currently palying video when a search result is clicked
+Now that we have a list of search results, we need to design state for the currently playing video when a search result is clicked
 
 ### TODO:
 - High level test cases written in plain english (BDD-style)
 - Make the tests pass by implementing now playing state
 - Repeat the TDD cycle
+
+## Step 9
+
+### Recap: What did we learn?
+- 
+
+### Objective
+Now that we have state for our now playing feature, let's start building our components, starting with the video player
+
+### TODO:
+- High level test cases written in plain english (BDD-style)
+- Write a video player component using "Test Driven Component Development" (TDCD)
+- Repeat the TDD cycle
+- 

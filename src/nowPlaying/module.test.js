@@ -12,14 +12,6 @@ import { KEY } from '../constants';
 const { actions, reducer } = nowPlayingModule;
 
 describe('nowPlayingModule', () => {
-  beforeEach(() => {
-
-  });
-
-  afterEach(() => {
-
-  });
-
   const searchResult =   {
    "kind": "youtube#searchResult",
    "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/Va5WaCfLWg9_P0lB4Olj9aRA5ZI\"",
