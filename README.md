@@ -130,4 +130,16 @@ Now that we have state for our now playing feature, let's start building our com
 - High level test cases written in plain english (BDD-style)
 - Write a video player component using "Test Driven Component Development" (TDCD)
 - Repeat the TDD cycle
-- 
+
+## Step 10
+
+### Recap: What did we learn?
+- Component behavior and logic can be built using TDD agnostic of presentational concerns
+
+### Objective
+Let's continue building out our now playing components. Next up is a comment component to display a single comment
+
+### TODO:
+- High level test cases written in plain english (BDD-style)
+- Write a comment component using "Test Driven Component Development" (TDCD)
+- Repeat the TDD cycle
