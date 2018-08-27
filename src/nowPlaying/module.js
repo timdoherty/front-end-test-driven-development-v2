@@ -2,11 +2,14 @@ import { createModule } from 'redux-modules';
 import { loop, Cmd } from 'redux-loop';
 import axios from 'axios';
 
+import nowPlayingSelector from './selector';
+
 import { KEY } from '../constants';
 
 const nowPlayingModule = createModule({
   name: 'nowPlaying',
   initialState: {},
+  selector: nowPlayingSelector,
   transformations: {
     clearCurrentVideo(state, action) {
       return {
