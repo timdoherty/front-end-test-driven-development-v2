@@ -3,22 +3,26 @@ import { connectModule } from 'redux-modules';
 
 import List from './List';
 import searchModule from '../../module';
+import nowPlayingModule from '../../../nowPlaying/module';
 
 export function ListContainer(props) {
   const {
-    searchResults,
+    search: {
+      searchResults
+    },
     actions: {
-      setNowPlaying
+      nowPlaying: {
+        setCurrentVideo
+      }
     }
   } = props;
 
   return (
     <List
       searchResults={searchResults}
-      onListItemClicked={setNowPlaying}
+      onListItemClicked={setCurrentVideo}
     />
   );
 }
 
-
-export default connectModule(searchModule)(ListContainer);
+export default connectModule([searchModule, nowPlayingModule])(ListContainer);
