@@ -8,14 +8,14 @@ export function ListContainer(props) {
   const {
     searchResults,
     actions: {
-      setNowPlaying
+      setCurrentVideo
     }
   } = props;
 
   return (
     <List
       searchResults={searchResults}
-      onListItemClicked={setNowPlaying}
+      onListItemClicked={setCurrentVideo}
     />
   );
 }
