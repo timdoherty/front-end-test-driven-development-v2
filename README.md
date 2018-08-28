@@ -143,3 +143,16 @@ Let's continue building out our now playing components. Next up is a comment com
 - High level test cases written in plain english (BDD-style)
 - Write a comment component using "Test Driven Component Development" (TDCD)
 - Repeat the TDD cycle
+
+## Step 11
+
+### Recap: What did we learn?
+- Component behavior and logic can be built using TDD agnostic of presentational concerns
+
+### Objective
+Now that we have a Comment component, let's build a connected list container for multiple comments
+
+### TODO:
+- High level test cases written in plain english (BDD-style)
+- Write a connected comment list component using "Test Driven Component Development" (TDCD)
+- Repeat the TDD cycle
