@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import SearchResult from './SearchResult';
-import Thumbnail from '../../../components/Thumbnail/Thumbnail';
+import Preview from './Preview';
+import Thumbnail from '../Thumbnail/Thumbnail';
 
-describe('<SearchResult/>', () => {
+describe('<Preview/>', () => {
   const searchResult = {
    "kind": "youtube#searchResult",
    "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/Va5WaCfLWg9_P0lB4Olj9aRA5ZI\"",
@@ -55,35 +55,63 @@ describe('<SearchResult/>', () => {
    }
   };
 
-  it('displays a thumbnail', () => {
-    const wrapper = shallow(
-      <SearchResult result={searchResult} />
-    );
-    const thumbnail = wrapper.find(Thumbnail);
-    expect(thumbnail.prop('imageUrl')).toBe(searchResult.snippet.thumbnails.default.url);
-    expect(thumbnail.prop('height')).toBe(searchResult.snippet.thumbnails.default.height);
-    expect(thumbnail.prop('width')).toBe(searchResult.snippet.thumbnails.default.width);
+  describe('thumbnail', () => {
+    it('displays a default thumbnail', () => {
+      const wrapper = shallow(
+        <Preview result={searchResult} />
+      );
+      const thumbnail = wrapper.find(Thumbnail);
+      expect(thumbnail.prop('imageUrl')).toBe(searchResult.snippet.thumbnails.default.url);
+      expect(thumbnail.prop('height')).toBe(searchResult.snippet.thumbnails.default.height);
+      expect(thumbnail.prop('width')).toBe(searchResult.snippet.thumbnails.default.width);
+    });
+
+    it('displays a specified thumbnail', () => {
+      const wrapper = shallow(
+        <Preview
+          result={searchResult}
+          thumbnailSize="medium"
+        />
+      );
+      const thumbnail = wrapper.find(Thumbnail);
+      expect(thumbnail.prop('imageUrl')).toBe(searchResult.snippet.thumbnails.medium.url);
+      expect(thumbnail.prop('height')).toBe(searchResult.snippet.thumbnails.medium.height);
+      expect(thumbnail.prop('width')).toBe(searchResult.snippet.thumbnails.medium.width);
+    });
   });
 
   it('displays the video title', () => {
     const wrapper = shallow(
-      <SearchResult result={searchResult} />
+      <Preview result={searchResult} />
     );
 
     expect(wrapper.text()).toMatch(searchResult.snippet.title);
   });
 
-  it('displays the video description', () => {
-    const wrapper = shallow(
-      <SearchResult result={searchResult} />
-    );
+  describe('description', () => {
+    it('displays the video description by default', () => {
+      const wrapper = shallow(
+        <Preview result={searchResult} />
+      );
 
-    expect(wrapper.text()).toMatch(searchResult.snippet.description);
+      expect(wrapper.text()).toMatch(searchResult.snippet.description);
+    });
+
+    it('does not display the video description when specified', () => {
+      const wrapper = shallow(
+        <Preview
+          result={searchResult}
+          hideDescription={true}
+        />
+      );
+
+      expect(wrapper.text()).not.toMatch(searchResult.snippet.description);
+    });
   });
 
   it('displays the video duration', () => {
     const wrapper = shallow(
-      <SearchResult result={searchResult} />
+      <Preview result={searchResult} />
     );
 
     expect(wrapper.text()).toMatch(searchResult.contentDetails.duration);
@@ -92,7 +120,7 @@ describe('<SearchResult/>', () => {
   it('responds with the video id when clicked', () => {
     const onClickMock = jest.fn();
     const wrapper = shallow(
-      <SearchResult
+      <Preview
         result={searchResult}
         onClick={onClickMock}
       />
