@@ -1,7 +1,7 @@
 import React from 'react';
 import { connectModule } from 'redux-modules';
 
-import List from './List';
+import List from '../../../components/List';
 import searchModule from '../../module';
 
 export function ListContainer(props) {
