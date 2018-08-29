@@ -72,6 +72,9 @@ describe('<List/>', () => {
         "channelTitle": "slyellow2 Music",
         "liveBroadcastContent": "none"
       },
+      contentDetails: {
+        duration: "00:05:32"
+      },
       "id": "8QdWRgNdir4"
     }
 
@@ -90,11 +93,11 @@ describe('<List/>', () => {
       <List
         listItems={listItems}
         onListItemClicked={onListItemClickedMock}
-        listItemIdField="fizz"
+        listItemIdField="id"
       />
     );
 
     wrapper.find(Preview).at(1).dive().simulate('click');
-    expect(onListItemClickedMock).toBeCalledWith(listItems[1].fizz);
+    expect(onListItemClickedMock).toBeCalledWith(listItems[1].id);
   });
 });

@@ -92,7 +92,7 @@ describe('nowPlayingModule', () => {
         comments
       };
 
-      const actual = reducer(state, actions.setComments(comments));
+      const actual = reducer(state, actions.setComments({ data: comments }));
       expect(actual).toEqual(expected)
     });
 
@@ -136,39 +136,87 @@ describe('nowPlayingModule', () => {
         relatedVideos
       };
 
-      const actual = reducer({ isLoading: true }, actions.setRelatedVideos(relatedVideos));
+      const actual = reducer({ isLoading: true }, actions.setRelatedVideos({ data: relatedVideos }));
       expect(actual).toEqual(expected);
+    });
+
+    it('handles related videos failure', () => {
+      const error = { foo: 'bar' };
+      const expected = {
+        isLoading: false,
+        error
+      };
+
+      const actual = reducer({ isLoading: true }, actions.onRelatedVideosFailure(error));
+      expect(actual).toEqual(expected);
+    });
+
+    it('gets related videos', () => {
+      const videoId = 'barbazbim';
+      const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&relatedToVideoId=${videoId}&maxResults=20&key=${KEY}`;
+      const expected = loop(
+        { isLoading: true },
+        Cmd.run(
+          axios.get,
+          {
+            args: [url],
+            successActionCreator: actions.setRelatedVideos,
+            failActionCreator: actions.onRelatedVideosFailure
+          }
+        )
+      );
+
+      const actual = reducer({}, actions.getRelatedVideos(videoId));
+      expect(getModel(actual)).toEqual(getModel(expected));
+      expect(getCmd(actual)).toEqual(getCmd(expected));
+    });
+
+    describe('related videos metadata', () => {
+      it('sets related videos metadata', () => {
+        const metadata = {
+          foo: 'barbaz',
+          bim: 'fizzbuzz'
+        };
+
+        const expected = {
+          isLoading: false,
+          relatedVideoMetadata: metadata
+        };
+
+        const actual = reducer({ isLoading: true}, actions.setRelatedVideoMetadata({ data: metadata }));
+        expect(actual).toEqual(expected);
+      });
+
+      it('handles related videos metadata failure', () => {
+        const error = { foo: 'bar' };
+        const expected = {
+          isLoading: false,
+          error
+        };
+
+        const actual =  reducer({ isLoading: true }, actions.onRelatedVideosMetadataFailure(error));
+        expect(actual).toEqual(expected);
+      });
+
+      it('gets related video metadata', () => {
+        const relatedVideoIds = [1, 2, 3, 4];
+        const url = `https://www.googleapis.com/youtube/v3/videos?part=statistics,contentDetails&id=${relatedVideoIds.join(',')}&key=${KEY}`;
+        const expected = loop(
+          { isLoading: true },
+          Cmd.run(
+            axios.get,
+            {
+              args: [url],
+              successActionCreator: actions.setRelatedVideoMetadata,
+              failActionCreator: actions.onRelatedVideoMetadataFailure
+            }
+          )
+        );
+
+        const actual = reducer({ isLoading: false }, actions.getRelatedVideoMetadata({ data: relatedVideoIds }));
+        expect(actual).toEqual(expected);
+      });
     });
   });
 
-  it('handles related videos failure', () => {
-    const error = { foo: 'bar' };
-    const expected = {
-      isLoading: false,
-      error
-    };
-
-    const actual = reducer({ isLoading: true }, actions.onRelatedVideosFailure(error));
-    expect(actual).toEqual(expected);
-  });
-
-  it('gets related videos', () => {
-    const videoId = 'barbazbim';
-    const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&relatedToVideoId=${videoId}&maxResults=20&key=${KEY}`;
-    const expected = loop(
-      { isLoading: true },
-      Cmd.run(
-        axios.get,
-        {
-          args: [url],
-          successActionCreator: actions.setRelatedVideos,
-          failActionCreator: actions.onRelatedVideosFailure
-        }
-      )
-    );
-
-    const actual = reducer({}, actions.getRelatedVideos(videoId));
-    expect(getModel(actual)).toEqual(getModel(expected));
-    expect(getCmd(actual)).toEqual(getCmd(expected));
-  });
 });

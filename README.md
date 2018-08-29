@@ -183,3 +183,16 @@ Now that we've refactored our original search result component into a reusable p
 - Write a connected related videos list component using "Test Driven Component Development" (TDCD)
 - Repeat the TDD cycle
 
+## Step 14
+
+### Recap: What did we learn?
+- Component behavior and logic can be built using TDD agnostic of presentational concerns
+- We can refactor components to be DRY when needed, vs prematurely optimizing
+
+### Objective
+Let's start putting things together by building our our application component
+
+### TODO:
+- High level test cases written in plain english (BDD-style)
+- Write an application component using "Test Driven Component Development" (TDCD)
+- Repeat the TDD cycle

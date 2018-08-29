@@ -7,6 +7,9 @@ import Preview from '../../../components/Preview';
 import searchResultStubs from '../../stubs/searchResultsStub';
 import searchMetadataStubs from '../../stubs/searchMetadataStub';
 import searchSelector from '../../selector';
+import nowPlayingModule from '../../../nowPlaying/module';
+
+const { actions } = nowPlayingModule;
 
 describe('<ListContainer/>', () => {
   function getInitialState() {
@@ -14,6 +17,11 @@ describe('<ListContainer/>', () => {
       search: {
         searchResults: searchResultStubs,
         searchMetadata: searchMetadataStubs 
+      },
+      nowPlaying: {
+        comments: { items: [] },
+        relatedVideos: { items: [] },
+        relatedVideoMetadata: { items: [] }
       }
     };
   }
@@ -30,10 +38,6 @@ describe('<ListContainer/>', () => {
     };
   });
 
-  afterEach(() => {
-    // tear down each test here (or use after() for all)
-  });
-
   describe('props', () => {
     it('correctly maps state to props', () => {
       const wrapper = shallow(
@@ -41,23 +45,21 @@ describe('<ListContainer/>', () => {
         { context: { store } }
       );
       const expected = searchSelector(getInitialState()).searchResults;
-      const actual = wrapper.prop('searchResults');
+      const actual = wrapper.prop('search').searchResults;
       expect(actual).toEqual(expected);
     });
   });
 
   describe('dispatch', () => {
     it('correctly maps dispatch to props', () => {
-      // TODO replace this with actual dispatch test
-      const setNowPlayingMock = jest.fn();
       const wrapper = mount(
-        <ListContainer actions={{ setNowPlaying: setNowPlayingMock }}/>,
+        <ListContainer />,
         { context: { store } }
       );
 
       const searchResults = searchSelector(getInitialState()).searchResults;
       wrapper.find(Preview).at(5).simulate('click');
-      expect(setNowPlayingMock).toBeCalledWith(searchResults[5].id);
+      expect(dispatch).toBeCalledWith(actions.setCurrentVideo(searchResults[5].id));
     });
   });
 });
