@@ -171,34 +171,34 @@ describe('nowPlayingModule', () => {
       expect(getCmd(actual)).toEqual(getCmd(expected));
     });
 
-    describe('related videos statistics', () => {
-      it('sets related videos statistics', () => {
-        const stats = {
+    describe('related videos metadata', () => {
+      it('sets related videos metadata', () => {
+        const metadata = {
           foo: 'barbaz',
           bim: 'fizzbuzz'
         };
 
         const expected = {
           isLoading: false,
-          relatedVideoStats: stats
+          relatedVideoMetadata: metadata
         };
 
-        const actual = reducer({ isLoading: true}, actions.setRelatedVideoStats({ data: stats }));
+        const actual = reducer({ isLoading: true}, actions.setRelatedVideoMetadata({ data: metadata }));
         expect(actual).toEqual(expected);
       });
 
-      it('handles related videos stats failure', () => {
+      it('handles related videos metadata failure', () => {
         const error = { foo: 'bar' };
         const expected = {
           isLoading: false,
           error
         };
 
-        const actual =  reducer({ isLoading: true }, actions.onRelatedVideosStatsFailure(error));
+        const actual =  reducer({ isLoading: true }, actions.onRelatedVideosMetadataFailure(error));
         expect(actual).toEqual(expected);
       });
 
-      it('gets related video stats', () => {
+      it('gets related video metadata', () => {
         const relatedVideoIds = [1, 2, 3, 4];
         const url = `https://www.googleapis.com/youtube/v3/videos?part=statistics,contentDetails&id=${relatedVideoIds.join(',')}&key=${KEY}`;
         const expected = loop(
@@ -207,13 +207,13 @@ describe('nowPlayingModule', () => {
             axios.get,
             {
               args: [url],
-              successActionCreator: actions.setRelatedVideoStats,
-              failActionCreator: actions.onRelatedVideoStatsFailure
+              successActionCreator: actions.setRelatedVideoMetadata,
+              failActionCreator: actions.onRelatedVideoMetadataFailure
             }
           )
         );
 
-        const actual = reducer({ isLoading: false }, actions.getRelatedVideoStats({ data: relatedVideoIds }));
+        const actual = reducer({ isLoading: false }, actions.getRelatedVideoMetadata({ data: relatedVideoIds }));
         expect(actual).toEqual(expected);
       });
     });

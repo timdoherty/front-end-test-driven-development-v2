@@ -55,7 +55,7 @@ const nowPlayingModule = createModule({
         )
       )
     },
-    getRelatedVideoStats(state, action) {
+    getRelatedVideoMetadata(state, action) {
       const { payload: { data: relatedVideoIds } } = action;
       const url = `https://www.googleapis.com/youtube/v3/videos?part=statistics,contentDetails&id=${relatedVideoIds.join(',')}&key=${KEY}`;
       return loop(
@@ -64,8 +64,8 @@ const nowPlayingModule = createModule({
           axios.get,
           {
             args: [url],
-            successActionCreator: nowPlayingModule.actions.setRelatedVideoStats,
-            failActionCreator: nowPlayingModule.actions.onRelatedVideoStatsFailure
+            successActionCreator: nowPlayingModule.actions.setRelatedVideoMetadata,
+            failActionCreator: nowPlayingModule.actions.onRelatedVideoMetadataFailure
           }
         )
       );
@@ -85,7 +85,7 @@ const nowPlayingModule = createModule({
         error
       };
     },
-    onRelatedVideosStatsFailure(state, action) {
+    onRelatedVideosMetadataFailure(state, action) {
       const { payload: error } = action;
       return {
         ...state,
@@ -116,12 +116,12 @@ const nowPlayingModule = createModule({
         relatedVideos
       };
     },
-    setRelatedVideoStats(state, action) {
-      const { payload: { data: relatedVideoStats } } = action;
+    setRelatedVideoMetadata(state, action) {
+      const { payload: { data: relatedVideoMetadata } } = action;
       return {
         ...state,
         isLoading: false,
-        relatedVideoStats
+        relatedVideoMetadata
       };
     }
   }
