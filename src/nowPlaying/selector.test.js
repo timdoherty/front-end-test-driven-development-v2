@@ -1,6 +1,8 @@
 import nowPlayingSelector from './selector';
 import commentStubs from './stubs/commentsStub';
 import relatedVideoStubs from './stubs/relatedVideosStub';
+import relatedVideoMetadataStubs from './stubs/relatedVideoMetadataStub';
+import { formatDuration } from '../utils';
 
 describe('nowPlayingSelector', () => {
   const currentVideo =   {
@@ -55,7 +57,8 @@ describe('nowPlayingSelector', () => {
     nowPlaying: {
       currentVideo,
       comments: commentStubs,
-      relatedVideos: relatedVideoStubs
+      relatedVideos: relatedVideoStubs,
+      relatedVideoMetadata: relatedVideoMetadataStubs
     }
   };
 
@@ -77,7 +80,20 @@ describe('nowPlayingSelector', () => {
 
   describe('related videos', () => {
     it('gets videos related to the current video', () => {
-      const expected = relatedVideoStubs.items;
+      const expected = relatedVideoStubs.items.map(result => {
+        const meta = relatedVideoMetadataStubs.items.find(
+          metadatum => metadatum.id === result.id.videoId
+        );
+        return {
+          ...result,
+          ...meta,
+          id: meta ? meta.id : result.id.videoId,
+          contentDetails: {
+            duration: meta ? formatDuration(meta.contentDetails.duration) : ''
+          }
+        };
+      });
+
       const actual = nowPlayingSelector(state).relatedVideos;
       expect(actual).toEqual(expected);
     });
