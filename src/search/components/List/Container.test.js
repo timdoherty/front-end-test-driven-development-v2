@@ -44,7 +44,6 @@ describe('<ListContainer/>', () => {
       );
       const expected = searchSelector(getInitialState()).searchResults;
       const actual = wrapper.prop('search').searchResults;
-      console.log(wrapper.props())
       expect(actual).toEqual(expected);
     });
   });
