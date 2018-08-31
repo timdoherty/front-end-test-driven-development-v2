@@ -13,17 +13,17 @@ const currentVideoSelector = createSelector(
 
 const commentsSelector = createSelector(
   base,
-  base => base.comments.items
+  base => base.comments ? base.comments.items : []
 );
 
 const rawRelatedVideosSelector = createSelector(
   base,
-  base => base.relatedVideos.items
+  base => base.relatedVideos ? base.relatedVideos.items : []
 );
 
 const relatedVideoMetadataSelector = createSelector(
   base,
-  base => base.relatedVideoMetadata.items
+  base => base.relatedVideoMetadata ? base.relatedVideoMetadata.items : []
 );
 
 const relatedVideosSelector = createSelector(

@@ -5,10 +5,10 @@ import searchModule from '../../module';
 import SearchBar from './SearchBar';
 
 function SearchBarContainer(props) {
-  const { actions: { setSearchTerm }, ...rest } = props;
+  const { actions: { doSearch }, ...rest } = props;
   return (
     <SearchBar
-      onSearchChanged={setSearchTerm}
+      onSearchChanged={doSearch}
       {...rest}
     />
   );

@@ -50,8 +50,8 @@ describe('<SearchBarContainer/>', () => {
         { context: { store } }
       );
 
-      wrapper.find(SearchBar).props().onSearchChanged('foobarbaz');
-      expect(dispatch).toBeCalledWith(actions.setSearchTerm('foobarbaz'));
+      wrapper.find(SearchBar).props().onSearchChanged('barbazbim');
+      expect(dispatch).toBeCalledWith(actions.doSearch('barbazbim'));
     });
   })
 });

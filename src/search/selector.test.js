@@ -47,5 +47,18 @@ describe('searchSelector', () => {
       const actual = searchSelector(state).searchResults;
       expect(actual).toEqual(expected);
     });
+
+    it('gets distinct search result ids', () => {
+      const state = {
+        search: {
+          searchResults: searchResultsStubs,
+          searchMetadata: searchMetadataStubs
+        }
+      };
+
+      const expected = searchResultsStubs.items.map(item => item.id.videoId);
+      const actual = searchSelector(state).searchResultIds;
+      expect(actual).toEqual(expected);
+    });
   });
 });

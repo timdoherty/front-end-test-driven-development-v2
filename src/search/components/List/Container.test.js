@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { createStore, combineReducers } from 'redux';
 
-import ListContainer from './Container';
+import SearchResultsListContainer from './Container';
 import Preview from '../../../components/Preview';
 import searchResultStubs from '../../stubs/searchResultsStub';
 import searchMetadataStubs from '../../stubs/searchMetadataStub';
@@ -11,7 +11,7 @@ import nowPlayingModule from '../../../nowPlaying/module';
 
 const { actions } = nowPlayingModule;
 
-describe('<ListContainer/>', () => {
+describe('<SearchResultsListContainer/>', () => {
   function getInitialState() {
     return {
       search: {
@@ -41,7 +41,7 @@ describe('<ListContainer/>', () => {
   describe('props', () => {
     it('correctly maps state to props', () => {
       const wrapper = shallow(
-        <ListContainer />,
+        <SearchResultsListContainer />,
         { context: { store } }
       );
       const expected = searchSelector(getInitialState()).searchResults;
@@ -53,7 +53,7 @@ describe('<ListContainer/>', () => {
   describe('dispatch', () => {
     it('correctly maps dispatch to props', () => {
       const wrapper = mount(
-        <ListContainer />,
+        <SearchResultsListContainer />,
         { context: { store } }
       );
 

@@ -5,7 +5,7 @@ import List from '../../../components/List';
 import searchModule from '../../module';
 import nowPlayingModule from '../../../nowPlaying/module';
 
-export function ListContainer(props) {
+function SearchResultListContainer(props) {
   const {
     search: {
       searchResults
@@ -25,4 +25,4 @@ export function ListContainer(props) {
   );
 }
 
-export default connectModule([searchModule, nowPlayingModule])(ListContainer);
+export default connectModule([searchModule, nowPlayingModule])(SearchResultListContainer);
