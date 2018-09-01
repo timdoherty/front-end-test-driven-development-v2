@@ -6,6 +6,10 @@ import Player from './Player';
 
 export function PlayerContainer(props) {
   const { currentVideo } = props;
+  if (!currentVideo) {
+    return null;
+  }
+
   return (
     <Player video={currentVideo} />
   );

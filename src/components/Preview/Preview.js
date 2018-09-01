@@ -27,7 +27,7 @@ function Preview(props) {
   const thumbnail = thumbnails[thumbnailSize];
   // TODO wrap text in spans and redo matcher tests
   return (
-    <div onClick={() => onClick(id)}>
+    <div onClick={() => onClick(result)}>
       <Thumbnail
         imageUrl={thumbnail.url}
         height={thumbnail.height}

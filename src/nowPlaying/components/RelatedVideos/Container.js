@@ -15,7 +15,7 @@ function RelatedVideosContainer(props) {
   return (
     <List
       listItems={relatedVideos}
-      onListItemClick={setCurrentVideo}
+      onListItemClicked={setCurrentVideo}
     />
   );
 }

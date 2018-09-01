@@ -127,6 +127,6 @@ describe('<Preview/>', () => {
     );
 
     wrapper.simulate('click');
-    expect(onClickMock).toBeCalledWith(searchResult.id);
+    expect(onClickMock).toBeCalledWith(searchResult);
   });
 });
