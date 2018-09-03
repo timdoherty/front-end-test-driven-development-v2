@@ -196,3 +196,13 @@ Let's start putting things together by building our our application component
 - High level test cases written in plain english (BDD-style)
 - Write an application component using "Test Driven Component Development" (TDCD)
 - Repeat the TDD cycle
+
+## Step 15
+
+### Recap: What did we learn?
+- Stubbing API requests
+- Integration testing with a complete Redux store
+- Testing async code
+
+### Objective
+In our final step we'll put sit and finish on our fully tested application and make it look like a Youtube player
