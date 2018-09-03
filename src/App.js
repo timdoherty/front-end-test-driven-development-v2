@@ -5,7 +5,7 @@ import { combineReducers } from 'redux-loop';
 import searchModule from './search/module';
 import nowPlayingModule from './nowPlaying/module';
 import configureStore from './utils/configureStore';
-import App from './components/App';
+import Layout from './components/Layout';
 
 const { reducer: searchReducer } = searchModule;
 const { reducer: nowPlayingReducer } = nowPlayingModule;
@@ -23,14 +23,14 @@ const reducers = [
 
 const store = configureStore(state => state, {});
 
-const AppContainer = () => (
+const App = () => (
   <ModuleProvider
     store={store}
     staticReducers={reducers}
     combineReducers={combineReducers}
   >
-    <App />
+    <Layout />
   </ModuleProvider>
 );
 
-export default AppContainer;
+export default App;

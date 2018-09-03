@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { mount } from 'enzyme';
 import axios from 'axios';
 
-import Mount from './Mount';
+import App from './App';
 import SearchBar from './search/components/SearchBar';
 import SearchResultListContainer from './search/components/List';
 import searchResultsStubs from './search/stubs/searchResultsStub';
@@ -20,14 +20,14 @@ function asyncFlush() {
   return new Promise(resolve => setTimeout(resolve, 0));
 }
 
-describe('<Mount/>', () => {
+describe('<App/>', () => {
   afterEach(() => {
     jest.resetAllMocks();
   });
 
   it('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<Mount />, div);
+    ReactDOM.render(<App />, div);
     ReactDOM.unmountComponentAtNode(div);
   });
 
@@ -71,7 +71,7 @@ describe('<Mount/>', () => {
   describe('search', () => {
     it('responds to a search request', async () => {
       const wrapper = mount(
-        <Mount />
+        <App />
       );
 
       doSearch(wrapper);
@@ -90,7 +90,7 @@ describe('<Mount/>', () => {
   describe('now playing', () => {
     it('plays a video when a search result is clicked', async () => {
       const wrapper = mount(
-        <Mount />
+        <App />
       );
 
       doSearch(wrapper);
@@ -118,9 +118,9 @@ describe('<Mount/>', () => {
       expect(relatedVideosList.length).toBe(relatedVideosStubs.items.length);
     });
 
-    it.only('sets a related video as the current video', async () => {
+    it('sets a related video as the current video', async () => {
       const wrapper = mount(
-        <Mount />
+        <App />
       );
 
       doSearch(wrapper);
