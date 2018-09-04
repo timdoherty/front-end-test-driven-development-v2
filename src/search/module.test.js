@@ -10,10 +10,8 @@ import searchModule from './module';
 import searchResultsStubs from './stubs/searchResultsStub';
 import searchMetadataStubs from './stubs/searchMetadataStub';
 import { KEY } from '../constants';
-import nowPlayingModule from '../nowPlaying/module';
 
 const { actions, reducer } = searchModule;
-const { actions: nowPlayingActions } = nowPlayingModule;
 
 describe('searchModule', () => {
   describe('search term', () => {
@@ -44,17 +42,14 @@ describe('searchModule', () => {
             isLoading: true,
             searchTerm
           },
-          Cmd.list([
-            Cmd.action(nowPlayingActions.clearCurrentVideo()),
-            Cmd.run(
-              axios.get,
-              {
-                args: [url],
-                successActionCreator: actions.onSearchSuccess,
-                failActionCreator: actions.onSearchFailure,
-              }
-            )
-          ])
+          Cmd.run(
+            axios.get,
+            {
+              args: [url],
+              successActionCreator: actions.onSearchSuccess,
+              failActionCreator: actions.onSearchFailure,
+            }
+          )
         );
 
         const actual = reducer(state, actions.doSearch(searchTerm));
