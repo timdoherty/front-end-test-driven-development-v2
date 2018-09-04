@@ -4,9 +4,6 @@ import axios from 'axios';
 
 import searchSelector from './selector';
 import { KEY } from '../constants';
-import nowPlayingModule from '../nowPlaying/module';
-
-const { actions: nowPlayingActions } = nowPlayingModule;
 
 const searchModule = createModule({
   name: 'search',
@@ -34,17 +31,14 @@ const searchModule = createModule({
           searchTerm,
           isLoading: true
         },
-        Cmd.list([
-          Cmd.action(nowPlayingActions.clearCurrentVideo()),
-          Cmd.run(
-            axios.get,
-            {
-              args: [url],
-              successActionCreator: searchModule.actions.onSearchSuccess,
-              failActionCreator: searchModule.actions.onSearchFailure
-            }
-          )
-        ])
+        Cmd.run(
+          axios.get,
+          {
+            args: [url],
+            successActionCreator: searchModule.actions.onSearchSuccess,
+            failActionCreator: searchModule.actions.onSearchFailure
+          }
+        )
       );
     },
     getSearchMetadata(state, action) {
