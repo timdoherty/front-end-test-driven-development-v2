@@ -4,7 +4,7 @@ import { connectModule } from 'redux-modules';
 import List from './List';
 import searchModule from '../../module';
 
-export function ListContainer(props) {
+export function SearchResultListContainer(props) {
   const {
     searchResults,
     actions: {
@@ -21,4 +21,4 @@ export function ListContainer(props) {
 }
 
 
-export default connectModule(searchModule)(ListContainer);
+export default connectModule(searchModule)(SearchResultListContainer);

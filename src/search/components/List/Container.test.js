@@ -2,12 +2,12 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { createStore, combineReducers } from 'redux';
 
-import ListContainer from './Container';
+import SearchResultListContainer from './Container';
 import searchResultStubs from '../../stubs/searchResultsStub';
 import searchMetadataStubs from '../../stubs/searchMetadataStub';
 import searchSelector from '../../selector';
 
-describe('<ListContainer/>', () => {
+describe('<SearchResultListContainer/>', () => {
   function getInitialState() {
     return {
       search: {
@@ -32,7 +32,7 @@ describe('<ListContainer/>', () => {
   describe('props', () => {
     it('correctly maps state to props', () => {
       const wrapper = shallow(
-        <ListContainer />,
+        <SearchResultListContainer />,
         { context: { store } }
       );
       const expected = searchSelector(getInitialState()).searchResults;
@@ -46,13 +46,13 @@ describe('<ListContainer/>', () => {
       // TODO replace this with actual dispatch test
       const setCurrentVideoMock = jest.fn();
       const wrapper = mount(
-        <ListContainer actions={{ setCurrentVideo: setCurrentVideoMock }}/>,
+        <SearchResultListContainer actions={{ setCurrentVideo: setCurrentVideoMock }}/>,
         { context: { store } }
       );
 
       const searchResults = searchSelector(getInitialState()).searchResults;
       wrapper.find('SearchResult').at(5).simulate('click');
-      expect(setCurrentVideoMock).toBeCalledWith(searchResults[5].id);
+      expect(setCurrentVideoMock).toBeCalledWith(searchResults[5]);
     });
   });
 });
