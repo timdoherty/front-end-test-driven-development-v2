@@ -4,9 +4,9 @@ const { actions, reducer } = searchModule;
 
 describe('searchModule', () => {
   it('sets the current search term', () => {
-    const term = 'foobarbaz';
-    const expected = { searchTerm: term };
-    const actual = reducer({}, actions.setSearchTerm(term));
+    const searchTerm = 'foobarbaz';
+    const expected = { searchTerm };
+    const actual = reducer({}, actions.setSearchTerm(searchTerm));
 
     expect(actual).toEqual(expected);
   });
