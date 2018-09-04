@@ -8,6 +8,7 @@ import axios from 'axios';
 
 import nowPlayingModule from './module';
 import { KEY } from '../constants';
+import relatedVideosStubs from './stubs/relatedVideosStub';
 
 const { actions, reducer } = nowPlayingModule;
 
@@ -62,11 +63,19 @@ describe('nowPlayingModule', () => {
 
   describe('current video', () => {
     it('sets the current video', () => {
-      const expected = {
-        currentVideo: searchResult
-      };
+      const expected = loop(
+        {
+          currentVideo: searchResult
+        },
+        Cmd.list([
+          Cmd.action(actions.getComments(searchResult.id)),
+          Cmd.action(actions.getRelatedVideos(searchResult.id))
+        ])
+      );
+
       const actual = reducer({}, actions.setCurrentVideo(searchResult));
-      expect(actual).toEqual(expected);
+      expect(getModel(actual)).toEqual(getModel(expected));
+      expect(getCmd(actual)).toEqual(getCmd(expected));
     });
 
     it('clears the current video', () => {
@@ -131,13 +140,17 @@ describe('nowPlayingModule', () => {
         foo: 'bar',
         baz: []
       };
-      const expected = {
-        isLoading: false,
-        relatedVideos
-      };
+      const expected = loop(
+        {
+          isLoading: false,
+          relatedVideos
+        },
+        Cmd.action(actions.getRelatedVideoMetadata())
+      );
 
-      const actual = reducer({ isLoading: true }, actions.setRelatedVideos({ data: relatedVideos }));
-      expect(actual).toEqual(expected);
+      const actual = reducer({ isLoading: true }, actions.onRelatedVideosSuccess({ data: relatedVideos }));
+      expect(getModel(actual)).toEqual(getModel(expected));
+      expect(getCmd(actual)).toEqual(getCmd(expected));
     });
 
     it('handles related videos failure', () => {
@@ -160,7 +173,7 @@ describe('nowPlayingModule', () => {
           axios.get,
           {
             args: [url],
-            successActionCreator: actions.setRelatedVideos,
+            successActionCreator: actions.onRelatedVideosSuccess,
             failActionCreator: actions.onRelatedVideosFailure
           }
         )
@@ -199,10 +212,13 @@ describe('nowPlayingModule', () => {
       });
 
       it('gets related video metadata', () => {
-        const relatedVideoIds = [1, 2, 3, 4];
+        const relatedVideoIds = relatedVideosStubs.items.map(item => item.id.videoId);
         const url = `https://www.googleapis.com/youtube/v3/videos?part=statistics,contentDetails&id=${relatedVideoIds.join(',')}&key=${KEY}`;
         const expected = loop(
-          { isLoading: true },
+          {
+            isLoading: true,
+            relatedVideos: relatedVideosStubs
+          },
           Cmd.run(
             axios.get,
             {
@@ -213,7 +229,7 @@ describe('nowPlayingModule', () => {
           )
         );
 
-        const actual = reducer({ isLoading: false }, actions.getRelatedVideoMetadata({ data: relatedVideoIds }));
+        const actual = reducer({ isLoading: false, relatedVideos: relatedVideosStubs }, actions.getRelatedVideoMetadata());
         expect(actual).toEqual(expected);
       });
     });
