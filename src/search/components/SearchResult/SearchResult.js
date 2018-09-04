@@ -20,7 +20,7 @@ export default function SearchResult(props) {
   } = result;
 
   return (
-    <div onClick={() => onClick(id)}>
+    <div onClick={() => onClick(result)}>
       <Thumbnail
         imageUrl={thumbnail.url}
         height={thumbnail.height}

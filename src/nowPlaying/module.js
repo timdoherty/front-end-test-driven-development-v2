@@ -49,17 +49,20 @@ const nowPlayingModule = createModule({
           axios.get,
           {
             args: [url],
-            successActionCreator: nowPlayingModule.actions.setRelatedVideos,
+            successActionCreator: nowPlayingModule.actions.onRelatedVideosSuccess,
             failActionCreator: nowPlayingModule.actions.onRelatedVideosFailure
           }
         )
       )
     },
     getRelatedVideoMetadata(state, action) {
-      const { payload: { data: relatedVideoIds } } = action;
-      const url = `https://www.googleapis.com/youtube/v3/videos?part=statistics,contentDetails&id=${relatedVideoIds.join(',')}&key=${KEY}`;
+      const videoIds = state.relatedVideos.items.map(item => item.id.videoId);
+      const url = `https://www.googleapis.com/youtube/v3/videos?part=statistics,contentDetails&id=${videoIds.join(',')}&key=${KEY}`;
       return loop(
-        { isLoading: true },
+        {
+          ...state,
+          isLoading: true
+        },
         Cmd.run(
           axios.get,
           {
@@ -93,12 +96,29 @@ const nowPlayingModule = createModule({
         error
       };
     },
+    onRelatedVideosSuccess(state, action) {
+      const { payload: { data: relatedVideos } } = action;
+      return loop(
+        {
+          ...state,
+          isLoading: false,
+          relatedVideos
+        },
+        Cmd.action(nowPlayingModule.actions.getRelatedVideoMetadata())
+      );
+    },
     setCurrentVideo(state, action) {
       const { payload: currentVideo } = action;
-      return {
-        ...state,
-        currentVideo
-      }
+      return loop(
+        {
+          ...state,
+          currentVideo
+        },
+        Cmd.list([
+          Cmd.action(nowPlayingModule.actions.getComments(currentVideo.id)),
+          Cmd.action(nowPlayingModule.actions.getRelatedVideos(currentVideo.id))
+        ])
+      );
     },
     setComments(state, action) {
       const { payload: { data: comments } } = action;
@@ -106,14 +126,6 @@ const nowPlayingModule = createModule({
         ...state,
         isLoading: false,
         comments
-      };
-    },
-    setRelatedVideos(state, action) {
-      const { payload: { data: relatedVideos } } = action;
-      return {
-        ...state,
-        isLoading: false,
-        relatedVideos
       };
     },
     setRelatedVideoMetadata(state, action) {
