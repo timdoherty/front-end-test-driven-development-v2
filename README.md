@@ -195,6 +195,7 @@ Let's start putting things together by building our our application component
 ### TODO:
 - High level test cases written in plain english (BDD-style)
 - Write an application component using "Test Driven Component Development" (TDCD)
+- Write an integration test using "Test Driven Component Development" (TDCD)
 - Repeat the TDD cycle
 
 ## Step 15
@@ -206,3 +207,7 @@ Let's start putting things together by building our our application component
 
 ### Objective
 In our final step we'll put sit and finish on our fully tested application and make it look like a Youtube player
+
+### TODO
+- CSS and markup adjustments for fit and finish
+- Try to refactor the look and feel of your application while keeping your tests green!
