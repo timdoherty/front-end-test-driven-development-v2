@@ -98,6 +98,6 @@ describe('<List/>', () => {
     );
 
     wrapper.find(Preview).at(1).dive().simulate('click');
-    expect(onListItemClickedMock).toBeCalledWith(listItems[1].id);
+    expect(onListItemClickedMock).toBeCalledWith(listItems[1]);
   });
 });

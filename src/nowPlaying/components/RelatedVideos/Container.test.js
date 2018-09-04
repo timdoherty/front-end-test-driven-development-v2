@@ -54,7 +54,7 @@ describe('<RelatedVideosContainer/>', () => {
       )
       const relatedVideos = nowPlayingSelector(getInitialState()).relatedVideos;
       const list = wrapper.find(List);
-      list.props().onListItemClick(list.prop('listItems')[3]);
+      list.props().onListItemClicked(list.prop('listItems')[3]);
       expect(dispatch).toBeCalledWith(actions.setCurrentVideo(relatedVideos[3]));
     });
   })
