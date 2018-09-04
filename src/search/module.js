@@ -4,6 +4,9 @@ import axios from 'axios';
 
 import searchSelector from './selector';
 import { KEY } from '../constants';
+import nowPlayingModule from '../nowPlaying/module';
+
+const { actions: nowPlayingActions } = nowPlayingModule;
 
 const searchModule = createModule({
   name: 'search',
@@ -28,20 +31,25 @@ const searchModule = createModule({
       return loop(
         {
           ...state,
+          searchTerm,
           isLoading: true
         },
-        Cmd.run(
-          axios.get,
-          {
-            args: [url],
-            successActionCreator: searchModule.actions.setSearchResults,
-            failActionCreator: searchModule.actions.onSearchFailure
-          }
-        )
+        Cmd.list([
+          Cmd.action(nowPlayingActions.clearCurrentVideo()),
+          Cmd.run(
+            axios.get,
+            {
+              args: [url],
+              successActionCreator: searchModule.actions.onSearchSuccess,
+              failActionCreator: searchModule.actions.onSearchFailure
+            }
+          )
+        ])
       );
     },
     getSearchMetadata(state, action) {
-      const { payload: url } = action;
+      const videoIds = searchSelector({ search: state }).searchResultIds;
+      const url = `https://www.googleapis.com/youtube/v3/videos?part=statistics,contentDetails&id=${videoIds.join(',')}&key=${KEY}`;
       return loop(
         {
           ...state,
@@ -80,13 +88,16 @@ const searchModule = createModule({
         searchMetadata
       };
     },
-    setSearchResults(state, action) {
+    onSearchSuccess(state, action) {
       const { payload: { data: searchResults } } = action;
-      return {
-        ...state,
-        isLoading: false,
-        searchResults
-      };
+      return loop(
+        {
+          ...state,
+          isLoading: false,
+          searchResults
+        },
+        Cmd.action(searchModule.actions.getSearchMetadata())
+      );
     },
     setSearchTerm(state, action) {
       const { payload } = action;
