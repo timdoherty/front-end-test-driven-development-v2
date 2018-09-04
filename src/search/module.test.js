@@ -10,8 +10,10 @@ import searchModule from './module';
 import searchResultsStubs from './stubs/searchResultsStub';
 import searchMetadataStubs from './stubs/searchMetadataStub';
 import { KEY } from '../constants';
+import nowPlayingModule from '../nowPlaying/module';
 
 const { actions, reducer } = searchModule;
+const { actions: nowPlayingActions } = nowPlayingModule;
 
 describe('searchModule', () => {
   describe('search term', () => {
@@ -38,15 +40,21 @@ describe('searchModule', () => {
         const searchTerm = 'heisenberg';
         const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=${searchTerm}&maxResults=20&key=${KEY}`;
         const expected = loop(
-          { isLoading: true },
-          Cmd.run(
-            axios.get,
-            {
-              args: [url],
-              successActionCreator: actions.setSearchResults,
-              failActionCreator: actions.onSearchFailure,
-            }
-          )
+          {
+            isLoading: true,
+            searchTerm
+          },
+          Cmd.list([
+            Cmd.action(nowPlayingActions.clearCurrentVideo()),
+            Cmd.run(
+              axios.get,
+              {
+                args: [url],
+                successActionCreator: actions.onSearchSuccess,
+                failActionCreator: actions.onSearchFailure,
+              }
+            )
+          ])
         );
 
         const actual = reducer(state, actions.doSearch(searchTerm));
@@ -54,11 +62,16 @@ describe('searchModule', () => {
         expect(getCmd(actual)).toEqual(getCmd(expected));
       });
 
-      it('sets the current search results', () => {
-        const expected = { isLoading: false, searchResults: searchResultsStubs };
-        const actual = reducer({}, actions.setSearchResults({ data: searchResultsStubs }));
+      it('handles successful search', () => {
+        const expected = loop(
+          { isLoading: false, searchResults: searchResultsStubs },
+          Cmd.action(actions.getSearchMetadata())
+        );
 
-        expect(actual).toEqual(expected);
+        const actual = reducer({}, actions.onSearchSuccess({ data: searchResultsStubs }));
+
+        expect(getModel(actual)).toEqual(getModel(expected));
+        expect(getCmd(actual)).toEqual(getCmd(expected));
       }); 
 
       it('clears the current search results', () => {
@@ -79,10 +92,17 @@ describe('searchModule', () => {
 
     describe('search results metadata', () => {
       it('gets metadata', () => {
-        const state = { isLoading: false };
-        const url = 'bar/baz';
+        const videoIds = searchResultsStubs.items.map(item => item.id.videoId);
+        const state = {
+          isLoading: false,
+          searchResults: searchResultsStubs
+        };
+        const url = `https://www.googleapis.com/youtube/v3/videos?part=statistics,contentDetails&id=${videoIds.join(',')}&key=${KEY}`;
         const expected = loop(
-          { isLoading: true },
+          {
+            isLoading: true,
+            searchResults: searchResultsStubs
+          },
           Cmd.run(
             axios.get,
             {
@@ -93,7 +113,7 @@ describe('searchModule', () => {
           )
         );
 
-        const actual = reducer(state, actions.getSearchMetadata(url));
+        const actual = reducer(state, actions.getSearchMetadata());
         expect(getModel(actual)).toEqual(getModel(expected));
         expect(getCmd(actual)).toEqual(getCmd(expected));
       });
