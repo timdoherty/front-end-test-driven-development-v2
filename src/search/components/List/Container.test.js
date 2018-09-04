@@ -59,7 +59,7 @@ describe('<SearchResultsListContainer/>', () => {
 
       const searchResults = searchSelector(getInitialState()).searchResults;
       wrapper.find(Preview).at(5).simulate('click');
-      expect(dispatch).toBeCalledWith(actions.setCurrentVideo(searchResults[5].id));
+      expect(dispatch).toBeCalledWith(actions.setCurrentVideo(searchResults[5]));
     });
   });
 });
