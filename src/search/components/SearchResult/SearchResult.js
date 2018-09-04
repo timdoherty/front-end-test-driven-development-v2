@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Thumbnail from '../../../components/Thumbnail/Thumbnail';
+import Thumbnail from '../../../components/Thumbnail';
 
 export default function SearchResult(props) {
   const { result, onClick } = props;
