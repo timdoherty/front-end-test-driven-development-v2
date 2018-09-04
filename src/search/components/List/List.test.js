@@ -19,10 +19,6 @@ describe('<List/>', () => {
     searchResults = searchSelector(state).searchResults;
   });
 
-  afterEach(() => {
-    // tear down each test here (or use after() for all)
-  });
-
   it('displays a search result for each item', () => {
     const wrapper = shallow(
       <List searchResults={searchResults} />
@@ -40,6 +36,6 @@ describe('<List/>', () => {
     );
 
     wrapper.find('SearchResult').at(3).dive().simulate('click');
-    expect(onListItemClickedMock).toBeCalledWith(searchResults[3].id);
+    expect(onListItemClickedMock).toBeCalledWith(searchResults[3]);
   });
 });
