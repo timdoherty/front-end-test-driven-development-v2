@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import Preview from './Preview';
-import Thumbnail from '../Thumbnail/Thumbnail';
+import Thumbnail from '../Thumbnail';
 
 describe('<Preview/>', () => {
   const searchResult = {
