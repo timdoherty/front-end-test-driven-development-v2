@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import SearchResult from './SearchResult';
-import Thumbnail from '../../../components/Thumbnail/Thumbnail';
+import Thumbnail from '../../../components/Thumbnail';
 
 describe('<SearchResult/>', () => {
   const searchResult = {
@@ -70,7 +70,9 @@ describe('<SearchResult/>', () => {
       <SearchResult result={searchResult} />
     );
 
-    expect(wrapper.text()).toMatch(searchResult.snippet.title);
+    expect(wrapper.findWhere(
+      node => node.text() === searchResult.snippet.title
+    ).exists()).toBe(true);
   });
 
   it('displays the video description', () => {
@@ -78,7 +80,9 @@ describe('<SearchResult/>', () => {
       <SearchResult result={searchResult} />
     );
 
-    expect(wrapper.text()).toMatch(searchResult.snippet.description);
+    expect(wrapper.findWhere(
+      node => node.text() === searchResult.snippet.description
+    ).exists()).toBe(true);
   });
 
   it('displays the video duration', () => {
@@ -86,7 +90,9 @@ describe('<SearchResult/>', () => {
       <SearchResult result={searchResult} />
     );
 
-    expect(wrapper.text()).toMatch(searchResult.contentDetails.duration);
+    expect(wrapper.findWhere(
+      node => node.text() === searchResult.contentDetails.duration
+    ).exists()).toBe(true);
   });
 
   it('responds with the video object when clicked', () => {

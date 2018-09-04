@@ -26,9 +26,9 @@ export default function SearchResult(props) {
         height={thumbnail.height}
         width={thumbnail.width}
       />
-      {title}
-      {description}
-      {duration}
+      <span>{title}</span>
+      <span>{description}</span>
+      <span>{duration}</span>
     </div>
   );
 }
