@@ -26,7 +26,7 @@ describe('<List/>', () => {
     expect(wrapper.find(SearchResult).length).toBe(searchResults.length);
   });
 
-  it('responds with the right video id when an item is clicked', () => {
+  it('responds with the right video when an item is clicked', () => {
     const onListItemClickedMock = jest.fn();
     const wrapper = shallow(
       <List
