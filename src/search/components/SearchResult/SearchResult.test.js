@@ -89,7 +89,7 @@ describe('<SearchResult/>', () => {
     expect(wrapper.text()).toMatch(searchResult.contentDetails.duration);
   });
 
-  it('responds with the video id when clicked', () => {
+  it('responds with the video object when clicked', () => {
     const onClickMock = jest.fn();
     const wrapper = shallow(
       <SearchResult
@@ -99,6 +99,6 @@ describe('<SearchResult/>', () => {
     );
 
     wrapper.simulate('click');
-    expect(onClickMock).toBeCalledWith(searchResult.id);
+    expect(onClickMock).toBeCalledWith(searchResult);
   });
 });
