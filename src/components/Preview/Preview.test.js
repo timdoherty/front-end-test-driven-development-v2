@@ -85,7 +85,9 @@ describe('<Preview/>', () => {
       <Preview result={searchResult} />
     );
 
-    expect(wrapper.text()).toMatch(searchResult.snippet.title);
+    expect(wrapper.findWhere(
+      node => node.text() === searchResult.snippet.title
+    ).exists()).toBe(true);
   });
 
   describe('description', () => {
@@ -94,7 +96,9 @@ describe('<Preview/>', () => {
         <Preview result={searchResult} />
       );
 
-      expect(wrapper.text()).toMatch(searchResult.snippet.description);
+      expect(wrapper.findWhere(
+        node => node.text() === searchResult.snippet.description
+      ).exists()).toBe(true);
     });
 
     it('does not display the video description when specified', () => {
@@ -105,7 +109,9 @@ describe('<Preview/>', () => {
         />
       );
 
-      expect(wrapper.text()).not.toMatch(searchResult.snippet.description);
+      expect(wrapper.findWhere(
+        node => node.text() === searchResult.snippet.description
+      ).exists()).toBe(false);
     });
   });
 
@@ -114,10 +120,12 @@ describe('<Preview/>', () => {
       <Preview result={searchResult} />
     );
 
-    expect(wrapper.text()).toMatch(searchResult.contentDetails.duration);
+    expect(wrapper.findWhere(
+      node => node.text() === searchResult.contentDetails.duration
+    ).exists()).toBe(true);
   });
 
-  it('responds with the video id when clicked', () => {
+  it('responds with the video object when clicked', () => {
     const onClickMock = jest.fn();
     const wrapper = shallow(
       <Preview
@@ -127,6 +135,6 @@ describe('<Preview/>', () => {
     );
 
     wrapper.simulate('click');
-    expect(onClickMock).toBeCalledWith(searchResult.id);
+    expect(onClickMock).toBeCalledWith(searchResult);
   });
 });
