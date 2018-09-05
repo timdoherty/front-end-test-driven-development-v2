@@ -27,15 +27,22 @@ function Preview(props) {
   const thumbnail = thumbnails[thumbnailSize];
   // TODO wrap text in spans and redo matcher tests
   return (
-    <div onClick={() => onClick(result)}>
-      <Thumbnail
-        imageUrl={thumbnail.url}
-        height={thumbnail.height}
-        width={thumbnail.width}
-      />
+    <div
+      onClick={() => onClick(result)}
+      style={{ display: 'flex', paddingBottom: '5px' }}
+    >
+      <div style={{ flex: `0 0 ${thumbnail.width}px`, height: `${thumbnail.height}px`, width: `${thumbnail.width}px`, position: 'relative' }}>
+        <Thumbnail
+          imageUrl={thumbnail.url}
+          height={thumbnail.height}
+          width={thumbnail.width}
+        />
+        <div style={{ backgroundColor: 'black', color: 'white', position: 'absolute', bottom: 0, right: 0 }}>
+          {duration}
+        </div>
+      </div>
       {title}
       {!hideDescription && description}
-      {duration}
     </div>
   );
 }

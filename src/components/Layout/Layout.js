@@ -16,9 +16,15 @@ function Layout(props) {
         <SearchBar />
       </header>
       { !currentVideo && <SearchResultsListContainer />}
-      <Player />
-      <Comments />
-      <RelatedVideos />
+      <div style={{ display: 'flex' }}>
+        <div style={{ flex: 1 }}>
+          <Player />
+          <Comments />
+        </div>
+        <div style={{ flex: '0 0 200px'}}>
+          <RelatedVideos />
+        </div>
+      </div>
     </div>
   );
 } 
