@@ -9,38 +9,13 @@ import Player from '../../nowPlaying/components/Player';
 import Comments from '../../nowPlaying/components/Comments';
 import RelatedVideos from '../../nowPlaying/components/RelatedVideos';
 
-describe('<Layout/>', () => {
-  function getInitialState() {
-    return {
-      search: {
-        searchResults: { items: [] },
-        searchMetadata: { items: [] }
-      },
-      nowPlaying: {
-        currentVideo: {
-          id: 'foobarbaz',
-          snippet: {
-            title: 'Foo Bar Baz',
-            description: 'This is the Foo Bar Baz video.',
-            channelTitle: 'FooBarBaz channel'
-          },
-          statistics: {
-            viewCount: '100000000',
-            likeCount: '50000',
-            dislikeCount: '3',
-            favoriteCount: '1',
-            commentCount: '333'
-          },
-          contentDetails: {
-            duration: '00:05:32'
-          }
-        },
-        relatedVideos: { items: [] },
-        comments: { items: [] }
-      }
-    };
-  }
+jest.mock('../../search/components/SearchBar');
+jest.mock('../../search/components/List');
+jest.mock('../../nowPlaying/components/Player');
+jest.mock('../../nowPlaying/components/Comments');
+jest.mock('../../nowPlaying/components/RelatedVideos');
 
+describe('<Layout/>', () => {
   let store;
   let dispatch;
 
@@ -48,7 +23,7 @@ describe('<Layout/>', () => {
     const reducer = state => state; 
     dispatch = jest.fn();
     store = {
-      ...createStore(reducer, getInitialState()),
+      ...createStore(reducer, { nowPlaying: { currentVideo: {} } }),
       dispatch
     };
   });
@@ -66,12 +41,7 @@ describe('<Layout/>', () => {
       store = {
         ...createStore(
           state => state,
-          {
-            ...getInitialState(),
-            nowPlaying: {
-              currentVideo: null
-            }
-          }
+          { nowPlaying: { currentVideo: null } }
         ),
         dispatch
       };
