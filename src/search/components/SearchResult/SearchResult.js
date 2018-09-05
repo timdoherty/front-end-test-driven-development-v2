@@ -16,6 +16,9 @@ export default function SearchResult(props) {
     contentDetails: {
       duration
     },
+    statistics: {
+      viewCount
+    },
     id
   } = result;
 
@@ -27,6 +30,7 @@ export default function SearchResult(props) {
         width={thumbnail.width}
       />
       <span>{title}</span>
+      <span>{`${viewCount} views`}</span>
       <span>{description}</span>
       <span>{duration}</span>
     </div>

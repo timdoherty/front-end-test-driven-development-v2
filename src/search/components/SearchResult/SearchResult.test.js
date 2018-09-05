@@ -75,6 +75,16 @@ describe('<SearchResult/>', () => {
     ).exists()).toBe(true);
   });
 
+  it('displays the view count for the video', () => {
+    const wrapper = shallow(
+      <SearchResult result={searchResult} />
+    );
+
+    expect(wrapper.findWhere(
+      node => node.text() === `${searchResult.statistics.viewCount} views`
+    ).exists()).toBe(true);
+  });
+
   it('displays the video description', () => {
     const wrapper = shallow(
       <SearchResult result={searchResult} />
