@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Thumbnail from '../../../components/Thumbnail/Thumbnail';
+import Thumbnail from '../../../components/Thumbnail';
 
 export default function SearchResult(props) {
   const { result, onClick } = props;
@@ -16,6 +16,9 @@ export default function SearchResult(props) {
     contentDetails: {
       duration
     },
+    statistics: {
+      viewCount
+    },
     id
   } = result;
 
@@ -26,9 +29,10 @@ export default function SearchResult(props) {
         height={thumbnail.height}
         width={thumbnail.width}
       />
-      {title}
-      {description}
-      {duration}
+      <span>{title}</span>
+      <span>{`${viewCount} views`}</span>
+      <span>{description}</span>
+      <span>{duration}</span>
     </div>
   );
 }
