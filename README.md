@@ -1,19 +1,21 @@
 
 # FETDD - Front End Test Driven Development
 
-## Overview
+### Overview
 Your client has commissioned you to build a Youtube player. She likes Youtube but wants her own player built on their API, with just the basics: she wants to search for her favorite videos and play them while viewing comments and related videos.
 
 In this course we will build a Youtube player for your clieht in React+Redux from the ground up using Test Driven Development (TDD). We will start by writing acceptance criteria for the player together as a class, then split into groups of 2-3 to write test cases and implement the product via TDD.
 
-## Getting Started
+### Getting Started
 - Clone this repository
 - Run "yarn" from the repository root
 
-## Resources
+### Resources
 - [Youtube Developers Page](https://developers.google.com/youtube/) 
+- [Jest Test Framework](https://jestjs.io/docs/en/getting-started)
+- [Enzyme Test Renderer](http://airbnb.io/enzyme/)
 
-## About This Course
+### About This Course
 This course is about Test Driven Development, so we will be writing and running lots of tests. To start the test runner, simply run "yarn test" from the repository root.
 
 This respository is split into distinct steps. Each step includes the following information in this README file:
