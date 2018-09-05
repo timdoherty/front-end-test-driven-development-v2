@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Thumbnail from '../Thumbnail/Thumbnail';
 
-function Preview(props) {
+function SearchResult(props) {
   const {
     result,
     onClick,
@@ -40,7 +40,7 @@ function Preview(props) {
   );
 }
 
-Preview.propTypes = {
+SearchResult.propTypes = {
   hideDescription: PropTypes.bool,
   thumbnailSize: PropTypes.oneOf([
     'default',
@@ -49,9 +49,9 @@ Preview.propTypes = {
   ])
 };
 
-Preview.defaultProps = {
+SearchResult.defaultProps = {
   hideDescription: false,
   thumbnailSize: 'default'
 };
 
-export default Preview;
+export default SearchResult;
