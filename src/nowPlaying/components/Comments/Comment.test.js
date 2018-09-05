@@ -52,7 +52,7 @@ describe('<Comment/>', () => {
       <Comment comment={comment}/>
     );
     expect(wrapper.findWhere(
-      n => n.text() === `${comment.snippet.topLevelComment.snippet.authorDisplayName}`
+      n => n.text() === comment.snippet.topLevelComment.snippet.authorDisplayName
     ).exists()).toBe(true);
   });
 
@@ -61,7 +61,7 @@ describe('<Comment/>', () => {
       <Comment comment={comment}/>
     );
     expect(wrapper.findWhere(
-      n => n.text() === `${comment.snippet.topLevelComment.snippet.textDisplay}`
+      n => n.text() === comment.snippet.topLevelComment.snippet.textDisplay
     ).exists()).toBe(true);
   });
 
@@ -74,7 +74,7 @@ describe('<Comment/>', () => {
     ).exists()).toBe(true);
   });
 
-  it('displays how many likes the comment has', () => {
+  it('displays how many dislikes the comment has', () => {
     const wrapper = shallow(
       <Comment comment={comment}/>
     );
