@@ -190,7 +190,7 @@ Now that we've refactored our original search result component into a reusable p
 - We can refactor components to be DRY when needed, vs prematurely optimizing
 
 ### Objective
-Let's start putting things together by building our our application component
+Let's start putting things together by building our our application component and verifying that everything works when connected together
 
 ### TODO:
 - High level test cases written in plain english (BDD-style)
@@ -201,6 +201,7 @@ Let's start putting things together by building our our application component
 ## Step 15
 
 ### Recap: What did we learn?
+- Mocking components with Jest
 - Stubbing API requests
 - Integration testing with a complete Redux store
 - Testing async code
