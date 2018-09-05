@@ -2,7 +2,7 @@
 # FETDD - Front End Test Driven Development
 
 ## Overview
-Your client has commissioned you to build a Youtube player. She likes Youtube but wants her own player built on their API, with just the basic: she wants to search for her favorite videos and play them while viewing comments and related videos.
+Your client has commissioned you to build a Youtube player. She likes Youtube but wants her own player built on their API, with just the basics: she wants to search for her favorite videos and play them while viewing comments and related videos.
 
 In this course we will build a Youtube player for your clieht in React+Redux from the ground up using Test Driven Development (TDD). We will start by writing acceptance criteria for the player together as a class, then split into groups of 2-3 to write test cases and implement the product via TDD.
 
