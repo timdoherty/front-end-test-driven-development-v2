@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import List from './List';
-import SearchResult from '../SearchResult/SearchResult';
+import Preview from '../../../components/Preview';
 import searchResultStubs from '../../stubs/searchResultsStub';
 import searchMetadataStubs from '../../stubs/searchMetadataStub';
 import searchSelector from '../../selector';
@@ -23,7 +23,7 @@ describe('<List/>', () => {
     const wrapper = shallow(
       <List searchResults={searchResults} />
     );
-    expect(wrapper.find(SearchResult).length).toBe(searchResults.length);
+    expect(wrapper.find(Preview).length).toBe(searchResults.length);
   });
 
   it('responds with the right video id when an item is clicked', () => {
@@ -35,7 +35,7 @@ describe('<List/>', () => {
       />
     );
 
-    wrapper.find('SearchResult').at(3).dive().simulate('click');
+    wrapper.find('Preview').at(3).dive().simulate('click');
     expect(onListItemClickedMock).toBeCalledWith(searchResults[3]);
   });
 });

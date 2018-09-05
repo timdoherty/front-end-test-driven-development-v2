@@ -1,13 +1,13 @@
 import React from 'react';
 
-import SearchResult from '../SearchResult/SearchResult';
+import Preview from '../../../components/Preview';
 
 export default function List(props) {
   const { searchResults, onListItemClicked } = props;
   return (
     <div>
       {searchResults.map(result => (
-        <SearchResult 
+        <Preview 
           key={result.etag}
           result={result}
           onClick={onListItemClicked}
