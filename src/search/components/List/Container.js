@@ -4,6 +4,7 @@ import { connectModule } from 'redux-modules';
 import List from '../../../components/List';
 import searchModule from '../../module';
 import nowPlayingModule from '../../../nowPlaying/module';
+import './searchResults.css';
 
 export function SearchResultListContainer(props) {
   const {
@@ -19,6 +20,7 @@ export function SearchResultListContainer(props) {
 
   return (
     <List
+      className="search-results"
       listItems={searchResults}
       onListItemClicked={setCurrentVideo}
     />
