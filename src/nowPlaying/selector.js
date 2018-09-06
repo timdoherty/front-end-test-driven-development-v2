@@ -39,7 +39,8 @@ const relatedVideosSelector = createSelector(
       id: meta ? meta.id : video.id.videoId,
       contentDetails: {
         duration: meta ? formatDuration(meta.contentDetails.duration) : ''
-      }
+      },
+      statistics: meta ? meta.statistics : {}
     };
   })
 )

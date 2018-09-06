@@ -90,6 +90,16 @@ describe('<Preview/>', () => {
     ).exists()).toBe(true);
   });
 
+  it('displays the view count for the video', () => {
+    const wrapper = shallow(
+      <Preview result={searchResult} />
+    );
+
+    expect(wrapper.findWhere(
+      node => node.text() === `${searchResult.statistics.viewCount} views`
+    ).exists()).toBe(true);
+  });
+
   describe('description', () => {
     it('displays the video description by default', () => {
       const wrapper = shallow(

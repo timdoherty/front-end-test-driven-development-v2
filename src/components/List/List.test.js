@@ -38,7 +38,10 @@ describe('<List/>', () => {
         "channelTitle": "slyellow2 Music",
         "liveBroadcastContent": "none"
       },
-      "id": "4QdWRgNdir4"
+      "id": "4QdWRgNdir4",
+      "statistics": {
+        "viewCount": "54"
+      }
     },
     {
       "kind": "youtube#searchResult",
@@ -75,7 +78,10 @@ describe('<List/>', () => {
       contentDetails: {
         duration: "00:05:32"
       },
-      "id": "8QdWRgNdir4"
+      "id": "8QdWRgNdir4",
+      "statistics": {
+        "viewCount": "83"
+      }
     }
 
   ];
