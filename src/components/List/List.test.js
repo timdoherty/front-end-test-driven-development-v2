@@ -93,6 +93,17 @@ describe('<List/>', () => {
     expect(wrapper.find(Preview).length).toBe(listItems.length);
   });
 
+  it.only('provides a thumbnail size overrride for each preview item', () => {
+    const wrapper = shallow(
+      <List
+        listItems={listItems}
+        thumbnailSize="high"
+      />
+    );
+
+    expect(wrapper.find(Preview).at(0).prop('thumbnailSize')).toBe('high');
+  });
+
   it('responds with the right video id when an item is clicked', () => {
     const onListItemClickedMock = jest.fn();
     const wrapper = shallow(
