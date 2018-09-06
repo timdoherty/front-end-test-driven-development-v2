@@ -37,6 +37,7 @@ function Preview(props) {
         width={thumbnail.width}
       />
       <span>{title}</span>
+      <span>{channelTitle}</span>
       <span>{`${viewCount} views`}</span>
       <span>{!hideDescription && description}</span>
       <span>{duration}</span>
