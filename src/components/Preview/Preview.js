@@ -55,6 +55,7 @@ function Preview(props) {
       <div className="meta">
         <div className="title">{title}</div>
         <div className="stats" style={{ display: 'flex' }}>
+          <span>{channelTitle}</span>
           <span>{`${viewCount} views`}</span>
         </div>
         <div className="description">{!hideDescription && description}</div>

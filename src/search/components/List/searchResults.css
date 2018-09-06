@@ -12,6 +12,10 @@
   font-weight: 400;
 }
 
-.search-results .stats :after {
-  content: '*'
+.search-results .stats :not(:first-child)::before {
+  content: "| "
+}
+
+.search-results .stats span {
+  margin-right: 5px;
 }

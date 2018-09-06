@@ -61,22 +61,22 @@ describe('<Preview/>', () => {
         <Preview result={searchResult} />
       );
       const thumbnail = wrapper.find(Thumbnail);
-      expect(thumbnail.prop('imageUrl')).toBe(searchResult.snippet.thumbnails.default.url);
-      expect(thumbnail.prop('height')).toBe(searchResult.snippet.thumbnails.default.height);
-      expect(thumbnail.prop('width')).toBe(searchResult.snippet.thumbnails.default.width);
+      expect(thumbnail.prop('imageUrl')).toBe(searchResult.snippet.thumbnails.medium.url);
+      expect(thumbnail.prop('height')).toBe(searchResult.snippet.thumbnails.medium.height);
+      expect(thumbnail.prop('width')).toBe(searchResult.snippet.thumbnails.medium.width);
     });
 
     it('displays a specified thumbnail', () => {
       const wrapper = shallow(
         <Preview
           result={searchResult}
-          thumbnailSize="medium"
+          thumbnailSize="high"
         />
       );
       const thumbnail = wrapper.find(Thumbnail);
-      expect(thumbnail.prop('imageUrl')).toBe(searchResult.snippet.thumbnails.medium.url);
-      expect(thumbnail.prop('height')).toBe(searchResult.snippet.thumbnails.medium.height);
-      expect(thumbnail.prop('width')).toBe(searchResult.snippet.thumbnails.medium.width);
+      expect(thumbnail.prop('imageUrl')).toBe(searchResult.snippet.thumbnails.high.url);
+      expect(thumbnail.prop('height')).toBe(searchResult.snippet.thumbnails.high.height);
+      expect(thumbnail.prop('width')).toBe(searchResult.snippet.thumbnails.high.width);
     });
   });
 
@@ -87,6 +87,16 @@ describe('<Preview/>', () => {
 
     expect(wrapper.findWhere(
       node => node.text() === searchResult.snippet.title
+    ).exists()).toBe(true);
+  });
+
+  it('displays the channel title (author)', () => {
+    const wrapper = shallow(
+      <Preview result={searchResult} />
+    );
+
+    expect(wrapper.findWhere(
+      node => node.text() === searchResult.snippet.channelTitle
     ).exists()).toBe(true);
   });
 
