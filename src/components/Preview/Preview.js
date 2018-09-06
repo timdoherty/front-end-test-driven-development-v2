@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Thumbnail from '../Thumbnail/Thumbnail';
+import './Preview.css';
 
 function Preview(props) {
   const {
@@ -31,42 +32,32 @@ function Preview(props) {
 
   return (
     <div
+      className="preview-container"
       onClick={() => onClick(result)}
-      style={{ display: 'flex', padding: '5px 5px 0 5px' }}
     >
-      <div style={{ flex: `0 0 ${thumbnail.width}px`, height: `${thumbnail.height}px`, width: `${thumbnail.width}px`, position: 'relative' }}>
+      <div
+        className="thumbnail"
+        style={{
+          flex: `0 0 ${thumbnail.width}px`,
+          height: `${thumbnail.height}px`,
+          width: `${thumbnail.width}px`
+        }}
+      >
         <Thumbnail
           imageUrl={thumbnail.url}
           height={thumbnail.height}
           width={thumbnail.width}
         />
-        <div
-          style={{
-            backgroundColor: 'black',
-            color: 'white',
-            position: 'absolute',
-            bottom: 0,
-            right: 0,
-            fontSize: '0.7rem'
-          }}
-        >
+        <div className="duration">
           {duration}
         </div>
       </div>
-      <div
-        className="meta"
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          textAlign: 'left',
-          paddingLeft: '5px'
-        }}
-      >
+      <div className="meta">
         <div className="title">{title}</div>
         <div className="stats" style={{ display: 'flex' }}>
           <span>{`${viewCount} views`}</span>
         </div>
-        <div>{!hideDescription && description}</div>
+        <div className="description">{!hideDescription && description}</div>
       </div>
     </div>
   );
@@ -83,7 +74,7 @@ Preview.propTypes = {
 
 Preview.defaultProps = {
   hideDescription: false,
-  thumbnailSize: 'default'
+  thumbnailSize: 'medium'
 };
 
 export default Preview;

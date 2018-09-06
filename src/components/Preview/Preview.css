@@ -1,0 +1,27 @@
+.preview-container {
+  display: flex;
+  padding: 5px 5px 0 5px;
+  cursor: pointer;
+}
+
+.duration {
+  background-color: black;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 0.7rem;
+}
+
+.thumbnail {
+  position: relative;
+  margin-right: 5px;
+}
+
+.description {
+  vertical-align: text-bottom;
+}
+
+.meta div {
+  margin-bottom: 10px;
+}
