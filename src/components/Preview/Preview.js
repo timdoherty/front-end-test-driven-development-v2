@@ -21,11 +21,14 @@ function Preview(props) {
     contentDetails: {
       duration
     },
+    statistics: {
+      viewCount
+    },
     id
   } = result;
 
   const thumbnail = thumbnails[thumbnailSize];
-  // TODO wrap text in spans and redo matcher tests
+
   return (
     <div
       onClick={() => onClick(result)}
@@ -41,8 +44,9 @@ function Preview(props) {
           {duration}
         </div>
       </div>
-      {title}
-      {!hideDescription && description}
+      <span>{title}</span>
+      <span>{`${viewCount} views`}</span>
+      <span>{!hideDescription && description}</span>
     </div>
   );
 }

@@ -1,10 +1,10 @@
 export default {
  "kind": "youtube#searchListResponse",
- "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/E-H4WUqfpny7zu2lCpLJC-SksIo\"",
+ "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/ByMnfVjfkWypJfe8w9HKyDvZS7g\"",
  "nextPageToken": "CBQQAA",
  "regionCode": "US",
  "pageInfo": {
-  "totalResults": 852501,
+  "totalResults": 822198,
   "resultsPerPage": 20
  },
  "items": [
@@ -76,72 +76,6 @@ export default {
   },
   {
    "kind": "youtube#searchResult",
-   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/4U6Cyc33r5mEalITiuv0nXezuP8\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "P9LXJUMGfBg"
-   },
-   "snippet": {
-    "publishedAt": "2011-03-19T02:01:31.000Z",
-    "channelId": "UCAvHr33n50q0VikDJpgSEag",
-    "title": "San Lorenzo - Pat Metheny Group",
-    "description": "I first heard this tune when I was only 17 years old. A million years later, it is still my favorite song of all time.",
-    "thumbnails": {
-     "default": {
-      "url": "https://i.ytimg.com/vi/P9LXJUMGfBg/default.jpg",
-      "width": 120,
-      "height": 90
-     },
-     "medium": {
-      "url": "https://i.ytimg.com/vi/P9LXJUMGfBg/mqdefault.jpg",
-      "width": 320,
-      "height": 180
-     },
-     "high": {
-      "url": "https://i.ytimg.com/vi/P9LXJUMGfBg/hqdefault.jpg",
-      "width": 480,
-      "height": 360
-     }
-    },
-    "channelTitle": "SomethingReal1119",
-    "liveBroadcastContent": "none"
-   }
-  },
-  {
-   "kind": "youtube#searchResult",
-   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/Jizf0f1omOUgPBY3KO47kZzDvag\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "MYcZ6s3z1jg"
-   },
-   "snippet": {
-    "publishedAt": "2011-06-16T12:14:27.000Z",
-    "channelId": "UCpGyfPjwhD2JnF1ev69RkVA",
-    "title": "Pat Metheny - And I Love Her (The Beatles)",
-    "description": "\"The Beatles were huge for me. Without them, I don't know if I even would have become a musician or a guitar player. When their hits started coming out, I was 8 ...",
-    "thumbnails": {
-     "default": {
-      "url": "https://i.ytimg.com/vi/MYcZ6s3z1jg/default.jpg",
-      "width": 120,
-      "height": 90
-     },
-     "medium": {
-      "url": "https://i.ytimg.com/vi/MYcZ6s3z1jg/mqdefault.jpg",
-      "width": 320,
-      "height": 180
-     },
-     "high": {
-      "url": "https://i.ytimg.com/vi/MYcZ6s3z1jg/hqdefault.jpg",
-      "width": 480,
-      "height": 360
-     }
-    },
-    "channelTitle": "Pat Metheny",
-    "liveBroadcastContent": "none"
-   }
-  },
-  {
-   "kind": "youtube#searchResult",
    "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/cF1Pl9OmOV56i1hZaD-VR6gxZjM\"",
    "id": {
     "kind": "youtube#video",
@@ -170,105 +104,6 @@ export default {
      }
     },
     "channelTitle": "Rick Toiman",
-    "liveBroadcastContent": "none"
-   }
-  },
-  {
-   "kind": "youtube#searchResult",
-   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/J69lRp6V7ZkbEKL8wYv9FNBNTz4\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "908kjmbjABI"
-   },
-   "snippet": {
-    "publishedAt": "2014-11-09T05:39:12.000Z",
-    "channelId": "UCfNduNflonuD6-StRZO1ChA",
-    "title": "Last Train Home",
-    "description": "Provided to YouTube by Warner Music Group Last Train Home · Pat Metheny Group Still Life (Talking) ℗ 1987 Geffen Records Composer: Patrick B. Metheny ...",
-    "thumbnails": {
-     "default": {
-      "url": "https://i.ytimg.com/vi/908kjmbjABI/default.jpg",
-      "width": 120,
-      "height": 90
-     },
-     "medium": {
-      "url": "https://i.ytimg.com/vi/908kjmbjABI/mqdefault.jpg",
-      "width": 320,
-      "height": 180
-     },
-     "high": {
-      "url": "https://i.ytimg.com/vi/908kjmbjABI/hqdefault.jpg",
-      "width": 480,
-      "height": 360
-     }
-    },
-    "channelTitle": "Pat Metheny Group - Topic",
-    "liveBroadcastContent": "none"
-   }
-  },
-  {
-   "kind": "youtube#searchResult",
-   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/0tqIHhqlXl_tGgIdlYD2O5gFd60\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "-jHcH1U3SWU"
-   },
-   "snippet": {
-    "publishedAt": "2014-12-11T22:11:43.000Z",
-    "channelId": "UCAJc2dklVc6_jSn-sfuaOOQ",
-    "title": "Pat Metheny Group - Minuano",
-    "description": "Download: https://itunes.apple.com/mz/album/still-life-talking/id120131414.",
-    "thumbnails": {
-     "default": {
-      "url": "https://i.ytimg.com/vi/-jHcH1U3SWU/default.jpg",
-      "width": 120,
-      "height": 90
-     },
-     "medium": {
-      "url": "https://i.ytimg.com/vi/-jHcH1U3SWU/mqdefault.jpg",
-      "width": 320,
-      "height": 180
-     },
-     "high": {
-      "url": "https://i.ytimg.com/vi/-jHcH1U3SWU/hqdefault.jpg",
-      "width": 480,
-      "height": 360
-     }
-    },
-    "channelTitle": "DJ Julio",
-    "liveBroadcastContent": "none"
-   }
-  },
-  {
-   "kind": "youtube#searchResult",
-   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/6Aw0tD-Ivx8cZ2qsY6n3r_qmDks\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "a1f-R6s1XyE"
-   },
-   "snippet": {
-    "publishedAt": "2011-05-15T11:21:28.000Z",
-    "channelId": "UCEQQ_onnllQw2NpYPETLQ_A",
-    "title": "Pat Metheny Group - To The End Of The World",
-    "description": "Musique: Pat Metheny Group - To The End Of The World Album CD: We Live Here 1995 Vidéo: Ballade Méditerranéenne.",
-    "thumbnails": {
-     "default": {
-      "url": "https://i.ytimg.com/vi/a1f-R6s1XyE/default.jpg",
-      "width": 120,
-      "height": 90
-     },
-     "medium": {
-      "url": "https://i.ytimg.com/vi/a1f-R6s1XyE/mqdefault.jpg",
-      "width": 320,
-      "height": 180
-     },
-     "high": {
-      "url": "https://i.ytimg.com/vi/a1f-R6s1XyE/hqdefault.jpg",
-      "width": 480,
-      "height": 360
-     }
-    },
-    "channelTitle": "Mario deconnerré",
     "liveBroadcastContent": "none"
    }
   },
@@ -307,67 +142,67 @@ export default {
   },
   {
    "kind": "youtube#searchResult",
-   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/Rvnclx8iDYO49hqLwUvrtNEnp0A\"",
+   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/Jizf0f1omOUgPBY3KO47kZzDvag\"",
    "id": {
     "kind": "youtube#video",
-    "videoId": "l4jIbLYE3gQ"
+    "videoId": "MYcZ6s3z1jg"
    },
    "snippet": {
-    "publishedAt": "2009-08-12T00:44:08.000Z",
-    "channelId": "UChEFLspado6znlSMdrSsPUw",
-    "title": "Pat Metheny Group - Are You Going with Me? - 1989",
-    "description": "Pat Metheny Group - Are You Going with Me? Festival International de Jazz de Montréal, Canada. July 3, 1989.",
+    "publishedAt": "2011-06-16T12:14:27.000Z",
+    "channelId": "UCpGyfPjwhD2JnF1ev69RkVA",
+    "title": "Pat Metheny - And I Love Her (The Beatles)",
+    "description": "\"The Beatles were huge for me. Without them, I don't know if I even would have become a musician or a guitar player. When their hits started coming out, I was 8 ...",
     "thumbnails": {
      "default": {
-      "url": "https://i.ytimg.com/vi/l4jIbLYE3gQ/default.jpg",
+      "url": "https://i.ytimg.com/vi/MYcZ6s3z1jg/default.jpg",
       "width": 120,
       "height": 90
      },
      "medium": {
-      "url": "https://i.ytimg.com/vi/l4jIbLYE3gQ/mqdefault.jpg",
+      "url": "https://i.ytimg.com/vi/MYcZ6s3z1jg/mqdefault.jpg",
       "width": 320,
       "height": 180
      },
      "high": {
-      "url": "https://i.ytimg.com/vi/l4jIbLYE3gQ/hqdefault.jpg",
+      "url": "https://i.ytimg.com/vi/MYcZ6s3z1jg/hqdefault.jpg",
       "width": 480,
       "height": 360
      }
     },
-    "channelTitle": "sesimer",
+    "channelTitle": "Pat Metheny",
     "liveBroadcastContent": "none"
    }
   },
   {
    "kind": "youtube#searchResult",
-   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/3Hy98S9pCNkCDUZ2yuCD0sxCm0E\"",
+   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/0tqIHhqlXl_tGgIdlYD2O5gFd60\"",
    "id": {
     "kind": "youtube#video",
-    "videoId": "HIu-04SKFMk"
+    "videoId": "-jHcH1U3SWU"
    },
    "snippet": {
-    "publishedAt": "2016-10-22T05:39:06.000Z",
-    "channelId": "UCJquYOG5EL82sKTfH9aMA9Q",
-    "title": "The Guitar Style of Pat Metheny  Part 1 \"The Early Years\"",
-    "description": "The Guitar Style of Pat Metheny Part 1 \"The Early Years\" This episode is the first of a multi-part series on the guitar style of Pat Metheny from the years ...",
+    "publishedAt": "2014-12-11T22:11:43.000Z",
+    "channelId": "UCAJc2dklVc6_jSn-sfuaOOQ",
+    "title": "Pat Metheny Group - Minuano",
+    "description": "Download: https://itunes.apple.com/mz/album/still-life-talking/id120131414.",
     "thumbnails": {
      "default": {
-      "url": "https://i.ytimg.com/vi/HIu-04SKFMk/default.jpg",
+      "url": "https://i.ytimg.com/vi/-jHcH1U3SWU/default.jpg",
       "width": 120,
       "height": 90
      },
      "medium": {
-      "url": "https://i.ytimg.com/vi/HIu-04SKFMk/mqdefault.jpg",
+      "url": "https://i.ytimg.com/vi/-jHcH1U3SWU/mqdefault.jpg",
       "width": 320,
       "height": 180
      },
      "high": {
-      "url": "https://i.ytimg.com/vi/HIu-04SKFMk/hqdefault.jpg",
+      "url": "https://i.ytimg.com/vi/-jHcH1U3SWU/hqdefault.jpg",
       "width": 480,
       "height": 360
      }
     },
-    "channelTitle": "Rick Beato",
+    "channelTitle": "DJ Julio",
     "liveBroadcastContent": "none"
    }
   },
@@ -406,67 +241,100 @@ export default {
   },
   {
    "kind": "youtube#searchResult",
-   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/iuEKji7yODQLEahscmbpLeyBaBs\"",
+   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/Qq3Urfgx2MXUYvkz2WAv1H8lScs\"",
    "id": {
     "kind": "youtube#video",
-    "videoId": "v0DgOXYg3ZI"
+    "videoId": "4QdWRgNdir4"
    },
    "snippet": {
-    "publishedAt": "2018-01-31T00:53:56.000Z",
-    "channelId": "UCC3WN8Rfqqad9R97VnU47Pg",
-    "title": "PAT METHENY (american garage)",
-    "description": "American Garage is the second album by the Pat Metheny Group, released in 1979 on ECM Records and marked Mays' first use of the Oberheim synthesizer, ...",
+    "publishedAt": "2018-06-04T01:35:57.000Z",
+    "channelId": "UCTg2TIWiAgr0FduTohrzj1A",
+    "title": "Pat Metheny Group - Last Train Home (1 Hour Extended)",
+    "description": "A Beautiful Song from Still Life (Talking) Enjoy the Hour!",
     "thumbnails": {
      "default": {
-      "url": "https://i.ytimg.com/vi/v0DgOXYg3ZI/default.jpg",
+      "url": "https://i.ytimg.com/vi/4QdWRgNdir4/default.jpg",
       "width": 120,
       "height": 90
      },
      "medium": {
-      "url": "https://i.ytimg.com/vi/v0DgOXYg3ZI/mqdefault.jpg",
+      "url": "https://i.ytimg.com/vi/4QdWRgNdir4/mqdefault.jpg",
       "width": 320,
       "height": 180
      },
      "high": {
-      "url": "https://i.ytimg.com/vi/v0DgOXYg3ZI/hqdefault.jpg",
+      "url": "https://i.ytimg.com/vi/4QdWRgNdir4/hqdefault.jpg",
       "width": 480,
       "height": 360
      }
     },
-    "channelTitle": "blackknothing",
+    "channelTitle": "slyellow2 Music",
     "liveBroadcastContent": "none"
    }
   },
   {
    "kind": "youtube#searchResult",
-   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/uch69T4kzvRSm0T7AaaT0OgZADk\"",
+   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/Rvnclx8iDYO49hqLwUvrtNEnp0A\"",
    "id": {
     "kind": "youtube#video",
-    "videoId": "0iSiPjbS8_Q"
+    "videoId": "l4jIbLYE3gQ"
    },
    "snippet": {
-    "publishedAt": "2008-11-13T19:02:07.000Z",
-    "channelId": "UCh5k8t-udYNTWXIKaV2oEFw",
-    "title": "Pat Metheny & Anna Maria Jopek-Are you going with me?",
-    "description": "Are you going with me?",
+    "publishedAt": "2009-08-12T00:44:08.000Z",
+    "channelId": "UChEFLspado6znlSMdrSsPUw",
+    "title": "Pat Metheny Group - Are You Going with Me? - 1989",
+    "description": "Pat Metheny Group - Are You Going with Me? Festival International de Jazz de Montréal, Canada. July 3, 1989.",
     "thumbnails": {
      "default": {
-      "url": "https://i.ytimg.com/vi/0iSiPjbS8_Q/default.jpg",
+      "url": "https://i.ytimg.com/vi/l4jIbLYE3gQ/default.jpg",
       "width": 120,
       "height": 90
      },
      "medium": {
-      "url": "https://i.ytimg.com/vi/0iSiPjbS8_Q/mqdefault.jpg",
+      "url": "https://i.ytimg.com/vi/l4jIbLYE3gQ/mqdefault.jpg",
       "width": 320,
       "height": 180
      },
      "high": {
-      "url": "https://i.ytimg.com/vi/0iSiPjbS8_Q/hqdefault.jpg",
+      "url": "https://i.ytimg.com/vi/l4jIbLYE3gQ/hqdefault.jpg",
       "width": 480,
       "height": 360
      }
     },
-    "channelTitle": "ibs11",
+    "channelTitle": "sesimer",
+    "liveBroadcastContent": "none"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/bpmYzXHwjRlok49f-7AY5SQPD0g\"",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "qx0uvCBu7TU"
+   },
+   "snippet": {
+    "publishedAt": "2011-06-13T02:13:48.000Z",
+    "channelId": "UC4juDzsXGQ9-a0f7hRVJqQw",
+    "title": "Pat Metheny Group - Have You Heard",
+    "description": "From \"More Travels\" DVD.",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/qx0uvCBu7TU/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/qx0uvCBu7TU/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/qx0uvCBu7TU/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     }
+    },
+    "channelTitle": "JohnnieWalkerization",
     "liveBroadcastContent": "none"
    }
   },
@@ -505,34 +373,100 @@ export default {
   },
   {
    "kind": "youtube#searchResult",
-   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/JaWM5ZsQUkyGz9XzruQ__5mX7js\"",
+   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/Y-vSYEoHlvFa2eC5vyUL_qC4rRk\"",
    "id": {
     "kind": "youtube#video",
-    "videoId": "_87OHmULKs8"
+    "videoId": "pDq43F0yMJI"
    },
    "snippet": {
-    "publishedAt": "2007-08-22T20:54:31.000Z",
-    "channelId": "UCx7q4K0uZ_Z5ZQIhEh5Sgtw",
-    "title": "Pat Metheny - Minuano",
-    "description": "Pat Metheny at the North Sea Jazz Festival in 2003 together with the Metropool Orchestra.",
+    "publishedAt": "2013-08-12T05:36:22.000Z",
+    "channelId": "UC-gy4RTGb1xqmP-jLTKiTHw",
+    "title": "The Pat Metheny Group - So It May Secretly Begin (Still Life Talking, 1987)",
+    "description": "Pat Metheny - guitar, synth guitar, acoustic guitars, electric guitars Lyle Mays - piano, keyboards Steve Rodby - acoustic bass, electric bass Paul Wertico - drums ...",
     "thumbnails": {
      "default": {
-      "url": "https://i.ytimg.com/vi/_87OHmULKs8/default.jpg",
+      "url": "https://i.ytimg.com/vi/pDq43F0yMJI/default.jpg",
       "width": 120,
       "height": 90
      },
      "medium": {
-      "url": "https://i.ytimg.com/vi/_87OHmULKs8/mqdefault.jpg",
+      "url": "https://i.ytimg.com/vi/pDq43F0yMJI/mqdefault.jpg",
       "width": 320,
       "height": 180
      },
      "high": {
-      "url": "https://i.ytimg.com/vi/_87OHmULKs8/hqdefault.jpg",
+      "url": "https://i.ytimg.com/vi/pDq43F0yMJI/hqdefault.jpg",
       "width": 480,
       "height": 360
      }
     },
-    "channelTitle": "Desweef",
+    "channelTitle": "TheSuperEnigmatic",
+    "liveBroadcastContent": "none"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/TgUlILxLVCWQvkRdKoBtXHHAHTc\"",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "yzKGsJduiGQ"
+   },
+   "snippet": {
+    "publishedAt": "2015-03-28T13:19:54.000Z",
+    "channelId": "UC8q1aJcYH3NCL2hcWBt0Acw",
+    "title": "As Falls Wichita, So Falls Wichita Falls",
+    "description": "Provided to YouTube by Universal Music Group North America As Falls Wichita, So Falls Wichita Falls · Pat Metheny · Lyle Mays As Falls Wichita, So Falls ...",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/yzKGsJduiGQ/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/yzKGsJduiGQ/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/yzKGsJduiGQ/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     }
+    },
+    "channelTitle": "Lyle Mays - Topic",
+    "liveBroadcastContent": "none"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/uch69T4kzvRSm0T7AaaT0OgZADk\"",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "0iSiPjbS8_Q"
+   },
+   "snippet": {
+    "publishedAt": "2008-11-13T19:02:07.000Z",
+    "channelId": "UCh5k8t-udYNTWXIKaV2oEFw",
+    "title": "Pat Metheny & Anna Maria Jopek-Are you going with me?",
+    "description": "Are you going with me?",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/0iSiPjbS8_Q/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/0iSiPjbS8_Q/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/0iSiPjbS8_Q/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     }
+    },
+    "channelTitle": "ibs11",
     "liveBroadcastContent": "none"
    }
   },
@@ -604,34 +538,34 @@ export default {
   },
   {
    "kind": "youtube#searchResult",
-   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/TgUlILxLVCWQvkRdKoBtXHHAHTc\"",
+   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/-cV04Ohv8GTwmuJh3g2uXrfhAGA\"",
    "id": {
     "kind": "youtube#video",
-    "videoId": "yzKGsJduiGQ"
+    "videoId": "Nsthd0lYoP4"
    },
    "snippet": {
-    "publishedAt": "2015-03-28T13:19:54.000Z",
-    "channelId": "UC8q1aJcYH3NCL2hcWBt0Acw",
-    "title": "As Falls Wichita, So Falls Wichita Falls",
-    "description": "Provided to YouTube by Universal Music Group North America As Falls Wichita, So Falls Wichita Falls · Pat Metheny · Lyle Mays As Falls Wichita, So Falls ...",
+    "publishedAt": "2012-12-17T00:23:31.000Z",
+    "channelId": "UCH8JtcXXNS-4WJ4MhsdYdlA",
+    "title": "Pat Metheny Group   It's Just Talk",
+    "description": "",
     "thumbnails": {
      "default": {
-      "url": "https://i.ytimg.com/vi/yzKGsJduiGQ/default.jpg",
+      "url": "https://i.ytimg.com/vi/Nsthd0lYoP4/default.jpg",
       "width": 120,
       "height": 90
      },
      "medium": {
-      "url": "https://i.ytimg.com/vi/yzKGsJduiGQ/mqdefault.jpg",
+      "url": "https://i.ytimg.com/vi/Nsthd0lYoP4/mqdefault.jpg",
       "width": 320,
       "height": 180
      },
      "high": {
-      "url": "https://i.ytimg.com/vi/yzKGsJduiGQ/hqdefault.jpg",
+      "url": "https://i.ytimg.com/vi/Nsthd0lYoP4/hqdefault.jpg",
       "width": 480,
       "height": 360
      }
     },
-    "channelTitle": "Lyle Mays - Topic",
+    "channelTitle": "greg b",
     "liveBroadcastContent": "none"
    }
   },
@@ -665,6 +599,72 @@ export default {
      }
     },
     "channelTitle": "Eddy Christiani",
+    "liveBroadcastContent": "none"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/JaWM5ZsQUkyGz9XzruQ__5mX7js\"",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "_87OHmULKs8"
+   },
+   "snippet": {
+    "publishedAt": "2007-08-22T20:54:31.000Z",
+    "channelId": "UCx7q4K0uZ_Z5ZQIhEh5Sgtw",
+    "title": "Pat Metheny - Minuano",
+    "description": "Pat Metheny at the North Sea Jazz Festival in 2003 together with the Metropool Orchestra.",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/_87OHmULKs8/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/_87OHmULKs8/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/_87OHmULKs8/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     }
+    },
+    "channelTitle": "Desweef",
+    "liveBroadcastContent": "none"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/UiutQpgHPLav5Nha0ahVlLvT38E\"",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "mLuxgWHinS8"
+   },
+   "snippet": {
+    "publishedAt": "2018-08-09T08:53:47.000Z",
+    "channelId": "UCyvs8tZVq_ocUz2ry-s-t5Q",
+    "title": "Pat Metheny Speaking of now Live 2002",
+    "description": "Pat Metheny Speaking of now Live.",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/mLuxgWHinS8/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/mLuxgWHinS8/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/mLuxgWHinS8/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     }
+    },
+    "channelTitle": "владимир цитко",
     "liveBroadcastContent": "none"
    }
   }
