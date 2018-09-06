@@ -30,6 +30,7 @@ export default function SearchResult(props) {
         width={thumbnail.width}
       />
       <span>{title}</span>
+      <span>{channelTitle}</span>
       <span>{`${viewCount} views`}</span>
       <span>{description}</span>
       <span>{duration}</span>
