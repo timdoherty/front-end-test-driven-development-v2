@@ -75,6 +75,16 @@ describe('<SearchResult/>', () => {
     ).exists()).toBe(true);
   });
 
+  it('displays the channel (author) title', () => {
+    const wrapper = shallow(
+      <SearchResult result={searchResult} />
+    );
+
+    expect(wrapper.findWhere(
+      node => node.text() === searchResult.snippet.channelTitle
+    ).exists()).toBe(true);
+  });
+
   it('displays the view count for the video', () => {
     const wrapper = shallow(
       <SearchResult result={searchResult} />
