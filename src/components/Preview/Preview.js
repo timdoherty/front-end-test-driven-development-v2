@@ -18,9 +18,6 @@ function Preview(props) {
       channelTitle,
       thumbnails
     },
-    contentDetails: {
-      duration
-    },
     statistics: {
       viewCount
     },
@@ -40,7 +37,6 @@ function Preview(props) {
       <span>{channelTitle}</span>
       <span>{`${viewCount} views`}</span>
       <span>{!hideDescription && description}</span>
-      <span>{duration}</span>
     </div>
   );
 }
