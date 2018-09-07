@@ -40,8 +40,8 @@ describe('<SearchBarContainer/>', () => {
     });
   });
 
-  describe.only('dispatch', () => {
-    it('mounts the component', () => {
+  describe('dispatch', () => {
+    it('correctly maps dispatch to props', () => {
       const wrapper = mount(
         <SearchBarContainer />,
         { context: { store } }
