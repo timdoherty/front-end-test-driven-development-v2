@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   text-align: left;
+  font-size: 0.8rem;
 }
 
 .player-container .video-container {
@@ -20,6 +21,16 @@
   border: none;
 }
 
-.player-container :first-child span {
-  font-weight: 500;
+.player-container .title-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.player-container .title-container .title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.player-container .title-container :nth-child(3) {
+  display: flex;
 }
