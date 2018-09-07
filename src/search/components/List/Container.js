@@ -3,13 +3,10 @@ import { connectModule } from 'redux-modules';
 
 import List from './List';
 import searchModule from '../../module';
-import nowPlayingModule from '../../../nowPlaying/module';
 
 export function SearchResultListContainer(props) {
   const {
-    search: {
-      searchResults
-    },
+    searchResults,
     actions: {
       nowPlaying: {
         setCurrentVideo
@@ -24,4 +21,5 @@ export function SearchResultListContainer(props) {
     />
   );
 }
-export default connectModule([searchModule, nowPlayingModule])(SearchResultListContainer);
+
+export default connectModule(searchModule)(SearchResultListContainer);
