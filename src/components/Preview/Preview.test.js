@@ -135,16 +135,6 @@ describe('<Preview/>', () => {
     });
   });
 
-  it('displays the video duration', () => {
-    const wrapper = shallow(
-      <Preview result={searchResult} />
-    );
-
-    expect(wrapper.findWhere(
-      node => node.text() === searchResult.contentDetails.duration
-    ).exists()).toBe(true);
-  });
-
   it('responds with the video object when clicked', () => {
     const onClickMock = jest.fn();
     const wrapper = shallow(
