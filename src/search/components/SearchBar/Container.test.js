@@ -43,7 +43,7 @@ describe('<SearchBarContainer/>', () => {
     });
   });
 
-  describe.only('dispatch', () => {
+  describe('dispatch', () => {
     it('mounts the component', () => {
       const wrapper = mount(
         <SearchBarContainer />,
