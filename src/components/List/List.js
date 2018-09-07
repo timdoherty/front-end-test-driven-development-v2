@@ -6,7 +6,8 @@ export default function List(props) {
   const {
     listItems,
     onListItemClicked,
-    thumbnailSize
+    thumbnailSize,
+    hideDescription
   } = props;
 
   return (
@@ -17,6 +18,7 @@ export default function List(props) {
           result={result}
           onClick={onListItemClicked}
           thumbnailSize={thumbnailSize}
+          hideDescription={hideDescription}
         />
       ))}
     </div>
