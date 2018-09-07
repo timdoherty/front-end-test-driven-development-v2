@@ -34,26 +34,29 @@ describe('<Player/>', () => {
     const wrapper = shallow(
       <Player video={nowPlaying} />
     );
-    expect(wrapper.text()).toMatch(nowPlaying.snippet.title);
+    expect(wrapper.findWhere(
+      n => n.text() === nowPlaying.snippet.title
+    ).exists()).toBe(true);
   });
 
   it('displays the video description', () => {
     const wrapper = shallow(
       <Player video={nowPlaying} />
     );
-    expect(wrapper.text()).toMatch(nowPlaying.snippet.description);
+    expect(wrapper.findWhere(
+      n => n.text() === nowPlaying.snippet.description
+    ).exists()).toBe(true);
   });
 
   it('displays the channel title', () => {
     const wrapper = shallow(
       <Player video={nowPlaying} />
     );
-    expect(wrapper.text()).toMatch(nowPlaying.snippet.channelTitle);
+    expect(wrapper.findWhere(
+      n => n.text() === nowPlaying.snippet.channelTitle
+    ).exists()).toBe(true);
   });
 
-  //published on
-
-  // how to test statistics without brittleness?
   it('displays view count for the video', () => {
     const wrapper = shallow(
       <Player video={nowPlaying} />
@@ -68,7 +71,7 @@ describe('<Player/>', () => {
       <Player video={nowPlaying} />
     );
     expect(wrapper.findWhere(
-      n => n.text() === `${nowPlaying.statistics.likeCount}`
+      n => n.text() === nowPlaying.statistics.likeCount
     ).exists()).toBe(true);
   });
 
@@ -77,7 +80,7 @@ describe('<Player/>', () => {
       <Player video={nowPlaying} />
     );
     expect(wrapper.findWhere(
-      n => n.text() === `${nowPlaying.statistics.dislikeCount}`
+      n => n.text() === nowPlaying.statistics.dislikeCount
     ).exists()).toBe(true);
   });
 
