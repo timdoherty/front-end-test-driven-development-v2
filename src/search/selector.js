@@ -36,7 +36,8 @@ const searchResultsSelector = createSelector(
       id: meta ? meta.id : result.id.videoId,
       contentDetails: {
         duration: meta ? formatDuration(meta.contentDetails.duration) : ''
-      }
+      },
+      statistics: meta ? meta.statistics : {}
     };
   })
 );
