@@ -75,7 +75,7 @@ Preview.propTypes = {
 
 Preview.defaultProps = {
   hideDescription: false,
-  thumbnailSize: 'medium'
+  thumbnailSize: 'default'
 };
 
 export default Preview;

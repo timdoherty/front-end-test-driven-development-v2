@@ -23,6 +23,7 @@ export function SearchResultListContainer(props) {
       className="search-results"
       listItems={searchResults}
       onListItemClicked={setCurrentVideo}
+      thumbnailSize="medium"
     />
   );
 }

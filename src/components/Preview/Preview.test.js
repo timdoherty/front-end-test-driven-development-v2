@@ -61,9 +61,9 @@ describe('<Preview/>', () => {
         <Preview result={searchResult} />
       );
       const thumbnail = wrapper.find(Thumbnail);
-      expect(thumbnail.prop('imageUrl')).toBe(searchResult.snippet.thumbnails.medium.url);
-      expect(thumbnail.prop('height')).toBe(searchResult.snippet.thumbnails.medium.height);
-      expect(thumbnail.prop('width')).toBe(searchResult.snippet.thumbnails.medium.width);
+      expect(thumbnail.prop('imageUrl')).toBe(searchResult.snippet.thumbnails.default.url);
+      expect(thumbnail.prop('height')).toBe(searchResult.snippet.thumbnails.default.height);
+      expect(thumbnail.prop('width')).toBe(searchResult.snippet.thumbnails.default.width);
     });
 
     it('displays a specified thumbnail', () => {

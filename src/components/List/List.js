@@ -6,11 +6,12 @@ export default function List(props) {
   const {
     listItems,
     onListItemClicked,
-    thumbnailSize
+    thumbnailSize,
+    className
   } = props;
 
   return (
-    <div>
+    <div className={className} >
       {listItems.map(result => (
         <Preview 
           key={result.etag}

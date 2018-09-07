@@ -21,7 +21,11 @@ export default function Player(props) {
 
   return (
     <section>
-      <iframe src={`http://www.youtube.com/embed/${id}`} />
+      <iframe
+        src={`http://www.youtube.com/embed/${id}`}
+        allowFullScreen
+        width="720" height="405"
+      />
       <span>{title}</span>
       <span>{description}</span>
       <span>{channelTitle}</span>
