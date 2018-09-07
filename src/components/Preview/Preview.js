@@ -19,9 +19,6 @@ function Preview(props) {
       channelTitle,
       thumbnails
     },
-    contentDetails: {
-      duration
-    },
     statistics: {
       viewCount
     },
@@ -48,9 +45,6 @@ function Preview(props) {
           height={thumbnail.height}
           width={thumbnail.width}
         />
-        <div className="duration">
-          {duration}
-        </div>
       </div>
       <div className="meta">
         <div className="title">{title}</div>

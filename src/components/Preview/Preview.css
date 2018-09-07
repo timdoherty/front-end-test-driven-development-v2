@@ -4,17 +4,7 @@
   cursor: pointer;
 }
 
-.duration {
-  background-color: black;
-  color: white;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  font-size: 0.7rem;
-}
-
 .thumbnail {
-  position: relative;
   margin-right: 5px;
 }
 

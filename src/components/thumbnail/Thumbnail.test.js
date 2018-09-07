@@ -5,14 +5,6 @@ import { Card } from '@procore/core-react';
 import Thumbnail from './Thumbnail';
 
 describe('<Thumbnail/>', () => {
-  beforeEach(() => {
-    // setup each test here (or use before() for all)
-  });
-
-  afterEach(() => {
-    // tear down each test here (or use after() for all)
-  });
-
   it('displays an image', () => {
     const url = "foobarbaz";
     const wrapper = shallow(
@@ -28,7 +20,6 @@ describe('<Thumbnail/>', () => {
       <Thumbnail height={100} width={300} />
     );
 
-    expect(wrapper.find(Card).prop('style')).toEqual(style);
     expect(wrapper.find('img').prop('height')).toEqual('100');
     expect(wrapper.find('img').prop('width')).toEqual('300');
   });
