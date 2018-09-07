@@ -7,11 +7,12 @@ export default function List(props) {
     listItems,
     onListItemClicked,
     thumbnailSize,
-    hideDescription
+    hideDescription,
+    className
   } = props;
 
   return (
-    <div>
+    <div className={className}>
       {listItems.map(result => (
         <Preview 
           key={result.etag}

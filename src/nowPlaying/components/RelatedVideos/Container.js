@@ -16,6 +16,7 @@ function RelatedVideosContainer(props) {
     <List
       listItems={relatedVideos}
       onListItemClicked={setCurrentVideo}
+      hideDescription={true}
     />
   );
 }

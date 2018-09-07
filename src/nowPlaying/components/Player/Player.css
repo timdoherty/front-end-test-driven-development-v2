@@ -1,0 +1,25 @@
+.player-container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.player-container .video-container {
+  position: relative;
+  padding-top: 56.25%;
+  margin: 5px;
+}
+
+.player-container iframe {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.player-container :first-child span {
+  font-weight: 500;
+}

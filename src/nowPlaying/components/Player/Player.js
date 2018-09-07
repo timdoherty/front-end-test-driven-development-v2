@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './Player.css';
+
 export default function Player(props) {
   const {
     video: {
@@ -20,12 +22,14 @@ export default function Player(props) {
   } = props;
 
   return (
-    <section>
-      <iframe
-        src={`http://www.youtube.com/embed/${id}`}
-        allowFullScreen
-        width="720" height="405"
-      />
+    <section className="player-container">
+      <div className="video-container">
+        <iframe
+          src={`http://www.youtube.com/embed/${id}`}
+          allowFullScreen
+          width="720" height="405"
+        />
+      </div>
       <span>{title}</span>
       <span>{description}</span>
       <span>{channelTitle}</span>
