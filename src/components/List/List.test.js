@@ -93,7 +93,7 @@ describe('<List/>', () => {
     expect(wrapper.find(Preview).length).toBe(listItems.length);
   });
 
-  it.only('provides a thumbnail size overrride for each preview item', () => {
+  it('provides a thumbnail size overrride for each preview item', () => {
     const wrapper = shallow(
       <List
         listItems={listItems}
@@ -102,6 +102,17 @@ describe('<List/>', () => {
     );
 
     expect(wrapper.find(Preview).at(0).prop('thumbnailSize')).toBe('high');
+  });
+
+  it('provides an override to hide descriptions for individual items', () => {
+    const wrapper = shallow(
+      <List
+        listItems={listItems}
+        hideDescription={true}
+      />
+    );
+
+    expect(wrapper.find(Preview).at(0).prop('hideDescription')).toBe(true);
   });
 
   it('responds with the right video id when an item is clicked', () => {
