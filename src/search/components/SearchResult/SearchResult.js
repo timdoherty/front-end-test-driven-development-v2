@@ -13,9 +13,6 @@ export default function SearchResult(props) {
         default: thumbnail
       }
     },
-    contentDetails: {
-      duration
-    },
     statistics: {
       viewCount
     },
@@ -33,7 +30,6 @@ export default function SearchResult(props) {
       <span>{channelTitle}</span>
       <span>{`${viewCount} views`}</span>
       <span>{description}</span>
-      <span>{duration}</span>
     </div>
   );
 }
