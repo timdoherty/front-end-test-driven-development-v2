@@ -1,6 +1,7 @@
 import React from 'react';
 import { ModuleProvider } from 'redux-modules';
 import { combineReducers } from 'redux-loop';
+import '@procore/core-icons';
 
 import searchModule from './search/module';
 import nowPlayingModule from './nowPlaying/module';
