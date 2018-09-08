@@ -1,6 +1,8 @@
 import React from 'react';
 
 import './Player.css';
+import thumbsupicon from '../../../assets/thumbsup.png';
+import thumbsdownicon from '../../../assets/thumbsdown.png';
 
 export default function Player(props) {
   const {
@@ -32,15 +34,21 @@ export default function Player(props) {
       </div>
       <div className="title-container">
         <span className="title">{title}</span>
-        <span>{`${viewCount} views`}</span>
         <div>
-          <span>{likeCount}</span>
-          <span>{dislikeCount}</span>
+          <span className="view-count">{`${viewCount} views`}</span>
+          <div className="likes">
+            <img src={thumbsupicon} /><span>{likeCount}</span>
+            <img src={thumbsdownicon} /><span>{dislikeCount}</span>
+          </div>
         </div>
       </div>
-      <span>{description}</span>
-      <span>{channelTitle}</span>
-      <span>{`${commentCount} comments`}</span>
+      <div className="description">
+        <span>{channelTitle}</span>
+        <span>{description}</span>
+      </div>
+      <div className="comments">
+        <span>{`${commentCount} comments`}</span>
+      </div>
     </section>
   );
 }

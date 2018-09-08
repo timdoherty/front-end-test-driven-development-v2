@@ -21,7 +21,7 @@ function Layout(props) {
           <Player />
           <Comments />
         </div>
-        <div style={{ flex: '0 0 200px'}}>
+        <div style={{ flex: '0 0 400px'}}>
           <RelatedVideos />
         </div>
       </div>

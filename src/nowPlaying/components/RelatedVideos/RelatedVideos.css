@@ -1,0 +1,12 @@
+.related-videos {
+  text-align: left;
+  font-size: 0.7rem;
+}
+
+.related-videos .stats {
+  flex-direction: column;
+}
+
+.related-videos .meta :not(:first-child) {
+  color: #888;
+}
