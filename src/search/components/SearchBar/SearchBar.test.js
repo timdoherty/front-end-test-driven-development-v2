@@ -47,7 +47,7 @@ describe('<SearchBar/>', () => {
       expect(onSearchChangedMock).toBeCalledWith('foo');
    }); 
 
-   it('does not react when there is a search term', () => {
+   it('does not react when there is no search term', () => {
       const onSearchChangedMock= jest.fn();
       const wrapper = shallow(
         <SearchBar onSearchChanged={onSearchChangedMock} />
