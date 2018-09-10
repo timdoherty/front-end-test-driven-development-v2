@@ -53,7 +53,6 @@ describe('<Player/>', () => {
 
   //published on
 
-  // how to test statistics without brittleness?
   it('displays view count for the video', () => {
     const wrapper = shallow(
       <Player video={nowPlaying} />
