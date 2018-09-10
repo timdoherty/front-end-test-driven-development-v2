@@ -35,10 +35,8 @@ The first thing we're going to need is a search bar. What does a search bar do? 
 
 Recommended best practice when building Redux applications is to start by designing your state.
 The nice thing about testing Redux reducers and selectors is that they are pure functions and thus very easy to test.
-But first, we will need to write some acceptance criteria.
 
 ### TODO:
-- Search bar acceptance criteria, written as if the feature is done
 - High level test cases written in plain english (BDD-style)
 - Run the tests and watch them fail
 - Make the tests pass by implementing search bar state
