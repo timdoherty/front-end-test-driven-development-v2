@@ -8,16 +8,12 @@ import searchMetadataStubs from '../../stubs/searchMetadataStub';
 import searchSelector from '../../selector';
 
 describe('<List/>', () => {
-  let searchResults;
-  beforeEach(() => {
-    const state = {
-      search: {
-        searchResults: searchResultStubs,
-        searchMetadata: searchMetadataStubs
-      }
-    };
-    searchResults = searchSelector(state).searchResults;
-  });
+  let searchResults = searchSelector({
+    search: {
+      searchResults: searchResultStubs,
+      searchMetadata: searchMetadataStubs
+    }
+  }).searchResults;
 
   it('displays a search result for each item', () => {
     const wrapper = shallow(
