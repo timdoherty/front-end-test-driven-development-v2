@@ -14,6 +14,7 @@ In this course we will build a Youtube player for your clieht in React+Redux fro
 - [Youtube Developers Page](https://developers.google.com/youtube/) 
 - [Jest Test Framework](https://jestjs.io/docs/en/getting-started)
 - [Enzyme Test Renderer](http://airbnb.io/enzyme/)
+- [Redux Modules](https://mboperator.gitbooks.io/redux-modules/content/)
 
 ### About This Course
 This course is about Test Driven Development, so we will be writing and running lots of tests. To start the test runner, simply run "yarn test" from the repository root.
