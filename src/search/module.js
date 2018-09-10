@@ -4,25 +4,28 @@ import axios from 'axios';
 
 import searchSelector from './selector';
 import { KEY } from '../constants';
-import nowPlayingModule from '../nowPlaying/module';
-
-const { actions: nowPlayingActions } = nowPlayingModule;
 
 const searchModule = createModule({
   name: 'search',
   initialState: {},
   selector: searchSelector,
   transformations: {
+    clearSearchMetadata(state, action) {
+      return {
+        ...state,
+        searchMetadata: null
+      };
+    },
     clearSearchResults(state, action) {
       return {
         ...state,
         searchResults: null
       };
     },
-    clearSearchMetadata(state, action) {
+    clearSearchTerm(state, payload) {
       return {
         ...state,
-        searchMetadata: null
+        searchTerm: null
       };
     },
     doSearch(state, action) {
@@ -34,17 +37,14 @@ const searchModule = createModule({
           searchTerm,
           isLoading: true
         },
-        Cmd.list([
-          Cmd.action(nowPlayingActions.clearCurrentVideo()),
-          Cmd.run(
-            axios.get,
-            {
-              args: [url],
-              successActionCreator: searchModule.actions.onSearchSuccess,
-              failActionCreator: searchModule.actions.onSearchFailure
-            }
-          )
-        ])
+        Cmd.run(
+          axios.get,
+          {
+            args: [url],
+            successActionCreator: searchModule.actions.onSearchSuccess,
+            failActionCreator: searchModule.actions.onSearchFailure
+          }
+        )
       );
     },
     getSearchMetadata(state, action) {
@@ -81,13 +81,6 @@ const searchModule = createModule({
         error
       };
     },
-    setSearchMetadata(state, action) {
-      const { payload: { data: searchMetadata } } = action;
-      return {
-        ...state,
-        searchMetadata
-      };
-    },
     onSearchSuccess(state, action) {
       const { payload: { data: searchResults } } = action;
       return loop(
@@ -99,20 +92,22 @@ const searchModule = createModule({
         Cmd.action(searchModule.actions.getSearchMetadata())
       );
     },
+    setSearchMetadata(state, action) {
+      const { payload: { data: searchMetadata } } = action;
+      return {
+        ...state,
+        searchMetadata
+      };
+    },
     setSearchTerm(state, action) {
       const { payload } = action;
       return {
         ...state,
         searchTerm: payload
       };
-    },
-    clearSearchTerm(state, payload) {
-      return {
-        ...state,
-        searchTerm: null
-      };
     }
   }
 });
 
 export default searchModule;
+
