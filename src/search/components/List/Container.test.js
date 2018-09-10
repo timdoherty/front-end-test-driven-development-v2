@@ -3,6 +3,7 @@ import { shallow, mount } from 'enzyme';
 import { createStore, combineReducers } from 'redux';
 
 import SearchResultListContainer from './Container';
+import List from './List';
 import searchResultStubs from '../../stubs/searchResultsStub';
 import searchMetadataStubs from '../../stubs/searchMetadataStub';
 import searchSelector from '../../selector';
