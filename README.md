@@ -49,5 +49,6 @@ The nice thing about testing Redux reducers and selectors is that they are pure 
 - High level test cases written in plain english (BDD-style)
 - Run the tests and watch them fail
 - Make the tests pass by implementing search bar state
+- Introduction to Redux Modules
 - Refactor as needed
 
