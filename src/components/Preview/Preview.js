@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Thumbnail from '../Thumbnail/Thumbnail';
+import Thumbnail from '../Thumbnail';
 
 function Preview(props) {
   const {
