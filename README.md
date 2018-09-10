@@ -2,9 +2,9 @@
 # FETDD - Front End Test Driven Development
 
 ### Overview
-Your client has commissioned you to build a Youtube player. She likes Youtube but wants her own player built on their API, with just the basics: she wants to search for her favorite videos and play them while viewing comments and related videos.
+Your client has commissioned you to build a Youtube player. She likes Youtube but wants her own player built on their API, with just the basics: the ability to search for videos and play them while viewing comments and related videos.
 
-In this tutorial we will build a Youtube player for your clieht in React+Redux from the ground up using Test Driven Development (TDD). We will start by writing acceptance criteria for the player together as a group, then split into smaller groups of 2-3 to write test cases and implement the product via TDD.
+In this tutorial we will build a Youtube player for your client using React and Redux from the ground up using Test Driven Development (TDD). We will start by writing acceptance criteria for the player, then write test cases and implement the product via TDD.
 
 I've made a few decisions for you, to make your life easier and/or because they help keep the focus on testing, where it belongs:
 
@@ -15,10 +15,6 @@ I've made a few decisions for you, to make your life easier and/or because they 
 
 ### Prerequisites
 This tutorial assumes a working knowledge of JavaScript and the [React](https://reactjs.org/) view library, as well as at least a rudimentary understanding of [Redux](https://redux.js.org/)
-
-### Getting Started
-- Clone this repository
-- Run "yarn" from the repository root
 
 ### Resources
 - [Youtube Developers Page](https://developers.google.com/youtube/) 
@@ -38,6 +34,21 @@ This respository is split into distinct steps. Each step includes the following 
 Each step also includes the completed code for the previous step, where applicable.
 
 When starting a new step, you should kill and restart the test runner, in order to pick up new files added since the last step.
+
+### Getting Started
+- Clone this repository
+- Run "yarn" from the repository root
+
+### Before We Begin
+Take a few minutes to look at [Youtube.com](https://www.youtube.com/) along with the overview above and ask some questions in order to come up with concrete acceptance criteria.
+
+- What high level parts does the search page have?
+- What happens when a user enters a search term
+- What high level parts does the current video page have?
+- What happens when a user clicks on a related video?
+- etc.
+
+Write out some acceptance criteria that answer the questions that pertain to your client's requirements. The best starting point for good test cases is a set of verifiable acceptance criteria.
 
 ## Step 1
 
