@@ -7,7 +7,6 @@ import searchResultStubs from '../../stubs/searchResultsStub';
 import searchMetadataStubs from '../../stubs/searchMetadataStub';
 import searchSelector from '../../selector';
 import nowPlayingModule from '../../../nowPlaying/module';
-import Preview from '../../../components/Preview';
 
 const { actions } = nowPlayingModule;
 
@@ -57,7 +56,7 @@ describe('<SearchResultListContainer/>', () => {
       );
 
       const searchResults = searchSelector(getInitialState()).searchResults;
-      wrapper.find(Preview).at(5).simulate('click');
+      wrapper.find(List).props().onListItemClicked(searchResults[5]);
       expect(dispatch).toBeCalledWith(actions.setCurrentVideo(searchResults[5]));
     });
   });
