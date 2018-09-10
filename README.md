@@ -27,7 +27,6 @@ Each step also includes the completed code for the previous step, where applicab
 
 When starting a new step, you should kill and restart the test runner, in order to pick up new files added since the last step.
 
-
 ## Step 1
 
 ### Objective
@@ -35,10 +34,8 @@ The first thing we're going to need is a search bar. What does a search bar do? 
 
 Recommended best practice when building Redux applications is to start by designing your state.
 The nice thing about testing Redux reducers and selectors is that they are pure functions and thus very easy to test.
-But first, we will need to write some acceptance criteria.
 
 ### TODO:
-- Search bar acceptance criteria, written as if the feature is done
 - High level test cases written in plain english (BDD-style)
 - Run the tests and watch them fail
 - Make the tests pass by implementing search bar state
@@ -50,6 +47,7 @@ But first, we will need to write some acceptance criteria.
 - Good test cases come from well-defined acceptance criteria
 - TDD consists of a short, repeated development cycle
 - BDD (Behavior Driven Development) style tests help to decouple the what from the how in your tests
+- Testing reducers and selectors is relatively straightforward since they're pure functions with no side effects
 
 ### Objective
 Now that we've designed and built our Redux state for our search bar feature, let's write a search bar component. 
@@ -57,6 +55,7 @@ In this step we'll introduce some new tools and concepts for testing React compo
 
 ### TODO:
 - High level test cases written in plain english (BDD-style)
+- Introduction to the Enzyme test renderer for React
 - Write a search bar component using "Test Driven Component Development" (TDCD)
 - Repeat the TDD cycle from step 1
 
@@ -71,6 +70,7 @@ Now that we have both state and a component to present our search bar feature, w
 
 ### TODO:
 - High level test cases written in plain english (BDD-style)
+- Introduction to container testing
 - Verify that your state is correctly mapped to your component props
 - Verify that the correct action(s) are dispatched in response to user activities
 - Repeat the TDD cycle
@@ -87,5 +87,6 @@ Now that we can search for videos we need somewhere to store our search results.
 ### TODO:
 - High level test cases written in plain english (BDD-style)
 - Make the tests pass by implementing search results state
+- Introduction to testing asynchronous Redux side effects with Redux-loop
 - Repeat the TDD cycle
 
