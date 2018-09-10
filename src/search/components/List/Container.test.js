@@ -57,7 +57,8 @@ describe('<SearchResultListContainer/>', () => {
       );
 
       const searchResults = searchSelector(getInitialState()).searchResults;
-      wrapper.find(List).props().onListItemClicked(searchResults[5]);
+      const list = wrapper.find(List);
+      list.props().onListItemClicked(list.prop('listItems')[5]);
       expect(dispatch).toBeCalledWith(actions.setCurrentVideo(searchResults[5]));
     });
   });
