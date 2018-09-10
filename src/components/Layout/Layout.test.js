@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import { createStore } from 'redux';
 
 import Layout from '../Layout';
@@ -64,7 +64,7 @@ describe('<Layout/>', () => {
   });
 
   it('displays a video player', () => {
-    const wrapper = shallow(
+    const wrapper = mount(
       <Layout />,
       { context: { store }}
     );
@@ -72,7 +72,7 @@ describe('<Layout/>', () => {
   });
 
   it('displays a comments list', () => {
-    const wrapper = shallow(
+    const wrapper = mount(
       <Layout />,
       { context: { store }}
     );
@@ -80,7 +80,7 @@ describe('<Layout/>', () => {
   });
 
   it('displays a related videos list', () => {
-    const wrapper = shallow(
+    const wrapper = mount(
       <Layout />,
       { context: { store }}
     );
