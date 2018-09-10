@@ -59,7 +59,7 @@ describe('<SearchResultListContainer/>', () => {
 
       const searchResults = searchSelector(getInitialState()).searchResults;
       const list = wrapper.find(List);
-      list.props().onListItemClicked(list.prop('listItems')[5]);
+      list.props().onListItemClicked(list.prop('searchResults')[5]);
       expect(setCurrentVideoMock).toBeCalledWith(searchResults[5]);
     });
   });
