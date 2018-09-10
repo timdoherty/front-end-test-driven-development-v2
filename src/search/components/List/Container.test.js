@@ -7,7 +7,6 @@ import searchResultStubs from '../../stubs/searchResultsStub';
 import searchMetadataStubs from '../../stubs/searchMetadataStub';
 import searchSelector from '../../selector';
 
-
 describe('<SearchResultListContainer/>', () => {
   function getInitialState() {
     return {
