@@ -31,7 +31,8 @@ describe('<List/>', () => {
       />
     );
 
-    wrapper.find('SearchResult').at(3).dive().simulate('click');
+    const searchResult = wrapper.find(SearchResult).at(3); 
+    searchResult.props().onClick(searchResult.prop('result'));
     expect(onListItemClickedMock).toBeCalledWith(searchResults[3]);
   });
 });
