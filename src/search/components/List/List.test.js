@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import List from './List';
-import SearchResult from '../SearchResult/SearchResult';
+import SearchResult from '../SearchResult';
 import searchResultStubs from '../../stubs/searchResultsStub';
 import searchMetadataStubs from '../../stubs/searchMetadataStub';
 import searchSelector from '../../selector';
