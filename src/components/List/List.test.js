@@ -124,7 +124,8 @@ describe('<List/>', () => {
       />
     );
 
-    wrapper.find(Preview).at(1).props().onClick(listItems[1]);
+    const preview = wrapper.find(Preview).at(1);
+    preview.props().onClick(preview.prop('result'));
     expect(onListItemClickedMock).toBeCalledWith(listItems[1]);
   });
 });
