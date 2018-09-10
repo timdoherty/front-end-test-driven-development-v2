@@ -125,7 +125,7 @@ describe('<List/>', () => {
       />
     );
 
-    wrapper.find(Preview).at(1).dive().simulate('click');
+    wrapper.find(Preview).at(1).props().onClick(listItems[1]);
     expect(onListItemClickedMock).toBeCalledWith(listItems[1]);
   });
 });
