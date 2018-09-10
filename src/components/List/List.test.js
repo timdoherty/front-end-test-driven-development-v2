@@ -121,7 +121,6 @@ describe('<List/>', () => {
       <List
         listItems={listItems}
         onListItemClicked={onListItemClickedMock}
-        listItemIdField="id"
       />
     );
 
