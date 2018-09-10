@@ -31,7 +31,7 @@ describe('<List/>', () => {
       />
     );
 
-    const searchResult = wrapper.find('SearchResult').at(3); 
+    const searchResult = wrapper.find(SearchResult).at(3); 
     searchResult.props().onClick(searchResult.prop('result'));
     expect(onListItemClickedMock).toBeCalledWith(searchResults[3]);
   });
