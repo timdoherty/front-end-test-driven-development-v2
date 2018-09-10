@@ -3,6 +3,7 @@ import { shallow, mount } from 'enzyme';
 import { createStore, combineReducers } from 'redux';
 
 import SearchResultListContainer from './Container';
+import List from './List';
 import searchResultStubs from '../../stubs/searchResultsStub';
 import searchMetadataStubs from '../../stubs/searchMetadataStub';
 import searchSelector from '../../selector';
@@ -57,7 +58,7 @@ describe('<SearchResultListContainer/>', () => {
       );
 
       const searchResults = searchSelector(getInitialState()).searchResults;
-      wrapper.find('SearchResult').at(5).simulate('click');
+      wrapper.find(List).props().onListItemClicked(searchResults[5]);
       expect(setCurrentVideoMock).toBeCalledWith(searchResults[5]);
     });
   });
