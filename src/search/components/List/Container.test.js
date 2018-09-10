@@ -7,6 +7,9 @@ import List from './List';
 import searchResultStubs from '../../stubs/searchResultsStub';
 import searchMetadataStubs from '../../stubs/searchMetadataStub';
 import searchSelector from '../../selector';
+import nowPlayingModule from '../../../nowPlaying/module';
+
+const { actions } = nowPlayingModule;
 
 describe('<SearchResultListContainer/>', () => {
   function getInitialState() {
@@ -14,6 +17,10 @@ describe('<SearchResultListContainer/>', () => {
       search: {
         searchResults: searchResultStubs,
         searchMetadata: searchMetadataStubs 
+      },
+      nowPlaying: {
+        comments: { items: [] },
+        relatedVideos: { items: [] }
       }
     };
   }
@@ -37,29 +44,21 @@ describe('<SearchResultListContainer/>', () => {
         { context: { store } }
       );
       const expected = searchSelector(getInitialState()).searchResults;
-      const actual = wrapper.prop('searchResults');
+      const actual = wrapper.prop('search').searchResults;
       expect(actual).toEqual(expected);
     });
   });
 
   describe('dispatch', () => {
     it('correctly maps dispatch to props', () => {
-      // TODO - remove once nowPlaying implemented
-      const setCurrentVideoMock = jest.fn();
       const wrapper = mount(
-        <SearchResultListContainer
-          actions={{
-            nowPlaying: {
-              setCurrentVideo: setCurrentVideoMock
-            }
-          }}
-        />,
+        <SearchResultListContainer />,
         { context: { store } }
       );
 
       const searchResults = searchSelector(getInitialState()).searchResults;
       wrapper.find(List).props().onListItemClicked(searchResults[5]);
-      expect(setCurrentVideoMock).toBeCalledWith(searchResults[5]);
+      expect(dispatch).toBeCalledWith(actions.setCurrentVideo(searchResults[5]));
     });
   });
 });
