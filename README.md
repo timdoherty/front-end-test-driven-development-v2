@@ -27,7 +27,7 @@ This tutorial assumes a working knowledge of JavaScript and the [React](https://
 - [Redux Modules](https://mboperator.gitbooks.io/redux-modules/content/)
 - [Redux Loop](https://redux-loop.js.org/)
 
-### About This Course
+### About This Tutorial
 This tutorial is about Test Driven Development, so we will be writing and running lots of tests. To start the test runner, simply run "yarn test" from the repository root.
 
 This respository is split into distinct steps. Each step includes the following information in this README file:
