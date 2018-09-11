@@ -34,10 +34,11 @@ describe('<Thumbnail/>', () => {
   });
 
   it('shows duration', () => {
+    const duration = 'foobarbaz';
     const wrapper = shallow(
-      <Thumbnail duration="foobarbaz" /> 
+      <Thumbnail duration={duration} /> 
     );
 
-    expect(wrapper.html()).toMatch(/foobarbaz/);
+    expect(wrapper.findWhere(n => n.text() === duration).exists()).toBe(true);
   });
 });
