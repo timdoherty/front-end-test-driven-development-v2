@@ -262,6 +262,8 @@ Now that we've refactored our original search result component into a reusable p
 ### Objective
 Now we have all the basic building blocks - fully tested - that we need in order to build our Youtube player. Let's start putting things together by building a layout component and writing some integration tests to make sure everything works when put together.
 
+I've provided some plubming code for you, to connect your application component to Redux via Redux Modules and to configure the store, so you can focus on testing.
+
 ### TODO:
 - High level test cases written in plain english (BDD-style)
 - Write an layout component using "Test Driven Component Development" (TDCD)
