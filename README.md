@@ -115,7 +115,6 @@ Now that we can search for videos we need somewhere to store our search results.
 
 ### TODO:
 - High level test cases written in plain english (BDD-style)
-- Make the tests pass by implementing search results state
 - Introduction to testing asynchronous Redux side effects with Redux-loop
 - Repeat the TDD cycle
 
