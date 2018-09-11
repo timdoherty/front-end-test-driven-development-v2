@@ -30,6 +30,6 @@ describe('<Thumbnail/>', () => {
       <Thumbnail duration="foobarbaz" /> 
     );
 
-    expect(wrapper.html()).toMatch(/foobarbaz/);
+    expect(wrapper.findWhere(n => n.text() === 'foobarbaz').exists()).toBe(true);
   });
 });
