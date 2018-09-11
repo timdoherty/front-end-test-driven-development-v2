@@ -81,6 +81,7 @@ In this step we'll introduce some new tools and concepts for testing React compo
 ### TODO:
 - High level test cases written in plain english (BDD-style)
 - Introduction to the Enzyme test renderer for React
+- Introduction to mocks
 - Write a search bar component using "Test Driven Component Development" (TDCD)
 - Repeat the TDD cycle from step 1
 
@@ -90,6 +91,7 @@ In this step we'll introduce some new tools and concepts for testing React compo
 - Testing React components involves some new tools and concepts 
 - Basic Enzyme concepts including event simulation
 - Clear separate of concerns eases component development
+- Mocks can help simplify testing
 
 ### Objective
 Now that we have both state and a component to present our search bar feature, we need to connect them together. We'll write a container component the connects our search bar to redux via Redux Modules.
