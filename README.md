@@ -1,5 +1,3 @@
-
-
 # FETDD - Front End Test Driven Development
 
 ### Overview
@@ -167,7 +165,7 @@ Now that we have thumbnail and search result components, we need to be able to d
 - Reinforcement of the notion that component tests should only rely on the public contracts of immediate children
 
 ### Objective
-Now that we've built out our search functionality, what happens when a search result is selected? Let's start by designing our state for the "now playing" video.
+Now that we've built out our search functionality, what happens when a search result is selected? Let's start by designing our state for the "now playing" video. We'll need to reference the [Youtube Comments API](https://developers.google.com/youtube/v3/docs/comments) and [Youtube Search API](https://developers.google.com/youtube/v3/docs/search/list) for comments and related videos respectively.
 
 ### TODO:
 - High level test cases written in plain english (BDD-style)
@@ -198,7 +196,7 @@ Now that we have state for our now playing feature, We'll need some components t
 - Reinforcement of verifying data agnostic of presentational concerns
 
 ### Objective
-Let's continue building out our now playing components. We still need to be able to show comments and related videos. Next, let's build a component to display a single comment.
+We now have a video player that shows our selected video, but we still need to be able to show comments and related videos. Next, let's build a component to display a single comment.
 
 ### TODO:
 - High level test cases written in plain english (BDD-style)
