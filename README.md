@@ -1,5 +1,3 @@
-
-
 # FETDD - Front End Test Driven Development
 
 ### Overview
