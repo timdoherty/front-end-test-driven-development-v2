@@ -1,4 +1,5 @@
 
+
 # FETDD - Front End Test Driven Development
 
 ### Overview
@@ -81,6 +82,7 @@ In this step we'll introduce some new tools and concepts for testing React compo
 ### TODO:
 - High level test cases written in plain english (BDD-style)
 - Introduction to the Enzyme test renderer for React
+- Introduction to mocks
 - Write a search bar component using "Test Driven Component Development" (TDCD)
 - Repeat the TDD cycle from step 1
 
@@ -90,6 +92,7 @@ In this step we'll introduce some new tools and concepts for testing React compo
 - Testing React components involves some new tools and concepts 
 - Basic Enzyme concepts including event simulation
 - Clear separate of concerns eases component development
+- Mocks can help simplify testing
 
 ### Objective
 Now that we have both state and a component to present our search bar feature, we need to connect them together. We'll write a container component the connects our search bar to redux via Redux Modules.
@@ -108,7 +111,7 @@ Now that we have both state and a component to present our search bar feature, w
 - Component tests should only rely on the public contracts of immediate children
 
 ### Objective
-Now that we can search for videos we need somewhere to store our search results. Let's design and build out our state for these results. We'll need to refer to the relevant [Youtube API](https://developers.google.com/youtube/v3/docs/search) in order to understand the request(s) we'll need to make and the shape of the returned data.
+Now that we can search for videos we need somewhere to store our search results. Let's design and build out our state for these results. We'll need to refer to the relevant [Youtube Search API](https://developers.google.com/youtube/v3/docs/search) in order to understand the request(s) we'll need to make and the shape of the returned data.
 
 ### TODO:
 - High level test cases written in plain english (BDD-style)
