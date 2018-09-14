@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import { createStore } from 'redux';
 
 import Layout from '../Layout';
@@ -29,11 +29,12 @@ describe('<Layout/>', () => {
   });
 
   it('displays a search bar', () => {
-    const wrapper = mount(
+    const wrapper = shallow(
       <Layout />,
       { context: { store }}
     );
-    expect(wrapper.find(SearchBar).exists()).toBe.true;
+
+    expect(wrapper.dive().find(SearchBar).exists()).toBe(true);
   });
 
   describe('search results', () => {
@@ -45,45 +46,45 @@ describe('<Layout/>', () => {
         ),
         dispatch
       };
-      const wrapper = mount(
+      const wrapper = shallow(
         <Layout />,
         { context: { store }}
       );
 
-      expect(wrapper.find(SearchResultsListContainer).exists()).toBe(true);
+      expect(wrapper.dive().find(SearchResultsListContainer).exists()).toBe(true);
     });
 
     it('does not display a search results list when a video is selected', () => {
-      const wrapper = mount(
+      const wrapper = shallow(
         <Layout />,
         { context: { store }}
       );
 
-      expect(wrapper.find(SearchResultsListContainer).exists()).toBe(false);
+      expect(wrapper.dive().find(SearchResultsListContainer).exists()).toBe(false);
     });
   });
 
   it('displays a video player', () => {
-    const wrapper = mount(
+    const wrapper = shallow(
       <Layout />,
       { context: { store }}
     );
-    expect(wrapper.find(Player).exists()).toBe.true;
+    expect(wrapper.dive().find(Player).exists()).toBe(true);
   });
 
   it('displays a comments list', () => {
-    const wrapper = mount(
+    const wrapper = shallow(
       <Layout />,
       { context: { store }}
     );
-    expect(wrapper.find(Comments).exists()).toBe.true;
+    expect(wrapper.dive().find(Comments).exists()).toBe(true);
   });
 
   it('displays a related videos list', () => {
-    const wrapper = mount(
+    const wrapper = shallow(
       <Layout />,
       { context: { store }}
     );
-    expect(wrapper.find(RelatedVideos).exists()).toBe.true;
+    expect(wrapper.dive().find(RelatedVideos).exists()).toBe(true);
   });
 });
