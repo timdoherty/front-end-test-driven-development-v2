@@ -58,6 +58,7 @@ describe('<App/>', () => {
       return Promise.resolve({ data: relatedVideoMetadataStubs });
     });
   }
+
   function selectSearchResult(wrapper, resultIndex) {
     const searchResult = wrapper.find('SearchResultListContainer')
                                 .find('Preview')
