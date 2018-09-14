@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Card } from '@procore/core-react';
 
 import './Thumbnail.css';
 
-export default function Thumbnail(props) {
+function Thumbnail(props) {
   const { imageUrl, height, width, duration } = props;
   return (
     <Card
@@ -24,3 +25,19 @@ export default function Thumbnail(props) {
     </Card>
   );
 }
+
+Thumbnail.propTypes = {
+  imageUrl: PropTypes.string,
+  height: PropTypes.number,
+  width: PropTypes.number,
+  duration: PropTypes.string
+};
+
+Thumbnail.defaultProps = {
+  imageUrl: '',
+  height: 0,
+  width: 0,
+  duration: ''
+}
+
+export default Thumbnail;
