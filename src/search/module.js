@@ -99,13 +99,6 @@ const searchModule = createModule({
         Cmd.action(searchModule.actions.getSearchMetadata())
       );
     },
-    setSearchTerm(state, action) {
-      const { payload } = action;
-      return {
-        ...state,
-        searchTerm: payload
-      };
-    },
     clearSearchTerm(state, payload) {
       return {
         ...state,

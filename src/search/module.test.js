@@ -17,14 +17,6 @@ const { actions: nowPlayingActions } = nowPlayingModule;
 
 describe('searchModule', () => {
   describe('search term', () => {
-    it('sets the current search term', () => {
-      const searchTerm = 'foobarbaz';
-      const expected = { searchTerm };
-      const actual = reducer({}, actions.setSearchTerm(searchTerm));
-
-      expect(actual).toEqual(expected);
-    });
-
     it('clears the current search term', () => {
       const expected = { searchTerm: null };
       const actual = reducer({ searchTerm: 'barbaz' }, actions.clearSearchTerm());
