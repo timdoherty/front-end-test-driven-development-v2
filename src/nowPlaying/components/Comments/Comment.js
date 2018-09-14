@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Avatar } from '@procore/core-react';
 
-export default function Comment(props) {
+function Comment(props) {
   const {
     comment: {
       snippet: {
@@ -30,3 +31,39 @@ export default function Comment(props) {
     </div>
   );
 }
+
+export const commentPropType = PropTypes.shape({
+  snippet: PropTypes.shape({
+    topLevelComment: PropTypes.shape({
+      snippet: PropTypes.shape({
+        authorProfileImageUrl: PropTypes.string,
+        authorDisplayName: PropTypes.string,
+        textDisplay: PropTypes.string,
+        likeCount: PropTypes.number,
+        dislikeCount: PropTypes.number
+      })
+    })
+  })
+});
+
+Comment.propTypes = {
+  comment: commentPropType
+};
+
+Comment.defaultProps = {
+  comment: {
+    snippet: {
+      topLevelComment: {
+        snippet: {
+          authorProfileImageUrl: '',
+          authorDisplayName: '',
+          textDisplay: '',
+          likeCount: 0,
+          dislikeCount: 0
+        }
+      }
+    }
+  }
+};
+
+export default Comment;
