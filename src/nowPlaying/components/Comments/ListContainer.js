@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connectModule } from 'redux-modules';
 
 import List from './List';
+import { commentPropType } from './Comment';
 import nowPlayingModule from '../../module';
 
 function ListContainer(props) {
@@ -10,5 +12,9 @@ function ListContainer(props) {
     <List comments={comments} />
   );
 }
+
+ListContainer.propTypes = {
+  comments: PropTypes.arrayOf(PropTypes.shape(commentPropType))
+};
 
 export default connectModule(nowPlayingModule)(ListContainer)
