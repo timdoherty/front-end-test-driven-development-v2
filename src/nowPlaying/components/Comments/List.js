@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import Comment from './Comment';
+import Comment, { commentPropType } from './Comment';
 
-export default function CommentsList(props) {
+function CommentsList(props) {
   const { comments } = props;
   return (
     <div>
@@ -15,3 +16,9 @@ export default function CommentsList(props) {
     </div>
   );
 }
+
+CommentsList.propTypes = {
+  comments: PropTypes.arrayOf(PropTypes.shape(commentPropType))
+};
+
+export default CommentsList;
