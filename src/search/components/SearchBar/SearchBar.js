@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Input } from '@procore/core-react';
 
-export default function SearchBar(props) {
+function SearchBar(props) {
   const { onSearchChanged } = props;
   return (
     <Input onKeyUp={({ key, target: { value } }) => {
@@ -12,3 +13,13 @@ export default function SearchBar(props) {
     }}/>
   );
 }
+
+SearchBar.propTypes = {
+  onSearchChanged: PropTypes.func
+};
+
+SearchBar.defaultProps = {
+  onSearchChanged: Function.prototype
+};
+
+export default SearchBar;
