@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connectModule } from 'redux-modules';
 
 import searchModule from '../../module';
@@ -13,5 +14,11 @@ function SearchBarContainer(props) {
     />
   );
 }
+
+SearchBarContainer.propTypes = {
+  actions: PropTypes.shape({
+    setSearchTerm: PropTypes.func.isRequired
+  })
+};
 
 export default connectModule(searchModule)(SearchBarContainer);
