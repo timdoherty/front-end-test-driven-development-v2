@@ -1,12 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { connectModule } from 'redux-modules';
 
 import List from '../../../components/List';
 import searchModule from '../../module';
 import nowPlayingModule from '../../../nowPlaying/module';
 
-function SearchResultListContainer(props) {
+export function SearchResultListContainer(props) {
   const {
     search: {
       searchResults
@@ -25,16 +24,4 @@ function SearchResultListContainer(props) {
     />
   );
 }
-
-SearchResultListContainer.propTypes = {
-  search: PropTypes.shape({
-    searchResults: PropTypes.array.isRequired,
-  }),
-  actions: PropTypes.shape({
-    nowPlaying: PropTypes.shape({
-      setCurrentVideo: PropTypes.func.isRequired
-    })
-  }).isRequired
-};
-
 export default connectModule([searchModule, nowPlayingModule])(SearchResultListContainer);
