@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default function Player(props) {
+function Player(props) {
   const {
     video: {
       id,
@@ -13,7 +14,6 @@ export default function Player(props) {
         viewCount,
         likeCount,
         dislikeCount,
-        favoriteCount,
         commentCount
       }
     }
@@ -32,3 +32,24 @@ export default function Player(props) {
     </section>
   );
 }
+
+export const videoPropType = {
+  video: PropTypes.shape({
+    id: PropTypes.string,
+    snippet: PropTypes.shape({
+      title: PropTypes.string,
+      description: PropTypes.string,
+      channelTitle: PropTypes.string
+    }),
+    statistics: PropTypes.shape({
+      viewCount: PropTypes.string,
+      likeCount: PropTypes.string,
+      dislikeCount: PropTypes.string,
+      commentCount: PropTypes.string
+    })
+  })
+};
+
+Player.propTypes = videoPropType;
+
+export default Player;
