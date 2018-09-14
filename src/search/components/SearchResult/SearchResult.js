@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Thumbnail from '../../../components/Thumbnail';
 
-export default function SearchResult(props) {
+function SearchResult(props) {
   const { result, onClick } = props;
   const {
     snippet: {
@@ -33,3 +34,32 @@ export default function SearchResult(props) {
     </div>
   );
 }
+
+SearchResult.propTypes = {
+  result: PropTypes.shape({
+    snippet: PropTypes.shape({
+      title: PropTypes.string,
+      description: PropTypes.string,
+      channelTitle: PropTypes.string,
+      thumbnails: PropTypes.shape({
+        default: PropTypes.shape({
+          url: PropTypes.string,
+          width: PropTypes.number,
+          height: PropTypes.number
+        })
+      })
+    }),
+    statistics: PropTypes.shape({
+      viewCount: PropTypes.string
+    }),
+    id: PropTypes.string
+  }),
+  onClick: PropTypes.func
+};
+
+SearchResult.defaultProps = {
+  result: {},
+  onClick: Function.prototype
+};
+
+export default SearchResult;
