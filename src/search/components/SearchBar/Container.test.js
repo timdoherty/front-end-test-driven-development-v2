@@ -51,7 +51,7 @@ describe('<SearchBarContainer/>', () => {
       );
 
       wrapper.find(SearchBar).props().onSearchChanged('foobarbaz');
-      expect(dispatch).toBeCalledWith(actions.setSearchTerm('foobarbaz'));
+      expect(dispatch).toBeCalledWith(actions.doSearch('foobarbaz'));
     });
   })
 });
