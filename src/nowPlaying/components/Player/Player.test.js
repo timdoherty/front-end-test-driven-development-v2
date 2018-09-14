@@ -15,7 +15,6 @@ describe('<Player/>', () => {
       viewCount: '100000000',
       likeCount: '50000',
       dislikeCount: '3',
-      favoriteCount: '1',
       commentCount: '333'
     },
     contentDetails: {
