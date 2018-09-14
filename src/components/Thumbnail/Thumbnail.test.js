@@ -5,14 +5,6 @@ import { Card } from '@procore/core-react';
 import Thumbnail from './Thumbnail';
 
 describe('<Thumbnail/>', () => {
-  beforeEach(() => {
-    // setup each test here (or use before() for all)
-  });
-
-  afterEach(() => {
-    // tear down each test here (or use after() for all)
-  });
-
   it('displays an image', () => {
     const url = "foobarbaz";
     const wrapper = shallow(
