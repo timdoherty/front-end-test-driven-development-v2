@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Preview from '../../../components/Preview';
 
-export default function List(props) {
+function List(props) {
   const { searchResults, onListItemClicked } = props;
   return (
     <div>
@@ -16,3 +17,15 @@ export default function List(props) {
     </div>
   );
 }
+
+List.propTypes = {
+  searchResults: PropTypes.array,
+  onListItemClicked: PropTypes.func
+};
+
+List.defaultProps = {
+  searchResults: [],
+  onListItemClicked: Function.prototype
+}
+
+export default List;
