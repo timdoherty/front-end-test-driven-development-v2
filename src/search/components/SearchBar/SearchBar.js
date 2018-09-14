@@ -1,8 +1,21 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import { Input, Button, Icon } from '@procore/core-react';
 
 export default class SearchBar extends Component {
+  static get propTypes() {
+    return {
+      onSearchChanged: PropTypes.func
+    }
+  }
+
+  static get defaultProps() {
+    return {
+      oSearchChanged: Function.protptype
+    }
+  }
+
   constructor() {
     super();
     this.state = {
