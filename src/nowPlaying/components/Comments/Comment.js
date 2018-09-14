@@ -32,7 +32,7 @@ function Comment(props) {
   );
 }
 
-export const commentPropType = {
+export const commentPropType = PropTypes.shape({
   snippet: PropTypes.shape({
     topLevelComment: PropTypes.shape({
       snippet: PropTypes.shape({
@@ -44,7 +44,7 @@ export const commentPropType = {
       })
     })
   })
-};
+});
 
 Comment.propTypes = {
   comment: commentPropType
