@@ -5,7 +5,6 @@ import { Card } from '@procore/core-react';
 import Thumbnail from './Thumbnail';
 
 describe('<Thumbnail/>', () => {
-
   it('displays an image', () => {
     const url = "foobarbaz";
     const wrapper = shallow(
