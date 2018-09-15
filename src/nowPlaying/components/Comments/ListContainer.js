@@ -17,4 +17,6 @@ ListContainer.propTypes = {
   comments: PropTypes.arrayOf(commentPropType)
 };
 
+ListContainer.defaultProps = { comments: [] };
+
 export default connectModule(nowPlayingModule)(ListContainer)

@@ -21,4 +21,6 @@ CommentsList.propTypes = {
   comments: PropTypes.arrayOf(commentPropType)
 };
 
+CommentsList.defaultProps = { comments: [] };
+
 export default CommentsList;
