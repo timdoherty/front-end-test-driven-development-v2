@@ -14,7 +14,7 @@ function ListContainer(props) {
 }
 
 ListContainer.propTypes = {
-  comments: PropTypes.arrayOf(PropTypes.shape(commentPropType))
+  comments: PropTypes.arrayOf(commentPropType)
 };
 
 export default connectModule(nowPlayingModule)(ListContainer)
