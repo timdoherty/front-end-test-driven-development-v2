@@ -7,10 +7,6 @@ import Player, { videoPropType } from './Player';
 
 function PlayerContainer(props) {
   const { currentVideo } = props;
-  if (!currentVideo) {
-    return null;
-  }
-
   return (
     <Player video={currentVideo} />
   );

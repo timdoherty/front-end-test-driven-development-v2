@@ -49,5 +49,6 @@ export const videoPropType = PropTypes.shape({
 });
 
 Player.propTypes = { video: videoPropType };
+Player.defaultProps = { video: null };
 
 export default Player;
