@@ -33,23 +33,21 @@ function Player(props) {
   );
 }
 
-export const videoPropType = {
-  video: PropTypes.shape({
-    id: PropTypes.string,
-    snippet: PropTypes.shape({
-      title: PropTypes.string,
-      description: PropTypes.string,
-      channelTitle: PropTypes.string
-    }),
-    statistics: PropTypes.shape({
-      viewCount: PropTypes.string,
-      likeCount: PropTypes.string,
-      dislikeCount: PropTypes.string,
-      commentCount: PropTypes.string
-    })
+export const videoPropType = PropTypes.shape({
+  id: PropTypes.string,
+  snippet: PropTypes.shape({
+    title: PropTypes.string,
+    description: PropTypes.string,
+    channelTitle: PropTypes.string
+  }),
+  statistics: PropTypes.shape({
+    viewCount: PropTypes.string,
+    likeCount: PropTypes.string,
+    dislikeCount: PropTypes.string,
+    commentCount: PropTypes.string
   })
-};
+});
 
-Player.propTypes = videoPropType;
+Player.propTypes = { video: videoPropType };
 
 export default Player;
