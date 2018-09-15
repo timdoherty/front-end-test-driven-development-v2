@@ -1,1 +1,1 @@
-export { default, commentPropType } from './ListContainer';
+export { default } from './ListContainer';
