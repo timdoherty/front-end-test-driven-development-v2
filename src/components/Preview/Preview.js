@@ -41,7 +41,31 @@ function Preview(props) {
   );
 }
 
+const thumbnailProptype = PropTypes.shape({
+  url: PropTypes.string,
+  width: PropTypes.number,
+  height: PropTypes.number
+});
+
+export const previewPropType = PropTypes.shape({
+  snippet: PropTypes.shape({
+    title: PropTypes.string,
+    description: PropTypes.string,
+    channelTitle: PropTypes.string,
+    thumbnails: PropTypes.shape({
+      default: thumbnailProptype,
+      medium: thumbnailProptype,
+      high: thumbnailProptype
+    })
+  }),
+  statistics: PropTypes.shape({
+    viewCount: PropTypes.string
+  }),
+  id: PropTypes.string
+});
+
 Preview.propTypes = {
+  result: previewPropType.isRequired,
   hideDescription: PropTypes.bool,
   thumbnailSize: PropTypes.oneOf([
     'default',
