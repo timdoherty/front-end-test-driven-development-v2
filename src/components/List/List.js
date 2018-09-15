@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import Preview from '../Preview';
+import Preview, { previewPropType } from '../Preview';
 
-export default function List(props) {
+function List(props) {
   const {
     listItems,
     onListItemClicked,
@@ -25,3 +26,19 @@ export default function List(props) {
     </div>
   );
 }
+
+List.propTypes = {
+  listItems: PropTypes.arrayOf(previewPropType),
+  onListItemClicked: PropTypes.func,
+  thumbnailSize: PropTypes.string,
+  hideDescription: PropTypes.bool
+};
+
+List.defaultProps = {
+  listItems: [],
+  onListItemClicked: Function.prototype,
+  thumbnailSize: 'default',
+  hideDescription: false
+};
+
+export default List;
