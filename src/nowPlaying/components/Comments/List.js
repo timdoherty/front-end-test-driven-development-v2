@@ -18,7 +18,7 @@ function CommentsList(props) {
 }
 
 CommentsList.propTypes = {
-  comments: PropTypes.arrayOf(PropTypes.shape(commentPropType))
+  comments: PropTypes.arrayOf(commentPropType)
 };
 
 export default CommentsList;
