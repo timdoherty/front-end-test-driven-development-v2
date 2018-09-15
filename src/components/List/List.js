@@ -33,4 +33,11 @@ List.propTypes = {
   hideDescription: PropTypes.bool
 };
 
+List.defaultProps = {
+  listItems: [],
+  onListItemClicked: Function.prototype,
+  thumbnailSize: 'default',
+  hideDescription: false
+};
+
 export default List;
