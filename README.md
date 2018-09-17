@@ -89,7 +89,7 @@ In this step we'll introduce some new tools and concepts for testing React compo
 ### Recap: What did we learn?
 - Testing React components involves some new tools and concepts 
 - Basic Enzyme concepts including event simulation
-- Clear separate of concerns eases component development
+- Clear separation of concerns eases component development
 - Mocks can help simplify testing
 
 ### Objective
@@ -207,7 +207,7 @@ We now have a video player that shows our selected video, but we still need to b
 
 ### Recap: What did we learn?
 - Build muscle memory around component TDD
-- Reinforcement of the TDCD approache to building React components
+- Reinforcement of the TDCD approach to building React components
 - Reinforcement of verifying data agnostic of presentational concerns
 
 ### Objective
@@ -222,7 +222,7 @@ Now that we have a component for a single comment, let's build a connected list 
 
 ### Recap: What did we learn?
 - Build muscle memory around component TDD
-- Reinforcement of the TDCD approache to building React components
+- Reinforcement of the TDCD approach to building React components
 - Reinforcement of verifying data agnostic of presentational concerns
 
 ### Objective
