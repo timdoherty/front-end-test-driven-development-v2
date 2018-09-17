@@ -89,7 +89,7 @@ In this step we'll introduce some new tools and concepts for testing React compo
 ### Recap: What did we learn?
 - Testing React components involves some new tools and concepts 
 - Basic Enzyme concepts including event simulation
-- Clear separate of concerns eases component development
+- Clear separation of concerns eases component development
 - Mocks can help simplify testing
 
 ### Objective
@@ -207,7 +207,7 @@ We now have a video player that shows our selected video, but we still need to b
 
 ### Recap: What did we learn?
 - Build muscle memory around component TDD
-- Reinforcement of the TDCD approache to building React components
+- Reinforcement of the TDCD approach to building React components
 - Reinforcement of verifying data agnostic of presentational concerns
 
 ### Objective
@@ -222,7 +222,7 @@ Now that we have a component for a single comment, let's build a connected list 
 
 ### Recap: What did we learn?
 - Build muscle memory around component TDD
-- Reinforcement of the TDCD approache to building React components
+- Reinforcement of the TDCD approach to building React components
 - Reinforcement of verifying data agnostic of presentational concerns
 
 ### Objective
@@ -241,7 +241,7 @@ Now let's reuse our thumbnail preview in a related video component. It seems lik
 
 ### Recap: What did we learn?
 - Build muscle memory around component TDD
-- Reinforcement of the TDCD approache to building React components
+- Reinforcement of the TDCD approach to building React components
 - Reinforcement of refactoring with green tests
 
 ### Objective
@@ -262,7 +262,7 @@ Now that we've refactored our original search result component into a reusable p
 ### Objective
 Now we have all the basic building blocks - fully tested - that we need in order to build our Youtube player. Let's start putting things together by building a layout component and writing some integration tests to make sure everything works when put together.
 
-I've provided some plubming code for you, to connect your application component to Redux via Redux Modules and to configure the store, so you can focus on testing.
+I've provided some plumbing code for you, to connect your application component to Redux via Redux Modules and to configure the store, so you can focus on testing.
 
 ### TODO:
 - High level test cases written in plain english (BDD-style)
@@ -296,4 +296,4 @@ In our final step we'll put fit and finish on our fully tested application and m
 Step 16 represents one possible implementation of a Youtube player that meets your client's acceptance criteria. YMMV - your finished product need not match this implementation exactly - that's not the point of this exercise. The purpose of this tutorial was to provide a well-defined set of exercises to introduce and reinforce TDD concepts and implementation specifics through repeating the short TDD develompment cycle.
 
 ### TODO
-Nothing! You play some of your favorite videos on your new Youtube player! :)
+Nothing! Go play some of your favorite videos on your new Youtube player! :)
