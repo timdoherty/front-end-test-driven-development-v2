@@ -91,7 +91,7 @@ In this step we'll introduce some new tools and concepts for testing React compo
 ### Recap: What did we learn?
 - Testing React components involves some new tools and concepts 
 - Basic Enzyme concepts including event simulation
-- Clear separate of concerns eases component development
+- Clear separation of concerns eases component development
 - Mocks can help simplify testing
 
 ### Objective
