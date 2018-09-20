@@ -51,7 +51,7 @@ describe('<SearchResultListContainer/>', () => {
 
   describe('dispatch', () => {
     it('correctly maps dispatch to props', () => {
-      const wrapper = mount(
+      const wrapper = shallow(
         <SearchResultListContainer />,
         { context: { store } }
       );
