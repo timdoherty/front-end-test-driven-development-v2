@@ -1,6 +1,6 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
-import { createStore, combineReducers } from 'redux';
+import { shallow } from 'enzyme';
+import { createStore } from 'redux';
 
 import SearchResultListContainer from './Container';
 import List from './List';
@@ -44,7 +44,7 @@ describe('<SearchResultListContainer/>', () => {
         { context: { store } }
       );
       const expected = searchSelector(getInitialState()).searchResults;
-      const actual = wrapper.prop('search').searchResults;
+      const actual = wrapper.dive().dive().find('List').prop('searchResults');
       expect(actual).toEqual(expected);
     });
   });
@@ -57,7 +57,7 @@ describe('<SearchResultListContainer/>', () => {
       );
 
       const searchResults = searchSelector(getInitialState()).searchResults;
-      const list = wrapper.find(List);
+      const list = wrapper.dive().dive().find(List);
       list.props().onListItemClicked(list.prop('searchResults')[5]);
       expect(dispatch).toBeCalledWith(actions.setCurrentVideo(searchResults[5]));
     });
