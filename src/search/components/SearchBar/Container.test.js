@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { createStore, combineReducers } from 'redux';
-import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 
 import SearchBarContainer from './Container';
 import SearchBar from './SearchBar';
