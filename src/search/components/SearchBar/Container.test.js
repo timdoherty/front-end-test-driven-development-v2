@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 
@@ -39,18 +39,18 @@ describe('<SearchBarContainer/>', () => {
         { context: { store } }
       );
 
-      expect(wrapper.prop('searchTerm')).toBe('foobarbaz');
+      expect(wrapper.dive().dive().find(SearchBar).prop('searchTerm')).toBe('foobarbaz');
     });
   });
 
   describe('dispatch', () => {
     it('mounts the component', () => {
-      const wrapper = mount(
+      const wrapper = shallow(
         <SearchBarContainer />,
         { context: { store } }
       );
 
-      wrapper.find(SearchBar).props().onSearchChanged('foobarbaz');
+      wrapper.dive().dive().find(SearchBar).props().onSearchChanged('foobarbaz');
       expect(dispatch).toBeCalledWith(actions.doSearch('foobarbaz'));
     });
   })
