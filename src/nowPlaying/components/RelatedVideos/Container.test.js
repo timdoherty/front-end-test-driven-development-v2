@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import { createStore } from 'redux';
 
 import RelatedVideosContainer from './Container';
@@ -41,19 +41,19 @@ describe('<RelatedVideosContainer/>', () => {
         { context: { store } }
       );
       const expected = nowPlayingSelector(getInitialState()).relatedVideos;
-      const actual = wrapper.prop('relatedVideos');
+      const actual = wrapper.dive().dive().find(List).prop('listItems');
       expect(actual).toEqual(expected);
     });
   });
 
   describe('dispatch', () => {
     it('correctly maps dispatch to props', () => {
-      const wrapper = mount(
+      const wrapper = shallow(
         <RelatedVideosContainer />,
         { context: { store } }
       )
       const relatedVideos = nowPlayingSelector(getInitialState()).relatedVideos;
-      const list = wrapper.find(List);
+      const list = wrapper.dive().dive().find(List);
       list.props().onListItemClicked(list.prop('listItems')[3]);
       expect(dispatch).toBeCalledWith(actions.setCurrentVideo(relatedVideos[3]));
     });
