@@ -44,7 +44,7 @@ describe('<SearchResultListContainer/>', () => {
         { context: { store } }
       );
       const expected = searchSelector(getInitialState()).searchResults;
-      const actual = wrapper.dive().dive().find('List').prop('searchResults');
+      const actual = wrapper.dive().dive().find(List).prop('searchResults');
       expect(actual).toEqual(expected);
     });
   });
