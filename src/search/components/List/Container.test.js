@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import { createStore } from 'redux';
 
 import SearchResultListContainer from './Container';
-import List from './List';
+import List from '../../../components/List';
 import searchResultStubs from '../../stubs/searchResultsStub';
 import searchMetadataStubs from '../../stubs/searchMetadataStub';
 import searchSelector from '../../selector';
@@ -44,7 +44,7 @@ describe('<SearchResultListContainer/>', () => {
         { context: { store } }
       );
       const expected = searchSelector(getInitialState()).searchResults;
-      const actual = wrapper.dive().dive().find('List').prop('searchResults');
+      const actual = wrapper.dive().dive().find('List').prop('listItems');
       expect(actual).toEqual(expected);
     });
   });
@@ -58,7 +58,7 @@ describe('<SearchResultListContainer/>', () => {
 
       const searchResults = searchSelector(getInitialState()).searchResults;
       const list = wrapper.dive().dive().find(List);
-      list.props().onListItemClicked(list.prop('searchResults')[5]);
+      list.props().onListItemClicked(list.prop('listItems')[5]);
       expect(dispatch).toBeCalledWith(actions.setCurrentVideo(searchResults[5]));
     });
   });
