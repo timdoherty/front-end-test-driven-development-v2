@@ -22,7 +22,7 @@ const searchModule = createModule({
         searchResults: null
       };
     },
-    clearSearchTerm(state, payload) {
+    clearSearchTerm(state, action) {
       return {
         ...state,
         searchTerm: null
