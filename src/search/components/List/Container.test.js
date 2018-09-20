@@ -32,42 +32,13 @@ describe('<SearchResultListContainer/>', () => {
 
   describe('props', () => {
     it('correctly maps state to props', () => {
-      // TODO remove actions prop once nowPlaying implemented
       const wrapper = shallow(
-        <SearchResultListContainer
-          actions={{
-            nowPlaying: {
-              setCurrentVideo: Function.prototype
-            }
-          }}
-        />,
+        <SearchResultListContainer />,
         { context: { store } }
       );
       const expected = searchSelector(getInitialState()).searchResults;
       const actual = wrapper.dive().dive().find('List').prop('searchResults');
       expect(actual).toEqual(expected);
-    });
-  });
-
-  describe('dispatch', () => {
-    it('correctly maps dispatch to props', () => {
-      // TODO - remove once nowPlaying implemented
-      const setCurrentVideoMock = jest.fn();
-      const wrapper = shallow(
-        <SearchResultListContainer
-          actions={{
-            nowPlaying: {
-              setCurrentVideo: setCurrentVideoMock
-            }
-          }}
-        />,
-        { context: { store } }
-      );
-
-      const searchResults = searchSelector(getInitialState()).searchResults;
-      const list = wrapper.dive().dive().find(List);
-      list.props().onListItemClicked(list.prop('searchResults')[5]);
-      expect(setCurrentVideoMock).toBeCalledWith(searchResults[5]);
     });
   });
 });

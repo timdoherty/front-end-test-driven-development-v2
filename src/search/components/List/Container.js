@@ -6,19 +6,12 @@ import List from './List';
 import searchModule from '../../module';
 
 function SearchResultListContainer(props) {
-  const {
-    searchResults,
-    actions: {
-      nowPlaying: {
-        setCurrentVideo
-      }
-    }
-  } = props;
+  const { searchResults } = props;
 
   return (
     <List
       searchResults={searchResults}
-      onListItemClicked={setCurrentVideo}
+      onListItemClicked={Function.prototype}
     />
   );
 }
