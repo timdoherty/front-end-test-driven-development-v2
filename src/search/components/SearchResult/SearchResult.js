@@ -16,8 +16,7 @@ function SearchResult(props) {
     },
     statistics: {
       viewCount
-    },
-    id
+    }
   } = result;
 
   return (
@@ -51,8 +50,7 @@ SearchResult.propTypes = {
     }),
     statistics: PropTypes.shape({
       viewCount: PropTypes.string
-    }),
-    id: PropTypes.string
+    })
   }),
   onClick: PropTypes.func
 };
