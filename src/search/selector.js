@@ -30,7 +30,8 @@ const searchResultsSelector = createSelector(
       ...meta,
       contentDetails: {
         duration: meta ? formatDuration(meta.contentDetails.duration) : ''
-      }
+      },
+      statistics: meta ? meta.statistics : {}
     };
   })
 );

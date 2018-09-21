@@ -21,8 +21,7 @@ function Preview(props) {
     },
     statistics: {
       viewCount
-    },
-    id
+    }
   } = result;
 
   const thumbnail = thumbnails[thumbnailSize];
@@ -77,8 +76,7 @@ export const previewPropType = PropTypes.shape({
   }),
   statistics: PropTypes.shape({
     viewCount: PropTypes.string
-  }),
-  id: PropTypes.string
+  })
 });
 
 Preview.propTypes = {
