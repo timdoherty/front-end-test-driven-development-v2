@@ -48,7 +48,7 @@ const searchModule = createModule({
       );
     },
     getSearchMetadata(state, action) {
-      const videoIds = searchSelector({ search: state }).searchResultIds;
+      const videoIds = state.searchResults.items.map(item => item.id.videoId);
       const url = `https://www.googleapis.com/youtube/v3/videos?part=statistics,contentDetails&id=${videoIds.join(',')}&key=${KEY}`;
       return loop(
         {

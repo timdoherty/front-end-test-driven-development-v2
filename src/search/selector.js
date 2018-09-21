@@ -13,11 +13,6 @@ const rawSearchResultsSelector = createSelector(
   base => base.searchResults || { items: [] }
 );
 
-const searchResultsIdsSelector = createSelector(
-  rawSearchResultsSelector,
-  results => results.items.map(item => item.id.videoId)
-);
-
 const searchMetadataSelector = createSelector(
   baseSelector,
   base => base.searchMetadata || { items: [] }
@@ -42,6 +37,5 @@ const searchResultsSelector = createSelector(
 
 export default createStructuredSelector({
   searchResults: searchResultsSelector,
-  searchTerm: searchTermSelector,
-  searchResultIds: searchResultsIdsSelector
+  searchTerm: searchTermSelector
 });
