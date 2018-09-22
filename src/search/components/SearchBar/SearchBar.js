@@ -30,7 +30,6 @@ export default class SearchBar extends Component {
   }
 
   render () {
-    const { onSearchChanged } = this.props;
     return (
       <div style={{ display: 'flex' }}>
         <Input
