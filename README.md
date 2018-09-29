@@ -53,16 +53,17 @@ Write out some acceptance criteria that answer the questions that pertain to you
 ## Step 1
 
 ### Objective
-The first thing we're going to need is a search bar. What does a search bar do? How will we know if it's done? Hopefully we've answered these questions while building our acceptance criteria, and we'll use those throughout the tutorial to start writing our test cases. 
+The recommended best practice when building Redux applications is to start by designing your state. We'll follow this practice using our acceptance criteria and the relevant Youtube APIs to desing and build our application state via TDD.
 
-Recommended best practice when building Redux applications is to start by designing your state. We'll follow this practice in miniature by designing the relevant portions of state as we go, starting with our search bar state.
-
-The nice thing about testing Redux reducers and selectors is that they are pure functions and thus very easy to test.
+The nice thing about testing Redux reducers and selectors is that they are pure functions and thus very easy to test. We'll start with some simple synchronous actions and reducers, then we'll learn how to test and sequence asynchronous actions and reducers with Redux Loop.
 
 ### TODO:
 - High level test cases written in plain english (BDD-style)
 - Run the tests and watch them fail
 - Make the tests pass by implementing search bar state
 - Refactor as needed while keeping the tests green
+- Introduction to testing reducers
+- Introduction to testing selectors
 - Introduction to Redux Modules
+- Introduction to Redux Loop
 
