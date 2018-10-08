@@ -1,27 +1,17 @@
-import { createSelector, createStructuredSelector } from 'reselect';
 import { formatDuration } from '../utils';
 
 const baseSelector = state => state.search;
 
-const searchTermSelector = createSelector(
-  baseSelector,
-  base => base.searchTerm
-);
+const searchTermSelector = state => state.search.searchTerm;
 
-const rawSearchResultsSelector = createSelector(
-  baseSelector,
-  base => base.searchResults || { items: [] }
-);
+const rawSearchResultsSelector = state => state.search.searchResults || { items: [] };
 
-const searchMetadataSelector = createSelector(
-  baseSelector,
-  base => base.searchMetadata || { items: [] }
-);
+const searchMetadataSelector = state => state.search.searchMetadata || { items: [] };
 
-const searchResultsSelector = createSelector(
-  rawSearchResultsSelector,
-  searchMetadataSelector,
-  (results, metadata) => results.items.map(result => {
+const searchResultsSelector = state => {
+  const results = rawSearchResultsSelector(state);
+  const metadata = searchMetadataSelector(state);
+  return results.items.map(result => {
     const meta = metadata.items.find(
       datum => datum.id === result.id.videoId
     );
@@ -33,10 +23,12 @@ const searchResultsSelector = createSelector(
       },
       statistics: meta ? meta.statistics : {}
     };
-  })
-);
+  });
+};
 
-export default createStructuredSelector({
-  searchResults: searchResultsSelector,
-  searchTerm: searchTermSelector
-});
+export default function(state) {
+  return {
+    searchResults: searchResultsSelector(state),
+    searchTerm: searchTermSelector(state)
+  };
+}
