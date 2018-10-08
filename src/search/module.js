@@ -1,4 +1,5 @@
 let constants = {
+  CLEAR_SEARCH: 'CLEAR_SEARCH',
   GET_SEARCH_METADATA: 'GET_SEARCH_METADATA',
   ON_SEARCH_FAILURE: 'ON_SEARCH_FAILURE',
   ON_SEARCH_METADATA_SUCCESS: 'ON_SEARCH_METADATA_SUCCESS',
@@ -8,6 +9,14 @@ let constants = {
 };
 
 const actions = {
+  clearSearch(payload, meta, error) {
+    return {
+      type: constants.CLEAR_SEARCH,
+      payload,
+      meta,
+      error
+    };
+  },
   doSearch(payload, meta, error) {
     return {
       type: constants.DO_SEARCH,
@@ -60,6 +69,13 @@ const actions = {
 
 function reducer(state, action) {
   switch (action.type) {
+    case constants.CLEAR_SEARCH:
+      return {
+        ...state,
+        searchTerm: null,
+        searchResults: null,
+        searchMetadata: null
+      };
     case constants.DO_SEARCH:
       // TODO: do the search
       return {
