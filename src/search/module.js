@@ -4,6 +4,14 @@ const searchModule = createModule({
   name: 'search',
   initialState: {},
   transformations: {
+    clearSearch(state, action) {
+      return {
+        ...state,
+        searchTerm: null,
+        searchResults: null,
+        searchMetadata: null
+      };
+    },
     doSearch(state, action) {
       // TODO: do the search
       return {

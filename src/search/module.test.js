@@ -39,6 +39,20 @@ describe('searchModule', () => {
       const actual = reducer({ isLoading: true }, actions.onSearchFailure(error));
       expect(actual).toEqual(expected);
     });
+
+    it('clears search state', () => {
+      const expected = {
+        searchTerm: null,
+        searchResults: null,
+        searchMetadata: null
+      };
+
+      const actual = reducer(
+        { searchTerm: 'foo', searchResults: {}, searchMetadata: {} },
+        actions.clearSearch()
+      );
+      expect(actual).toEqual(expected);
+    });
   });
 
   describe('search metadata', () => {
