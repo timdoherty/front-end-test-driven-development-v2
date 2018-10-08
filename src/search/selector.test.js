@@ -30,7 +30,9 @@ describe('searchSelector', () => {
         }
       };
 
-      const expected = combineSearchData(searchResultsStubs.items, searchMetadataStubs.items);
+      const expected = combineSearchData(
+        searchResultsStubs.items, searchMetadataStubs.items
+      );
 
       const actual = searchSelector(state).searchResults;
       expect(actual).toEqual(expected);
