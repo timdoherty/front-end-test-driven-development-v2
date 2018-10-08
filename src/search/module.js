@@ -12,6 +12,7 @@ function fluxStandardAction(type) {
 }
 
 let constants = {
+  CLEAR_SEARCH: 'CLEAR_SEARCH',
   DO_SEARCH: 'DO_SEARCH',
   GET_SEARCH_METADATA: 'GET_SEARCH_METADATA',
   ON_SEARCH_FAILURE: 'ON_SEARCH_FAILURE',
@@ -30,6 +31,13 @@ const actions = Object.keys(constants).reduce(
 
 function reducer(state, action) {
   switch (action.type) {
+    case constants.CLEAR_SEARCH:
+      return {
+        ...state,
+        searchTerm: null,
+        searchResults: null,
+        searchMetadata: null
+      };
     case constants.DO_SEARCH:
       // TODO: do the search
       return {
