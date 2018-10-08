@@ -10,22 +10,12 @@ const searchModule = createModule({
   initialState: {},
   selector: searchSelector,
   transformations: {
-    clearSearchMetadata(state, action) {
+    clearSearch(state, action) {
       return {
         ...state,
+        searchTerm: null,
+        searchResults: null,
         searchMetadata: null
-      };
-    },
-    clearSearchResults(state, action) {
-      return {
-        ...state,
-        searchResults: null
-      };
-    },
-    clearSearchTerm(state, action) {
-      return {
-        ...state,
-        searchTerm: null
       };
     },
     doSearch(state, action) {
@@ -81,6 +71,13 @@ const searchModule = createModule({
         error
       };
     },
+    onSearchMetadataSuccess(state, action) {
+      const { payload: { data: searchMetadata } } = action;
+      return {
+        ...state,
+        searchMetadata
+      };
+    },
     onSearchSuccess(state, action) {
       const { payload: { data: searchResults } } = action;
       return loop(
@@ -91,13 +88,6 @@ const searchModule = createModule({
         },
         Cmd.action(searchModule.actions.getSearchMetadata())
       );
-    },
-    setSearchMetadata(state, action) {
-      const { payload: { data: searchMetadata } } = action;
-      return {
-        ...state,
-        searchMetadata
-      };
     }
   }
 });
