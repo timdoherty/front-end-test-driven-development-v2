@@ -13,69 +13,40 @@ import relatedVideosStubs from './stubs/relatedVideosStub';
 const { actions, reducer } = nowPlayingModule;
 
 describe('nowPlayingModule', () => {
-  const searchResult =   {
-   "kind": "youtube#searchResult",
-   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/Va5WaCfLWg9_P0lB4Olj9aRA5ZI\"",
-   "snippet": {
-    "publishedAt": "2017-09-09T02:09:57.000Z",
-    "channelId": "UCTg2TIWiAgr0FduTohrzj1A",
-    "title": "Pat Metheny Group - To The End of the World (1 Hour Extended)",
-    "description": "1 Hour extend of My favorite Metheny's song. Please check also my House Remix for this song. Pat Metheny - To the End of the World (Ymbk Borraginol Edit) ...",
-    "thumbnails": {
-     "default": {
-      "url": "https://i.ytimg.com/vi/2Gm7L3LEyz8/default.jpg",
-      "width": 120,
-      "height": 90
-     },
-     "medium": {
-      "url": "https://i.ytimg.com/vi/2Gm7L3LEyz8/mqdefault.jpg",
-      "width": 320,
-      "height": 180
-     },
-     "high": {
-      "url": "https://i.ytimg.com/vi/2Gm7L3LEyz8/hqdefault.jpg",
-      "width": 480,
-      "height": 360
-     }
-    },
-    "channelTitle": "slyellow2 Music",
-    "liveBroadcastContent": "none"
-   },
-   "kind": "youtube#video",
-   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/RRBaiYaP7zQ0RWQ4WuRnxO5qR7w\"",
-   "id": "2Gm7L3LEyz8",
-   "contentDetails": {
-    "duration": "PT58M54S",
-    "dimension": "2d",
-    "definition": "hd",
-    "caption": "false",
-    "licensedContent": false,
-    "projection": "rectangular"
-   },
-   "statistics": {
-    "viewCount": "619624",
-    "likeCount": "4039",
-    "dislikeCount": "238",
-    "favoriteCount": "0",
-    "commentCount": "323"
-   }
-  };
+  const searchResult = { id: 'foobar' };
 
   describe('current video', () => {
-    it('sets the current video', () => {
+    it('gets the current video', () => {
+      const id = 'foo';
+      const url = `https://www.googleapis.com/youtube/v3/videos?part=statistics,contentDetails&id=${id}&key=${KEY}`;
       const expected = loop(
-        {
-          currentVideo: searchResult
-        },
+        { isLoading: true },
         Cmd.list([
-          Cmd.action(actions.getComments(searchResult.id)),
-          Cmd.action(actions.getRelatedVideos(searchResult.id))
+          Cmd.run(
+            axios.get,
+            {
+              args: [url],
+              successActionCreator: actions.setCurrentVideo,
+              failActionCreator: actions.onCurrentVideoFailure
+            }
+          ),
+          Cmd.action(actions.getComments(id)),
+          Cmd.action(actions.getRelatedVideos(id))
         ])
       );
 
-      const actual = reducer({}, actions.setCurrentVideo(searchResult));
+      const actual = reducer({ isLoading: false }, actions.getCurrentVideo(id));
       expect(getModel(actual)).toEqual(getModel(expected));
       expect(getCmd(actual)).toEqual(getCmd(expected));
+    });
+
+    it('sets the current video', () => {
+      const expected = {
+        currentVideo: searchResult
+      };
+
+      const actual = reducer({}, actions.setCurrentVideo({ data: searchResult }));
+      expect(getModel(actual)).toEqual(expected);
     });
 
     it('clears the current video', () => {
@@ -86,7 +57,7 @@ describe('nowPlayingModule', () => {
       };
 
       const actual = reducer({ currentVideo: 'foo' }, actions.clearCurrentVideo());
-      expect(actual).toEqual(expected);
+      expect(getModel(actual)).toEqual(expected);
     });
   });
 
@@ -102,14 +73,15 @@ describe('nowPlayingModule', () => {
       };
 
       const actual = reducer(state, actions.setComments({ data: comments }));
-      expect(actual).toEqual(expected)
+      expect(getModel(actual)).toEqual(expected)
     });
 
     it('handles get comments failure', () => {
       const error = { message: 'foo' };
       const expected = { isLoading: false, error };
 
-      const actual = reducer({ isLoading: true }, actions.onCommentsFailure)
+      const actual = reducer({ isLoading: true }, actions.onCommentsFailure(error))
+      expect(getModel(actual)).toEqual(expected);
     });
 
     it('gets comments for the current video', () => {
@@ -161,7 +133,7 @@ describe('nowPlayingModule', () => {
       };
 
       const actual = reducer({ isLoading: true }, actions.onRelatedVideosFailure(error));
-      expect(actual).toEqual(expected);
+      expect(getModel(actual)).toEqual(expected);
     });
 
     it('gets related videos', () => {
@@ -197,7 +169,7 @@ describe('nowPlayingModule', () => {
         };
 
         const actual = reducer({ isLoading: true}, actions.setRelatedVideoMetadata({ data: metadata }));
-        expect(actual).toEqual(expected);
+        expect(getModel(actual)).toEqual(expected);
       });
 
       it('handles related videos metadata failure', () => {
@@ -208,7 +180,7 @@ describe('nowPlayingModule', () => {
         };
 
         const actual =  reducer({ isLoading: true }, actions.onRelatedVideosMetadataFailure(error));
-        expect(actual).toEqual(expected);
+        expect(getModel(actual)).toEqual(expected);
       });
 
       it('gets related video metadata', () => {
