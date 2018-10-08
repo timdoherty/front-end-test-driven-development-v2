@@ -1,24 +1,53 @@
 import { createModule } from 'redux-modules';
 
-import searchSelector from './selector';
-
-export default createModule({
+const searchModule = createModule({
   name: 'search',
   initialState: {},
-  selector: searchSelector,
   transformations: {
-    setSearchTerm(state, action) {
-      const { payload } = action;
+    doSearch(state, action) {
+      // TODO: do the search
       return {
         ...state,
-        searchTerm: payload
+        isLoading: true,
+        searchTerm: action.payload
       };
     },
-    clearSearchTerm(state, payload) {
+    getSearchMetadata(state, action) {
+      // TODO: get the data
       return {
         ...state,
-        searchTerm: null
+        isLoading: true
+      };
+    },
+    onSearchFailure(state, action) {
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload
+      };
+    },
+    onSearchMetadataSuccess(state, action) {
+      return {
+        ...state,
+        isLoading: false,
+        searchMetadata: action.payload.data
+      };
+    },
+    onSearchMetadataFailure(state, action) {
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload
+      };
+    },
+    onSearchSuccess(state, action) {
+      return {
+        ...state,
+        isLoading: false,
+        searchResults: action.payload.data
       };
     }
   }
 });
+
+export default searchModule;
