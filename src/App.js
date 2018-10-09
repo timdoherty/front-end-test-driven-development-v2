@@ -1,37 +1,21 @@
-import React from 'react';
-import { ModuleProvider } from 'redux-modules';
-import { combineReducers } from 'redux-loop';
-import '@procore/core-icons';
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
 
-import searchModule from './search/module';
-import nowPlayingModule from './nowPlaying/module';
-import configureStore from './utils/configureStore';
-import Layout from './components/Layout';
-
-const { reducer: searchReducer } = searchModule;
-const { reducer: nowPlayingReducer } = nowPlayingModule;
-
-const reducers = [
-  {
-    name: 'search',
-    reducer: searchReducer
-  },
-  {
-    name: 'nowPlaying',
-    reducer: nowPlayingReducer
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h1 className="App-title">Welcome to React</h1>
+        </header>
+        <p className="App-intro">
+          To get started, edit <code>src/App.js</code> and save to reload.
+        </p>
+      </div>
+    );
   }
-];
-
-const store = configureStore(state => state, {});
-
-const App = () => (
-  <ModuleProvider
-    store={store}
-    staticReducers={reducers}
-    combineReducers={combineReducers}
-  >
-    <Layout />
-  </ModuleProvider>
-);
+}
 
 export default App;

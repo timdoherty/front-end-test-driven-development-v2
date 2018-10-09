@@ -1,44 +1,64 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Preview, { previewPropType } from '../Preview';
+import Preview from '../Preview';
 
 function List(props) {
   const {
     listItems,
-    onListItemClicked,
     thumbnailSize,
-    hideDescription,
-    className
+    showDescription
   } = props;
 
   return (
-    <div className={className}>
-      {listItems.map(result => (
+    <div>
+      {listItems.map(item => (
         <Preview 
-          key={result.etag}
-          result={result}
-          onClick={onListItemClicked}
-          thumbnailSize={thumbnailSize}
-          hideDescription={hideDescription}
+          key={item.etag}
+          channelTitle={item.channelTitle}
+          description={!!showDescription && item.description}
+          thumbnail={item.snippet.thumbnails[thumbnailSize]}
+          viewCount={item.statistics.viewCount}
         />
       ))}
     </div>
   );
 }
 
+const thumbnailProptype = PropTypes.shape({
+  url: PropTypes.string,
+  width: PropTypes.number,
+  height: PropTypes.number
+});
+
 List.propTypes = {
-  listItems: PropTypes.arrayOf(previewPropType),
+  listItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      snippet: PropTypes.shape({
+        title: PropTypes.string,
+        description: PropTypes.string,
+        channelTitle: PropTypes.string,
+        thumbnails: PropTypes.shape({
+          default: thumbnailProptype,
+          medium: thumbnailProptype,
+          high: thumbnailProptype
+        })
+      }),
+      statistics: PropTypes.shape({
+        viewCount: PropTypes.string
+      })
+    })
+  ),
   onListItemClicked: PropTypes.func,
   thumbnailSize: PropTypes.string,
-  hideDescription: PropTypes.bool
+  showDescription: PropTypes.bool
 };
 
 List.defaultProps = {
   listItems: [],
-  onListItemClicked: Function.prototype,
   thumbnailSize: 'default',
-  hideDescription: false
+  showDescription: true
 };
 
 export default List;

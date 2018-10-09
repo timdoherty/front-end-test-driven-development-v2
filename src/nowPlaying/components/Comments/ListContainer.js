@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { connectModule } from 'redux-modules';
 
 import List from './List';
-import { commentPropType } from './Comment';
 import nowPlayingModule from '../../module';
 
 function ListContainer(props) {
@@ -14,7 +13,7 @@ function ListContainer(props) {
 }
 
 ListContainer.propTypes = {
-  comments: PropTypes.arrayOf(commentPropType)
+  comments: PropTypes.arrayOf(PropTypes.onject)
 };
 
 ListContainer.defaultProps = { comments: [] };

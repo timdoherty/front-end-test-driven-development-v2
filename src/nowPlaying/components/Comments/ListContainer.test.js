@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import { createStore } from 'redux';
 
 import ListContainer from './ListContainer';
@@ -17,15 +17,10 @@ describe('<ListContainer/>', () => {
   }
 
   let store;
-  let dispatch;
 
   beforeEach(() => {
     const reducer = state => state; 
-    dispatch = jest.fn();
-    store = {
-      ...createStore(reducer, getInitialState()),
-      dispatch
-    };
+    store = createStore(reducer, getInitialState());
   });
 
   describe('props', () => {

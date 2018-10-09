@@ -4,40 +4,17 @@ import { connectModule } from 'redux-modules';
 
 import List from '../../../components/List';
 import searchModule from '../../module';
-import nowPlayingModule from '../../../nowPlaying/module';
-import './searchResults.css';
 
 function SearchResultListContainer(props) {
-  const {
-    search: {
-      searchResults
-    },
-    actions: {
-      nowPlaying: {
-        setCurrentVideo
-      }
-    }
-  } = props;
+  const { searchResults } = props;
 
   return (
-    <List
-      className="search-results"
-      listItems={searchResults}
-      onListItemClicked={setCurrentVideo}
-      thumbnailSize="medium"
-    />
+    <List listItems={searchResults} />
   );
 }
 
 SearchResultListContainer.propTypes = {
-  search: PropTypes.shape({
-    searchResults: PropTypes.array.isRequired,
-  }),
-  actions: PropTypes.shape({
-    nowPlaying: PropTypes.shape({
-      setCurrentVideo: PropTypes.func.isRequired
-    })
-  }).isRequired
+  searchResults: PropTypes.array.isRequired,
 };
 
-export default connectModule([searchModule, nowPlayingModule])(SearchResultListContainer);
+export default connectModule(searchModule)(SearchResultListContainer);

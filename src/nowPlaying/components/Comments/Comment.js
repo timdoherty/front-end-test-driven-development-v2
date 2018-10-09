@@ -2,78 +2,42 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Avatar } from '@procore/core-react';
 
-import './Comment.css';
-import thumbsupicon from '../../../assets/thumbsup.png';
-import thumbsdownicon from '../../../assets/thumbsdown.png';
-
 function Comment(props) {
   const {
-    comment: {
-      snippet: {
-        topLevelComment: {
-          snippet: {
-            authorProfileImageUrl,
-            authorDisplayName,
-            textDisplay,
-            likeCount,
-            dislikeCount
-          }
-        }
-      }
-    }
+    author,
+    avatar,
+    commentText,
+    dislikes,
+    likes
   } = props;
 
   return (
-    <div className="comment-container">
-      <div>
-        <Avatar size="lg">
-          <Avatar.Portrait imageUrl={authorProfileImageUrl}/>
-        </Avatar>
-      </div>
-      <div>
-        <div>{authorDisplayName}</div>
-        <div>{textDisplay}</div>
-        <div>
-          <img src={thumbsupicon} /><span>{likeCount}</span>
-          <img src={thumbsdownicon} /><span>{dislikeCount}</span>
-        </div>
-      </div>
+    <div>
+      <Avatar size="lg">
+        <Avatar.Portrait imageUrl={avatar}/>
+      </Avatar>
+      <span>{author}</span>
+      <span>{commentText}</span>
+      <span>{likes}</span>
+      <span>{dislikes}</span>
     </div>
   );
 }
 
-export const commentPropType = PropTypes.shape({
-  snippet: PropTypes.shape({
-    topLevelComment: PropTypes.shape({
-      snippet: PropTypes.shape({
-        authorProfileImageUrl: PropTypes.string,
-        authorDisplayName: PropTypes.string,
-        textDisplay: PropTypes.string,
-        likeCount: PropTypes.number,
-        dislikeCount: PropTypes.number
-      })
-    })
-  })
-});
-
 Comment.propTypes = {
-  comment: commentPropType
+  author: PropTypes.string,
+  avatar: PropTypes.string,
+  commentText: PropTypes.string,
+  dislikes: PropTypes.number,
+  likes: PropTypes.number
 };
 
 Comment.defaultProps = {
-  comment: {
-    snippet: {
-      topLevelComment: {
-        snippet: {
-          authorProfileImageUrl: '',
-          authorDisplayName: '',
-          textDisplay: '',
-          likeCount: 0,
-          dislikeCount: 0
-        }
-      }
-    }
-  }
+  author: '',
+  avatar: '',
+  commentText: '',
+  dislikes: null,
+  likes: null
 };
 
 export default Comment;

@@ -10,21 +10,10 @@ import searchModule from './module';
 import searchResultsStubs from './stubs/searchResultsStub';
 import searchMetadataStubs from './stubs/searchMetadataStub';
 import { KEY } from '../constants';
-import nowPlayingModule from '../nowPlaying/module';
 
 const { actions, reducer } = searchModule;
-const { actions: nowPlayingActions } = nowPlayingModule;
 
 describe('searchModule', () => {
-  describe('search term', () => {
-    it('clears the current search term', () => {
-      const expected = { searchTerm: null };
-      const actual = reducer({ searchTerm: 'barbaz' }, actions.clearSearchTerm());
-
-      expect(actual).toEqual(expected);
-    });
-  });
-
   describe('search results', () => {
     describe('search results', () => {
       it('handles successful search', () => {
@@ -39,13 +28,6 @@ describe('searchModule', () => {
         expect(getCmd(actual)).toEqual(getCmd(expected));
       }); 
 
-      it('clears the current search results', () => {
-        const expected = { searchResults: null };
-        const actual = reducer({ searchResults: searchResultsStubs }, actions.clearSearchResults());
-
-        expect(actual).toEqual(expected);
-      });
-
       it('handles search failure', () => {
         const error = { message: 'foo' };
         const expected = { isLoading: false, error };
@@ -53,7 +35,7 @@ describe('searchModule', () => {
 
         expect(actual).toEqual(expected);
       });
-
+      
       it('gets search results', () => {
         const state = { isLoading: false };
         const searchTerm = 'heisenberg';
@@ -63,36 +45,40 @@ describe('searchModule', () => {
             isLoading: true,
             searchTerm
           },
-          Cmd.list([
-            Cmd.action(nowPlayingActions.clearCurrentVideo()),
-            Cmd.run(
-              axios.get,
-              {
-                args: [url],
-                successActionCreator: actions.onSearchSuccess,
-                failActionCreator: actions.onSearchFailure,
-              }
-            )
-          ])
+          Cmd.run(
+            axios.get,
+            {
+              args: [url],
+              successActionCreator: actions.onSearchSuccess,
+              failActionCreator: actions.onSearchFailure,
+            }
+          )
         );
 
         const actual = reducer(state, actions.doSearch(searchTerm));
         expect(getModel(actual)).toEqual(getModel(expected));
         expect(getCmd(actual)).toEqual(getCmd(expected));
       });
+
+      it('clears search state', () => {
+        const expected = {
+          searchTerm: null,
+          searchResults: null,
+          searchMetadata: null
+        };
+
+        const actual = reducer(
+          { searchTerm: 'foo', searchResults: {}, searchMetadata: {} },
+          actions.clearSearch()
+        );
+        expect(actual).toEqual(expected);
+      });
     });
 
     describe('search results metadata', () => {
       it('sets metadata for search results', () => {
         const expected = { searchMetadata: searchMetadataStubs };
-        const actual = reducer({}, actions.setSearchMetadata({ data: searchMetadataStubs }));
-
-        expect(actual).toEqual(expected);
-      });
-
-      it('clears metadata for search results', () => {
-        const expected = { searchMetadata: null };
-        const actual = reducer({ searchMetadata: searchMetadataStubs }, actions.clearSearchMetadata());
+        const actual = reducer({}, actions.onSearchMetadataSuccess({ data: searchMetadataStubs }));
 
         expect(actual).toEqual(expected);
       });
