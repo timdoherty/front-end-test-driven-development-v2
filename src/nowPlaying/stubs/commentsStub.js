@@ -1,7 +1,7 @@
 export default {
  "kind": "youtube#commentThreadListResponse",
- "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/feTHkzPZfl3Yazyssq5YyPU9gYc\"",
- "nextPageToken": "QURTSl9pMGZCRzFidVVDMWRBTkhFNVlfWTVqTkM3WUlsOHBSUzJwSFNiQTNjbngxOGtQdTJSOFpVNVZzWEQ2Z3F2YlBPU0dSZUh3LVByd3AtVkl5U0pJZHhaSEFnTkIyVnA2cld0Y29IX3pjajhCM3h6a0JmUVVSNG9lMU5IWm11bUUzU0Y3VUtZcDdYMENPQ3V4MTJWVjY0RHM=",
+ "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/6bYPTHmSOCJiMeqQZnMANpquEb0\"",
+ "nextPageToken": "QURTSl9pMHlZQnRQZkpPV0I5VkR3RGJtdEVXZGRiUll0YWw3eEQ2Q0F3ZjQ5dWRnOHVIem5WTU9uS2h3bkNLS2RlUjhDUWRNQWFoZEJBOWpVUjdvZ0JRdF9wUi1IYkR0RXRaZlNyME5MY2p2NjJQcEpvSmNLUmZGekdYWE03bVFOVDlyWnVCVWh3aHVadWRBY2pDUFhNOHJid0U=",
  "pageInfo": {
   "totalResults": 20,
   "resultsPerPage": 20
@@ -9,13 +9,13 @@ export default {
  "items": [
   {
    "kind": "youtube#commentThread",
-   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/xjDQqa4bcwDbcUQQ91XQH9HiJq8\"",
+   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/MgdWrZUyS8NEgEwzAmma4RfMOKM\"",
    "id": "UgzOD6FWmCzCtsv0pFl4AaABAg",
    "snippet": {
     "videoId": "2Gm7L3LEyz8",
     "topLevelComment": {
      "kind": "youtube#comment",
-     "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/xLB6n_7da0bd1am8RWIRgLytZTU\"",
+     "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/kGvIsrDpgZiGeM1bgrNIaoS713Y\"",
      "id": "UgzOD6FWmCzCtsv0pFl4AaABAg",
      "snippet": {
       "authorDisplayName": "slyellow2 Music",
@@ -29,365 +29,13 @@ export default {
       "textOriginal": "Thanks everyone! Just now I uploaded \"Last Train Home\" Extended version, please enjoy. https://www.youtube.com/watch?v=4QdWRgNdir4",
       "canRate": true,
       "viewerRating": "none",
-      "likeCount": 10,
+      "likeCount": 7,
       "publishedAt": "2018-06-04T01:45:11.000Z",
       "updatedAt": "2018-06-04T01:45:11.000Z"
      }
     },
     "canReply": true,
-    "totalReplyCount": 5,
-    "isPublic": true
-   }
-  },
-  {
-   "kind": "youtube#commentThread",
-   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/AM4sY5uFSPdIHCg-v3NeDF_ZxPY\"",
-   "id": "UgxIV1jsNEYK7hdSwnV4AaABAg",
-   "snippet": {
-    "videoId": "2Gm7L3LEyz8",
-    "topLevelComment": {
-     "kind": "youtube#comment",
-     "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/_qzTcPQgq9OQfYsuiyVpdpgL9OE\"",
-     "id": "UgxIV1jsNEYK7hdSwnV4AaABAg",
-     "snippet": {
-      "authorDisplayName": "Ben Dangerfield",
-      "authorProfileImageUrl": "https://yt3.ggpht.com/-DTaPtgS-N54/AAAAAAAAAAI/AAAAAAAAAAA/NaejqR_PLRo/s28-c-k-no-mo-rj-c0xffffff/photo.jpg",
-      "authorChannelUrl": "http://www.youtube.com/channel/UCe4ZFTo5CP3kIiIQpiZFTUQ",
-      "authorChannelId": {
-       "value": "UCe4ZFTo5CP3kIiIQpiZFTUQ"
-      },
-      "videoId": "2Gm7L3LEyz8",
-      "textDisplay": "Impeccably deep.",
-      "textOriginal": "Impeccably deep.",
-      "canRate": true,
-      "viewerRating": "none",
-      "likeCount": 0,
-      "publishedAt": "2018-09-05T16:26:17.000Z",
-      "updatedAt": "2018-09-05T16:26:17.000Z"
-     }
-    },
-    "canReply": true,
-    "totalReplyCount": 0,
-    "isPublic": true
-   }
-  },
-  {
-   "kind": "youtube#commentThread",
-   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/8dqB3soT_6i4N9emY2zs4CLNo7I\"",
-   "id": "UgyLYIHWyC55jagBS_N4AaABAg",
-   "snippet": {
-    "videoId": "2Gm7L3LEyz8",
-    "topLevelComment": {
-     "kind": "youtube#comment",
-     "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/WqiA64gSrli92hMtW31LpJ2n9xY\"",
-     "id": "UgyLYIHWyC55jagBS_N4AaABAg",
-     "snippet": {
-      "authorDisplayName": "Tamara Tirre",
-      "authorProfileImageUrl": "https://yt3.ggpht.com/-JAHyPXiysa4/AAAAAAAAAAI/AAAAAAAAAAA/DBn-ct6pnaU/s28-c-k-no-mo-rj-c0xffffff/photo.jpg",
-      "authorChannelUrl": "http://www.youtube.com/channel/UCcySuiHL8-79K-OWWqbrwUg",
-      "authorChannelId": {
-       "value": "UCcySuiHL8-79K-OWWqbrwUg"
-      },
-      "videoId": "2Gm7L3LEyz8",
-      "textDisplay": "Metheny and Mays are pure magic....",
-      "textOriginal": "Metheny and Mays are pure magic....",
-      "canRate": true,
-      "viewerRating": "none",
-      "likeCount": 0,
-      "publishedAt": "2018-09-05T00:24:42.000Z",
-      "updatedAt": "2018-09-05T00:24:42.000Z"
-     }
-    },
-    "canReply": true,
-    "totalReplyCount": 0,
-    "isPublic": true
-   }
-  },
-  {
-   "kind": "youtube#commentThread",
-   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/aSvhjHJY8511G4CTc0bAfEEffAQ\"",
-   "id": "UgzvOvwUxDx-G_BSvG94AaABAg",
-   "snippet": {
-    "videoId": "2Gm7L3LEyz8",
-    "topLevelComment": {
-     "kind": "youtube#comment",
-     "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/f10Tah1-UKHlm0an4oW4Fy9JB98\"",
-     "id": "UgzvOvwUxDx-G_BSvG94AaABAg",
-     "snippet": {
-      "authorDisplayName": "Xavoer Langreau",
-      "authorProfileImageUrl": "https://yt3.ggpht.com/-emqJxnlfByI/AAAAAAAAAAI/AAAAAAAAAAA/Ms86OYwGKvc/s28-c-k-no-mo-rj-c0xffffff/photo.jpg",
-      "authorChannelUrl": "http://www.youtube.com/channel/UCbDYdo5cChiJ_UqwZLllD3w",
-      "authorChannelId": {
-       "value": "UCbDYdo5cChiJ_UqwZLllD3w"
-      },
-      "videoId": "2Gm7L3LEyz8",
-      "textDisplay": "probably the best piano solo ever",
-      "textOriginal": "probably the best piano solo ever",
-      "canRate": true,
-      "viewerRating": "none",
-      "likeCount": 0,
-      "publishedAt": "2018-09-04T17:00:02.000Z",
-      "updatedAt": "2018-09-04T17:00:02.000Z"
-     }
-    },
-    "canReply": true,
-    "totalReplyCount": 0,
-    "isPublic": true
-   }
-  },
-  {
-   "kind": "youtube#commentThread",
-   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/590k-8EC1vXLz-Kn5jLfUY6Yu9M\"",
-   "id": "UgzrH3tZmfKw3aqDTK14AaABAg",
-   "snippet": {
-    "videoId": "2Gm7L3LEyz8",
-    "topLevelComment": {
-     "kind": "youtube#comment",
-     "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/4YjeUQH3jOny5K02VeTMDWWTQGM\"",
-     "id": "UgzrH3tZmfKw3aqDTK14AaABAg",
-     "snippet": {
-      "authorDisplayName": "Kevin Merritt",
-      "authorProfileImageUrl": "https://yt3.ggpht.com/-WU8IrZpSbaU/AAAAAAAAAAI/AAAAAAAAAAA/PFT0YG7WpwU/s28-c-k-no-mo-rj-c0xffffff/photo.jpg",
-      "authorChannelUrl": "http://www.youtube.com/channel/UCZ_poJSFzUVATrgrhGj_oUg",
-      "authorChannelId": {
-       "value": "UCZ_poJSFzUVATrgrhGj_oUg"
-      },
-      "videoId": "2Gm7L3LEyz8",
-      "textDisplay": "Now THIS is a stone cold ass mix my friend!!!!!!!!",
-      "textOriginal": "Now THIS is a stone cold ass mix my friend!!!!!!!!",
-      "canRate": true,
-      "viewerRating": "none",
-      "likeCount": 0,
-      "publishedAt": "2018-09-02T13:25:22.000Z",
-      "updatedAt": "2018-09-02T13:25:22.000Z"
-     }
-    },
-    "canReply": true,
-    "totalReplyCount": 0,
-    "isPublic": true
-   }
-  },
-  {
-   "kind": "youtube#commentThread",
-   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/N2zrwzUAiK-FoogS4kMCApWUJII\"",
-   "id": "Ugyfz1eytVTQ_IblWat4AaABAg",
-   "snippet": {
-    "videoId": "2Gm7L3LEyz8",
-    "topLevelComment": {
-     "kind": "youtube#comment",
-     "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/6CgqkOshuREYoDTgtvhQhLoyhn8\"",
-     "id": "Ugyfz1eytVTQ_IblWat4AaABAg",
-     "snippet": {
-      "authorDisplayName": "Eugenio Mercurio",
-      "authorProfileImageUrl": "https://yt3.ggpht.com/-sukdFkneOZw/AAAAAAAAAAI/AAAAAAAAAAA/tsxVYxRN7Fk/s28-c-k-no-mo-rj-c0xffffff/photo.jpg",
-      "authorChannelUrl": "http://www.youtube.com/channel/UC1FG_2It8w0zH5ly8G14NNQ",
-      "authorChannelId": {
-       "value": "UC1FG_2It8w0zH5ly8G14NNQ"
-      },
-      "videoId": "2Gm7L3LEyz8",
-      "textDisplay": "Top music",
-      "textOriginal": "Top music",
-      "canRate": true,
-      "viewerRating": "none",
-      "likeCount": 0,
-      "publishedAt": "2018-09-02T11:02:38.000Z",
-      "updatedAt": "2018-09-02T11:02:38.000Z"
-     }
-    },
-    "canReply": true,
-    "totalReplyCount": 0,
-    "isPublic": true
-   }
-  },
-  {
-   "kind": "youtube#commentThread",
-   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/XMS8yaskvKzo4wXOBgx-lYNKaYA\"",
-   "id": "UgyqApQf2CJTuhBvQy14AaABAg",
-   "snippet": {
-    "videoId": "2Gm7L3LEyz8",
-    "topLevelComment": {
-     "kind": "youtube#comment",
-     "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/gambJouMtBvksulZ9UcP_Z1qVzU\"",
-     "id": "UgyqApQf2CJTuhBvQy14AaABAg",
-     "snippet": {
-      "authorDisplayName": "Randy Gerdes",
-      "authorProfileImageUrl": "https://yt3.ggpht.com/-4tri2bj58fo/AAAAAAAAAAI/AAAAAAAAAAA/N5UdV39v0Z4/s28-c-k-no-mo-rj-c0xffffff/photo.jpg",
-      "authorChannelUrl": "http://www.youtube.com/channel/UCJy0cTmN3RTju7GBpBudN1w",
-      "authorChannelId": {
-       "value": "UCJy0cTmN3RTju7GBpBudN1w"
-      },
-      "videoId": "2Gm7L3LEyz8",
-      "textDisplay": "The piano solo on this track is, I think, Lyle May&#39;s best work. I could listen to this continuously every day.",
-      "textOriginal": "The piano solo on this track is, I think, Lyle May's best work. I could listen to this continuously every day.",
-      "canRate": true,
-      "viewerRating": "none",
-      "likeCount": 0,
-      "publishedAt": "2018-09-02T01:05:08.000Z",
-      "updatedAt": "2018-09-02T01:05:08.000Z"
-     }
-    },
-    "canReply": true,
-    "totalReplyCount": 0,
-    "isPublic": true
-   }
-  },
-  {
-   "kind": "youtube#commentThread",
-   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/b6mz0UlGDPYRieYF7mLrbuyoYEI\"",
-   "id": "Ugyo8rRtY2Jt6bEqhMR4AaABAg",
-   "snippet": {
-    "videoId": "2Gm7L3LEyz8",
-    "topLevelComment": {
-     "kind": "youtube#comment",
-     "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/HkctBEaNX1ZBJUcI3RWT-siCezY\"",
-     "id": "Ugyo8rRtY2Jt6bEqhMR4AaABAg",
-     "snippet": {
-      "authorDisplayName": "Thembinkosi Gamedze",
-      "authorProfileImageUrl": "https://yt3.ggpht.com/-L9CksdbfEo8/AAAAAAAAAAI/AAAAAAAAAAA/mGZpUC0nPFU/s28-c-k-no-mo-rj-c0xffffff/photo.jpg",
-      "authorChannelUrl": "http://www.youtube.com/channel/UCEALNM86UL4IBQHm3Er3i8A",
-      "authorChannelId": {
-       "value": "UCEALNM86UL4IBQHm3Er3i8A"
-      },
-      "videoId": "2Gm7L3LEyz8",
-      "textDisplay": "matheny in total class mode",
-      "textOriginal": "matheny in total class mode",
-      "canRate": true,
-      "viewerRating": "none",
-      "likeCount": 0,
-      "publishedAt": "2018-09-01T09:49:09.000Z",
-      "updatedAt": "2018-09-01T09:49:09.000Z"
-     }
-    },
-    "canReply": true,
-    "totalReplyCount": 1,
-    "isPublic": true
-   }
-  },
-  {
-   "kind": "youtube#commentThread",
-   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/juA1SLxIv4rtcP0CsB_U6QrgKT8\"",
-   "id": "UgxetjVrqymDPo9AhVh4AaABAg",
-   "snippet": {
-    "videoId": "2Gm7L3LEyz8",
-    "topLevelComment": {
-     "kind": "youtube#comment",
-     "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/4af7BxnOOyWMMs_OzCKwwHCQIFw\"",
-     "id": "UgxetjVrqymDPo9AhVh4AaABAg",
-     "snippet": {
-      "authorDisplayName": "Jeanne Parmentier",
-      "authorProfileImageUrl": "https://yt3.ggpht.com/-8nzNqQtI2ak/AAAAAAAAAAI/AAAAAAAAAAA/F9solVjq7FU/s28-c-k-no-mo-rj-c0xffffff/photo.jpg",
-      "authorChannelUrl": "http://www.youtube.com/channel/UCwyXqVdbz2wGVHdwR-7jUMQ",
-      "authorChannelId": {
-       "value": "UCwyXqVdbz2wGVHdwR-7jUMQ"
-      },
-      "videoId": "2Gm7L3LEyz8",
-      "textDisplay": "Soft and easy listening ......",
-      "textOriginal": "Soft and easy listening ......",
-      "canRate": true,
-      "viewerRating": "none",
-      "likeCount": 0,
-      "publishedAt": "2018-08-30T20:34:33.000Z",
-      "updatedAt": "2018-08-30T20:34:33.000Z"
-     }
-    },
-    "canReply": true,
-    "totalReplyCount": 0,
-    "isPublic": true
-   }
-  },
-  {
-   "kind": "youtube#commentThread",
-   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/A6w2xkQhE-fQNn19LSy7IxJqk_Y\"",
-   "id": "Ugx3icq93ApS7a9J54h4AaABAg",
-   "snippet": {
-    "videoId": "2Gm7L3LEyz8",
-    "topLevelComment": {
-     "kind": "youtube#comment",
-     "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/0aZqAerYn7NyUeD628TaAEevEQU\"",
-     "id": "Ugx3icq93ApS7a9J54h4AaABAg",
-     "snippet": {
-      "authorDisplayName": "Mr.Babulena1",
-      "authorProfileImageUrl": "https://yt3.ggpht.com/-JdClJaXhVWU/AAAAAAAAAAI/AAAAAAAAAAA/F3RcglQ_7lI/s28-c-k-no-mo-rj-c0xffffff/photo.jpg",
-      "authorChannelUrl": "http://www.youtube.com/channel/UCsQ-xmbghDz2PXaSN1PZLfA",
-      "authorChannelId": {
-       "value": "UCsQ-xmbghDz2PXaSN1PZLfA"
-      },
-      "videoId": "2Gm7L3LEyz8",
-      "textDisplay": "un brano veramente classico alla Pat Metheny style music in cui la progressione del brano costituisce un bolero-fandango riconoscibilissimo fin dal primo attacco con l&#39;inserimento vieppiù costante di sonorità e strumenti in arrangiamento con crescendo e pathos nei 3\\4 del finale in cui si esprime con la synt guitar per non parlare dell&#39;intervento meraviglioso del piano perché quando un pezzo è bello non ci sono parole",
-      "textOriginal": "un brano veramente classico alla Pat Metheny style music in cui la progressione del brano costituisce un bolero-fandango riconoscibilissimo fin dal primo attacco con l'inserimento vieppiù costante di sonorità e strumenti in arrangiamento con crescendo e pathos nei 3\\4 del finale in cui si esprime con la synt guitar per non parlare dell'intervento meraviglioso del piano perché quando un pezzo è bello non ci sono parole",
-      "canRate": true,
-      "viewerRating": "none",
-      "likeCount": 0,
-      "publishedAt": "2018-08-30T20:33:50.000Z",
-      "updatedAt": "2018-08-30T20:40:18.000Z"
-     }
-    },
-    "canReply": true,
-    "totalReplyCount": 0,
-    "isPublic": true
-   }
-  },
-  {
-   "kind": "youtube#commentThread",
-   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/5nu430gZjOSnYGR_m0Lqx3nVuhU\"",
-   "id": "UgzMWpSqFMwxGpreuQ14AaABAg",
-   "snippet": {
-    "videoId": "2Gm7L3LEyz8",
-    "topLevelComment": {
-     "kind": "youtube#comment",
-     "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/dJSwMsk2O1GUadkcJnxGk9A4qC8\"",
-     "id": "UgzMWpSqFMwxGpreuQ14AaABAg",
-     "snippet": {
-      "authorDisplayName": "L Silva",
-      "authorProfileImageUrl": "https://yt3.ggpht.com/-GJUSx6b2Sgk/AAAAAAAAAAI/AAAAAAAAAAA/u6SPpIJHGXU/s28-c-k-no-mo-rj-c0xffffff/photo.jpg",
-      "authorChannelUrl": "http://www.youtube.com/channel/UCo2T_K3KLLA8hfBhLza6njw",
-      "authorChannelId": {
-       "value": "UCo2T_K3KLLA8hfBhLza6njw"
-      },
-      "videoId": "2Gm7L3LEyz8",
-      "textDisplay": "great track but ruined with that beam noise. frightening occurrence",
-      "textOriginal": "great track but ruined with that beam noise. frightening occurrence",
-      "canRate": true,
-      "viewerRating": "none",
-      "likeCount": 0,
-      "publishedAt": "2018-08-26T23:15:23.000Z",
-      "updatedAt": "2018-08-26T23:16:00.000Z"
-     }
-    },
-    "canReply": true,
-    "totalReplyCount": 0,
-    "isPublic": true
-   }
-  },
-  {
-   "kind": "youtube#commentThread",
-   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/y3Un-eYND4gNcVGZr0bxkyYe6u8\"",
-   "id": "UgyDa7wi1G7I_K5F6NN4AaABAg",
-   "snippet": {
-    "videoId": "2Gm7L3LEyz8",
-    "topLevelComment": {
-     "kind": "youtube#comment",
-     "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/IZWH-_PvTVbpSKZlOv9TFsGB5Ns\"",
-     "id": "UgyDa7wi1G7I_K5F6NN4AaABAg",
-     "snippet": {
-      "authorDisplayName": "Donny brown",
-      "authorProfileImageUrl": "https://yt3.ggpht.com/-l7dxXUXK1mo/AAAAAAAAAAI/AAAAAAAAAAA/kmVP7Em8e24/s28-c-k-no-mo-rj-c0xffffff/photo.jpg",
-      "authorChannelUrl": "http://www.youtube.com/channel/UCTSo1YN041E0FzaWyDqNrhQ",
-      "authorChannelId": {
-       "value": "UCTSo1YN041E0FzaWyDqNrhQ"
-      },
-      "videoId": "2Gm7L3LEyz8",
-      "textDisplay": "Once you hear Pat nothing else will do.",
-      "textOriginal": "Once you hear Pat nothing else will do.",
-      "canRate": true,
-      "viewerRating": "none",
-      "likeCount": 0,
-      "publishedAt": "2018-08-26T18:24:17.000Z",
-      "updatedAt": "2018-08-26T18:24:17.000Z"
-     }
-    },
-    "canReply": true,
-    "totalReplyCount": 0,
+    "totalReplyCount": 4,
     "isPublic": true
    }
   },
@@ -640,6 +288,358 @@ export default {
       "likeCount": 0,
       "publishedAt": "2018-08-15T21:57:50.000Z",
       "updatedAt": "2018-08-15T21:57:50.000Z"
+     }
+    },
+    "canReply": true,
+    "totalReplyCount": 0,
+    "isPublic": true
+   }
+  },
+  {
+   "kind": "youtube#commentThread",
+   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/gu6_ZOakIuyb2LTJpZ2f9DB6Tvk\"",
+   "id": "UgxQN3s-xzGKGM2bCwh4AaABAg",
+   "snippet": {
+    "videoId": "2Gm7L3LEyz8",
+    "topLevelComment": {
+     "kind": "youtube#comment",
+     "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/5Fzm-0e0NzinJEGK0seuXLv4e10\"",
+     "id": "UgxQN3s-xzGKGM2bCwh4AaABAg",
+     "snippet": {
+      "authorDisplayName": "Pluggit1953",
+      "authorProfileImageUrl": "https://yt3.ggpht.com/-7k37L4nlzOg/AAAAAAAAAAI/AAAAAAAAAAA/9o2GYV0242o/s28-c-k-no-mo-rj-c0xffffff/photo.jpg",
+      "authorChannelUrl": "http://www.youtube.com/channel/UCLC6MDeJoTO7blnRHtXirIA",
+      "authorChannelId": {
+       "value": "UCLC6MDeJoTO7blnRHtXirIA"
+      },
+      "videoId": "2Gm7L3LEyz8",
+      "textDisplay": "I wish Pat would re-form the Group.",
+      "textOriginal": "I wish Pat would re-form the Group.",
+      "canRate": true,
+      "viewerRating": "none",
+      "likeCount": 0,
+      "publishedAt": "2018-08-15T11:30:38.000Z",
+      "updatedAt": "2018-08-15T11:30:38.000Z"
+     }
+    },
+    "canReply": true,
+    "totalReplyCount": 0,
+    "isPublic": true
+   }
+  },
+  {
+   "kind": "youtube#commentThread",
+   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/3d_yR-nQ6aqNvcbzJffCdpULS-4\"",
+   "id": "Ugyo979ngs7dOOnLmUx4AaABAg",
+   "snippet": {
+    "videoId": "2Gm7L3LEyz8",
+    "topLevelComment": {
+     "kind": "youtube#comment",
+     "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/UwT128Jcrob-rcwK_MrK9de4K8o\"",
+     "id": "Ugyo979ngs7dOOnLmUx4AaABAg",
+     "snippet": {
+      "authorDisplayName": "Jean herman",
+      "authorProfileImageUrl": "https://yt3.ggpht.com/--_zeNtfKyRU/AAAAAAAAAAI/AAAAAAAAAAA/9KgK8IUAy-8/s28-c-k-no-mo-rj-c0xffffff/photo.jpg",
+      "authorChannelUrl": "http://www.youtube.com/channel/UCgf4oFkhtKXDzr0WJYv0ANw",
+      "authorChannelId": {
+       "value": "UCgf4oFkhtKXDzr0WJYv0ANw"
+      },
+      "videoId": "2Gm7L3LEyz8",
+      "textDisplay": "Very good relaxing melody make evening music",
+      "textOriginal": "Very good relaxing melody make evening music",
+      "canRate": true,
+      "viewerRating": "none",
+      "likeCount": 0,
+      "publishedAt": "2018-08-13T13:16:14.000Z",
+      "updatedAt": "2018-08-13T13:16:14.000Z"
+     }
+    },
+    "canReply": true,
+    "totalReplyCount": 0,
+    "isPublic": true
+   }
+  },
+  {
+   "kind": "youtube#commentThread",
+   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/qv54M03YHmS5yUl8dZ0mwYA-FZM\"",
+   "id": "Ugx3mAQuVs25Oz241lZ4AaABAg",
+   "snippet": {
+    "videoId": "2Gm7L3LEyz8",
+    "topLevelComment": {
+     "kind": "youtube#comment",
+     "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/dDNc4W7Y5XGWNQAOntw32IHA_Hk\"",
+     "id": "Ugx3mAQuVs25Oz241lZ4AaABAg",
+     "snippet": {
+      "authorDisplayName": "pon1952leod",
+      "authorProfileImageUrl": "https://yt3.ggpht.com/-_HiNhTQHCSI/AAAAAAAAAAI/AAAAAAAAAAA/fVGoLlrICY4/s28-c-k-no-mo-rj-c0xffffff/photo.jpg",
+      "authorChannelUrl": "http://www.youtube.com/channel/UC2N7Sn0Ewg7pKF5HB9jYIlA",
+      "authorChannelId": {
+       "value": "UC2N7Sn0Ewg7pKF5HB9jYIlA"
+      },
+      "videoId": "2Gm7L3LEyz8",
+      "textDisplay": "💃❤️💋🙏⚡️💫✨💨🥂\u003cbr /\u003eEar candy!!!  Thanx so much:)",
+      "textOriginal": "💃❤️💋🙏⚡️💫✨💨🥂\nEar candy!!!  Thanx so much:)",
+      "canRate": true,
+      "viewerRating": "none",
+      "likeCount": 0,
+      "publishedAt": "2018-08-12T22:45:13.000Z",
+      "updatedAt": "2018-08-12T22:45:13.000Z"
+     }
+    },
+    "canReply": true,
+    "totalReplyCount": 0,
+    "isPublic": true
+   }
+  },
+  {
+   "kind": "youtube#commentThread",
+   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/mS3-irml0q68nizOeLa3cKpApIM\"",
+   "id": "UgwAeoaiy8ZPakway3h4AaABAg",
+   "snippet": {
+    "videoId": "2Gm7L3LEyz8",
+    "topLevelComment": {
+     "kind": "youtube#comment",
+     "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/XSv3kaJIj2kRjhbTkOw4i_acKss\"",
+     "id": "UgwAeoaiy8ZPakway3h4AaABAg",
+     "snippet": {
+      "authorDisplayName": "lynn yoho",
+      "authorProfileImageUrl": "https://yt3.ggpht.com/-IqDkKgsa4_Y/AAAAAAAAAAI/AAAAAAAAAAA/qT4FlM560PQ/s28-c-k-no-mo-rj-c0xffffff/photo.jpg",
+      "authorChannelUrl": "http://www.youtube.com/channel/UCOY-N59oFdeACSnVsIJeqFA",
+      "authorChannelId": {
+       "value": "UCOY-N59oFdeACSnVsIJeqFA"
+      },
+      "videoId": "2Gm7L3LEyz8",
+      "textDisplay": "Where can I buy this? I&#39;m in love.",
+      "textOriginal": "Where can I buy this? I'm in love.",
+      "canRate": true,
+      "viewerRating": "none",
+      "likeCount": 0,
+      "publishedAt": "2018-08-12T03:47:16.000Z",
+      "updatedAt": "2018-08-12T03:47:16.000Z"
+     }
+    },
+    "canReply": true,
+    "totalReplyCount": 0,
+    "isPublic": true
+   }
+  },
+  {
+   "kind": "youtube#commentThread",
+   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/Lq5n-D9xFpnrbU6_u6qKaSKX_hE\"",
+   "id": "Ugy7cQPtZQwzmvqQioV4AaABAg",
+   "snippet": {
+    "videoId": "2Gm7L3LEyz8",
+    "topLevelComment": {
+     "kind": "youtube#comment",
+     "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/ih4FFM1986SeOMC-XQRcIN99P4Y\"",
+     "id": "Ugy7cQPtZQwzmvqQioV4AaABAg",
+     "snippet": {
+      "authorDisplayName": "Kevern Menefee",
+      "authorProfileImageUrl": "https://yt3.ggpht.com/-oPzJF88H3Q0/AAAAAAAAAAI/AAAAAAAAAAA/476BCosggDU/s28-c-k-no-mo-rj-c0xffffff/photo.jpg",
+      "authorChannelUrl": "http://www.youtube.com/channel/UCRsZalePMfzMWXPcZwyyNNA",
+      "authorChannelId": {
+       "value": "UCRsZalePMfzMWXPcZwyyNNA"
+      },
+      "videoId": "2Gm7L3LEyz8",
+      "textDisplay": "JoyKevern Radio",
+      "textOriginal": "JoyKevern Radio",
+      "canRate": true,
+      "viewerRating": "none",
+      "likeCount": 0,
+      "publishedAt": "2018-08-10T15:47:41.000Z",
+      "updatedAt": "2018-08-10T15:47:41.000Z"
+     }
+    },
+    "canReply": true,
+    "totalReplyCount": 0,
+    "isPublic": true
+   }
+  },
+  {
+   "kind": "youtube#commentThread",
+   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/OS1RZyF6nzW0TUK1CFtiiLdDJp8\"",
+   "id": "UgyNH1TraLabhE43ksd4AaABAg",
+   "snippet": {
+    "videoId": "2Gm7L3LEyz8",
+    "topLevelComment": {
+     "kind": "youtube#comment",
+     "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/Fbgl-oCLiLtullKn_v-LdPRhApg\"",
+     "id": "UgyNH1TraLabhE43ksd4AaABAg",
+     "snippet": {
+      "authorDisplayName": "Kevern Menefee",
+      "authorProfileImageUrl": "https://yt3.ggpht.com/-oPzJF88H3Q0/AAAAAAAAAAI/AAAAAAAAAAA/476BCosggDU/s28-c-k-no-mo-rj-c0xffffff/photo.jpg",
+      "authorChannelUrl": "http://www.youtube.com/channel/UCRsZalePMfzMWXPcZwyyNNA",
+      "authorChannelId": {
+       "value": "UCRsZalePMfzMWXPcZwyyNNA"
+      },
+      "videoId": "2Gm7L3LEyz8",
+      "textDisplay": "Of the Spirit, Love,Life, Space and Time.  Am an Artist.  I can do whatever I like with no disrespect to others.  I influence, inspire, motivate, uplift.  This is just stimulus.  Enjoy.",
+      "textOriginal": "Of the Spirit, Love,Life, Space and Time.  Am an Artist.  I can do whatever I like with no disrespect to others.  I influence, inspire, motivate, uplift.  This is just stimulus.  Enjoy.",
+      "canRate": true,
+      "viewerRating": "none",
+      "likeCount": 0,
+      "publishedAt": "2018-08-10T15:47:28.000Z",
+      "updatedAt": "2018-08-10T15:47:28.000Z"
+     }
+    },
+    "canReply": true,
+    "totalReplyCount": 0,
+    "isPublic": true
+   }
+  },
+  {
+   "kind": "youtube#commentThread",
+   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/BgB0S3MkzQDZiCrX6UgmUl8boNI\"",
+   "id": "Ugz7Yl3vmXTXvZnLGlB4AaABAg",
+   "snippet": {
+    "videoId": "2Gm7L3LEyz8",
+    "topLevelComment": {
+     "kind": "youtube#comment",
+     "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/Dw8E3ZgWXXkjO431tveBI3EZIpM\"",
+     "id": "Ugz7Yl3vmXTXvZnLGlB4AaABAg",
+     "snippet": {
+      "authorDisplayName": "Kevern Menefee",
+      "authorProfileImageUrl": "https://yt3.ggpht.com/-oPzJF88H3Q0/AAAAAAAAAAI/AAAAAAAAAAA/476BCosggDU/s28-c-k-no-mo-rj-c0xffffff/photo.jpg",
+      "authorChannelUrl": "http://www.youtube.com/channel/UCRsZalePMfzMWXPcZwyyNNA",
+      "authorChannelId": {
+       "value": "UCRsZalePMfzMWXPcZwyyNNA"
+      },
+      "videoId": "2Gm7L3LEyz8",
+      "textDisplay": "Am a Taveler.",
+      "textOriginal": "Am a Taveler.",
+      "canRate": true,
+      "viewerRating": "none",
+      "likeCount": 0,
+      "publishedAt": "2018-08-10T15:43:47.000Z",
+      "updatedAt": "2018-08-10T15:43:47.000Z"
+     }
+    },
+    "canReply": true,
+    "totalReplyCount": 0,
+    "isPublic": true
+   }
+  },
+  {
+   "kind": "youtube#commentThread",
+   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/BB-gv4DEulXlD7SjmvHt-sScpyE\"",
+   "id": "UgzcRsNqk_SIuj7vRKd4AaABAg",
+   "snippet": {
+    "videoId": "2Gm7L3LEyz8",
+    "topLevelComment": {
+     "kind": "youtube#comment",
+     "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/zoAx-BUEyzEoWEOkK5AV7hfO5g4\"",
+     "id": "UgzcRsNqk_SIuj7vRKd4AaABAg",
+     "snippet": {
+      "authorDisplayName": "Kevern Menefee",
+      "authorProfileImageUrl": "https://yt3.ggpht.com/-oPzJF88H3Q0/AAAAAAAAAAI/AAAAAAAAAAA/476BCosggDU/s28-c-k-no-mo-rj-c0xffffff/photo.jpg",
+      "authorChannelUrl": "http://www.youtube.com/channel/UCRsZalePMfzMWXPcZwyyNNA",
+      "authorChannelId": {
+       "value": "UCRsZalePMfzMWXPcZwyyNNA"
+      },
+      "videoId": "2Gm7L3LEyz8",
+      "textDisplay": "This is JoyKevern Radio&#39;s theme Song.",
+      "textOriginal": "This is JoyKevern Radio's theme Song.",
+      "canRate": true,
+      "viewerRating": "none",
+      "likeCount": 0,
+      "publishedAt": "2018-08-10T15:43:17.000Z",
+      "updatedAt": "2018-08-10T15:43:17.000Z"
+     }
+    },
+    "canReply": true,
+    "totalReplyCount": 0,
+    "isPublic": true
+   }
+  },
+  {
+   "kind": "youtube#commentThread",
+   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/_D8sNEI22O4L07of5kEqsBqNLwc\"",
+   "id": "UgyhXtXsKEY9xOhln-94AaABAg",
+   "snippet": {
+    "videoId": "2Gm7L3LEyz8",
+    "topLevelComment": {
+     "kind": "youtube#comment",
+     "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/G1mW7RLX0C939Vt478FOEmkaAqA\"",
+     "id": "UgyhXtXsKEY9xOhln-94AaABAg",
+     "snippet": {
+      "authorDisplayName": "Mike Dial",
+      "authorProfileImageUrl": "https://yt3.ggpht.com/-xxzwXIiBA1w/AAAAAAAAAAI/AAAAAAAAAAA/ux_aYI3P81E/s28-c-k-no-mo-rj-c0xffffff/photo.jpg",
+      "authorChannelUrl": "http://www.youtube.com/channel/UC9qaVbpQ7WyWGHz3T348m9Q",
+      "authorChannelId": {
+       "value": "UC9qaVbpQ7WyWGHz3T348m9Q"
+      },
+      "videoId": "2Gm7L3LEyz8",
+      "textDisplay": "Thank you for the images.  What  a great multi-media experience!  Subbed.",
+      "textOriginal": "Thank you for the images.  What  a great multi-media experience!  Subbed.",
+      "canRate": true,
+      "viewerRating": "none",
+      "likeCount": 0,
+      "publishedAt": "2018-08-09T22:16:19.000Z",
+      "updatedAt": "2018-08-09T22:16:47.000Z"
+     }
+    },
+    "canReply": true,
+    "totalReplyCount": 0,
+    "isPublic": true
+   }
+  },
+  {
+   "kind": "youtube#commentThread",
+   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/Ezk7k3v31zbUFWnnKgL0pfwS86U\"",
+   "id": "UgzqHfvz1ieWXmVr-bJ4AaABAg",
+   "snippet": {
+    "videoId": "2Gm7L3LEyz8",
+    "topLevelComment": {
+     "kind": "youtube#comment",
+     "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/2Xoz6s_f75fyWWdBrophQ69vDbU\"",
+     "id": "UgzqHfvz1ieWXmVr-bJ4AaABAg",
+     "snippet": {
+      "authorDisplayName": "Ford Waters",
+      "authorProfileImageUrl": "https://yt3.ggpht.com/-Sja8CSYp_hw/AAAAAAAAAAI/AAAAAAAAAAA/ZMKllvlKf8w/s28-c-k-no-mo-rj-c0xffffff/photo.jpg",
+      "authorChannelUrl": "http://www.youtube.com/channel/UCnEzgREhTs1THXEqZnFUOrg",
+      "authorChannelId": {
+       "value": "UCnEzgREhTs1THXEqZnFUOrg"
+      },
+      "videoId": "2Gm7L3LEyz8",
+      "textDisplay": "Timeless.",
+      "textOriginal": "Timeless.",
+      "canRate": true,
+      "viewerRating": "none",
+      "likeCount": 0,
+      "publishedAt": "2018-08-09T17:23:08.000Z",
+      "updatedAt": "2018-08-09T17:23:08.000Z"
+     }
+    },
+    "canReply": true,
+    "totalReplyCount": 0,
+    "isPublic": true
+   }
+  },
+  {
+   "kind": "youtube#commentThread",
+   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/Ub5b6ZUqCRqsUoJ4AA9EMcdzzKY\"",
+   "id": "UgyZ5Oo2pxGgsX1W-n14AaABAg",
+   "snippet": {
+    "videoId": "2Gm7L3LEyz8",
+    "topLevelComment": {
+     "kind": "youtube#comment",
+     "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/qHA9XN8KSpYoa0a_603LmzV6SMw\"",
+     "id": "UgyZ5Oo2pxGgsX1W-n14AaABAg",
+     "snippet": {
+      "authorDisplayName": "MsBROWNIEBABE",
+      "authorProfileImageUrl": "https://yt3.ggpht.com/-G2aEwnDM-Pg/AAAAAAAAAAI/AAAAAAAAAAA/hDDPefGOM5E/s28-c-k-no-mo-rj-c0xffffff/photo.jpg",
+      "authorChannelUrl": "http://www.youtube.com/channel/UCSNSw8g85YupVlFVDFDqthA",
+      "authorChannelId": {
+       "value": "UCSNSw8g85YupVlFVDFDqthA"
+      },
+      "videoId": "2Gm7L3LEyz8",
+      "textDisplay": "I got so lost in this song. 20 minutes into it I remembered its extended to 1 hour LOL. LOVE this!!!",
+      "textOriginal": "I got so lost in this song. 20 minutes into it I remembered its extended to 1 hour LOL. LOVE this!!!",
+      "canRate": true,
+      "viewerRating": "none",
+      "likeCount": 0,
+      "publishedAt": "2018-08-09T14:59:45.000Z",
+      "updatedAt": "2018-08-09T14:59:45.000Z"
      }
     },
     "canReply": true,

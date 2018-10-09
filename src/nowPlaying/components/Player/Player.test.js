@@ -22,71 +22,71 @@ describe('<Player/>', () => {
     }
   };
 
-  it('renders a youtube player', () => {
-    const wrapper = shallow(
-      <Player video={nowPlaying} />
+  function render() {
+    return shallow(
+      <Player
+        channelTitle={nowPlaying.snippet.channelTitle}
+        description={nowPlaying.snippet.description}
+        commentCount={nowPlaying.statistics.commentCount}
+        dislikeCount={nowPlaying.statistics.dislikeCount}
+        id={nowPlaying.id}
+        likeCount={nowPlaying.statistics.likeCount}
+        title={nowPlaying.snippet.title}
+        viewCount={nowPlaying.statistics.viewCount}
+      />
     );
+  }
+
+
+  it('renders a youtube player', () => {
+    const wrapper = render();
     expect(wrapper.find('iframe').prop('src')).toMatch(nowPlaying.id);
   });
 
   it('displays the video title', () => {
-    const wrapper = shallow(
-      <Player video={nowPlaying} />
-    );
+    const wrapper = render();
     expect(wrapper.findWhere(
       n => n.text() === nowPlaying.snippet.title
     ).exists()).toBe(true);
   });
 
   it('displays the video description', () => {
-    const wrapper = shallow(
-      <Player video={nowPlaying} />
-    );
+    const wrapper = render();
     expect(wrapper.findWhere(
       n => n.text() === nowPlaying.snippet.description
     ).exists()).toBe(true);
   });
 
   it('displays the channel title', () => {
-    const wrapper = shallow(
-      <Player video={nowPlaying} />
-    );
+    const wrapper = render();
     expect(wrapper.findWhere(
       n => n.text() === nowPlaying.snippet.channelTitle
     ).exists()).toBe(true);
   });
 
   it('displays view count for the video', () => {
-    const wrapper = shallow(
-      <Player video={nowPlaying} />
-    );
+    const wrapper = render();
     expect(wrapper.findWhere(
       n => n.text() === `${nowPlaying.statistics.viewCount} views`
     ).exists()).toBe(true);
   });
 
   it('displays like count for the video', () => {
-    const wrapper = shallow(
-      <Player video={nowPlaying} />
-    );
+    const wrapper = render();
     expect(wrapper.findWhere(
       n => n.text() === nowPlaying.statistics.likeCount
     ).exists()).toBe(true);
   });
 
   it('displays dislike count for the video', () => {
-    const wrapper = shallow(
-      <Player video={nowPlaying} />
-    );
+    const wrapper = render();
     expect(wrapper.findWhere(
       n => n.text() === nowPlaying.statistics.dislikeCount
     ).exists()).toBe(true);
   });
 
   it('displays comment count for the video', () => {
-    const wrapper = shallow(
-      <Player video={nowPlaying} />
-    );
+    const wrapper = render();
     expect(wrapper.findWhere(
       n => n.text() === `${nowPlaying.statistics.commentCount} comments`
     ).exists()).toBe(true);

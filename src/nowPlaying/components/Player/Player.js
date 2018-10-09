@@ -3,20 +3,14 @@ import PropTypes from 'prop-types';
 
 function Player(props) {
   const {
-    video: {
-      id,
-      snippet: {
-        title,
-        description,
-        channelTitle
-      },
-      statistics: {
-        viewCount,
-        likeCount,
-        dislikeCount,
-        commentCount
-      }
-    }
+    channelTitle,
+    commentCount,
+    description,
+    dislikeCount,
+    likeCount,
+    id,
+    title,
+    viewCount
   } = props;
 
   return (

@@ -1,1 +1,1 @@
-export { default, previewPropType } from './Preview';
+export { default } from './Preview';
