@@ -1,8 +1,15 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import { MemoryRouter } from 'react-router';
+import { Route } from 'react-router-dom';
 
 import PlayerContainer from './Container';
+import Player from './Player';
+import nowPlayingModule from '../../module';
+
+const { actions } = nowPlayingModule;
 
 describe('<PlayerContainer/>', () => {
   function getInitialState() {
@@ -44,15 +51,33 @@ describe('<PlayerContainer/>', () => {
     };
   });
 
-  describe('props', () => {
-    it('correctly maps state to props', () => {
-      const wrapper = shallow(
-        <PlayerContainer />,
-        { context: { store } }
-      );
-      const expected = getInitialState().nowPlaying.currentVideo;
-      const actual = wrapper.prop('currentVideo');
-      expect(actual).toEqual(expected);
-    });
+  it('has a current video to play', () => {
+    const wrapper = mount(
+      <Provider store={store}>
+        <MemoryRouter>
+          <PlayerContainer />
+        </MemoryRouter>
+      </Provider>
+    );
+    const expected = getInitialState().nowPlaying.currentVideo;
+    const actual = wrapper.find(Player).prop('video');
+    expect(actual).toEqual(expected);
+  });
+
+  it('gets the current video on sartup', () => {
+    const wrapper = mount(
+      <Provider store={store}>
+        <MemoryRouter
+          initialEntries={[ '/nowPlaying/foobar' ]}
+          initialIndex={0}
+        >
+          <Route path="/nowPlaying/:videoid" render={() => (
+            <PlayerContainer/>
+          )} />
+        </MemoryRouter>
+      </Provider>
+    );
+
+    expect(dispatch).toBeCalledWith(actions.getCurrentVideo('foobar'));
   });
 });
