@@ -4,66 +4,40 @@ import { Avatar } from '@procore/core-react';
 
 function Comment(props) {
   const {
-    comment: {
-      snippet: {
-        topLevelComment: {
-          snippet: {
-            authorProfileImageUrl,
-            authorDisplayName,
-            textDisplay,
-            likeCount,
-            dislikeCount
-          }
-        }
-      }
-    }
+    author,
+    avatar,
+    commentText,
+    dislikes,
+    likes
   } = props;
 
   return (
     <div>
       <Avatar size="lg">
-        <Avatar.Portrait imageUrl={authorProfileImageUrl}/>
+        <Avatar.Portrait imageUrl={avatar}/>
       </Avatar>
-      <span>{authorDisplayName}</span>
-      <span>{textDisplay}</span>
-      <span>{likeCount}</span>
-      <span>{dislikeCount}</span>
+      <span>{author}</span>
+      <span>{commentText}</span>
+      <span>{likes}</span>
+      <span>{dislikes}</span>
     </div>
   );
 }
 
-export const commentPropType = PropTypes.shape({
-  snippet: PropTypes.shape({
-    topLevelComment: PropTypes.shape({
-      snippet: PropTypes.shape({
-        authorProfileImageUrl: PropTypes.string,
-        authorDisplayName: PropTypes.string,
-        textDisplay: PropTypes.string,
-        likeCount: PropTypes.number,
-        dislikeCount: PropTypes.number
-      })
-    })
-  })
-});
-
 Comment.propTypes = {
-  comment: commentPropType
+  author: PropTypes.string,
+  avatar: PropTypes.string,
+  commentText: PropTypes.string,
+  dislikes: PropTypes.number,
+  likes: PropTypes.number
 };
 
 Comment.defaultProps = {
-  comment: {
-    snippet: {
-      topLevelComment: {
-        snippet: {
-          authorProfileImageUrl: '',
-          authorDisplayName: '',
-          textDisplay: '',
-          likeCount: 0,
-          dislikeCount: 0
-        }
-      }
-    }
-  }
+  author: '',
+  avatar: '',
+  commentText: '',
+  dislikes: null,
+  likes: null
 };
 
 export default Comment;
