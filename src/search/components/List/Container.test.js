@@ -7,9 +7,6 @@ import List from '../../../components/List';
 import searchResultStubs from '../../stubs/searchResultsStub';
 import searchMetadataStubs from '../../stubs/searchMetadataStub';
 import searchSelector from '../../selector';
-import nowPlayingModule from '../../../nowPlaying/module';
-
-const { actions } = nowPlayingModule;
 
 describe('<SearchResultListContainer/>', () => {
   function getInitialState() {
@@ -18,23 +15,14 @@ describe('<SearchResultListContainer/>', () => {
         searchResults: searchResultStubs,
         searchMetadata: searchMetadataStubs 
       },
-      nowPlaying: {
-        comments: { items: [] },
-        relatedVideos: { items: [] }
-      }
     };
   }
 
   let store;
-  let dispatch;
 
   beforeEach(() => {
     const reducer = state => state; 
-    dispatch = jest.fn();
-    store = {
-      ...createStore(reducer, getInitialState()),
-      dispatch
-    };
+    store = createStore(reducer, getInitialState());
   });
 
   describe('props', () => {
@@ -44,22 +32,8 @@ describe('<SearchResultListContainer/>', () => {
         { context: { store } }
       );
       const expected = searchSelector(getInitialState()).searchResults;
-      const actual = wrapper.dive().dive().find('List').prop('listItems');
+      const actual = wrapper.dive().dive().find(List).prop('listItems');
       expect(actual).toEqual(expected);
-    });
-  });
-
-  describe('dispatch', () => {
-    it('correctly maps dispatch to props', () => {
-      const wrapper = shallow(
-        <SearchResultListContainer />,
-        { context: { store } }
-      );
-
-      const searchResults = searchSelector(getInitialState()).searchResults;
-      const list = wrapper.dive().dive().find(List);
-      list.props().onListItemClicked(list.prop('listItems')[5]);
-      expect(dispatch).toBeCalledWith(actions.setCurrentVideo(searchResults[5]));
     });
   });
 });

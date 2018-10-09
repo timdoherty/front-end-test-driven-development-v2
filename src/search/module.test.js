@@ -14,15 +14,6 @@ import { KEY } from '../constants';
 const { actions, reducer } = searchModule;
 
 describe('searchModule', () => {
-  describe('search term', () => {
-    it('clears the current search term', () => {
-      const expected = { searchTerm: null };
-      const actual = reducer({ searchTerm: 'barbaz' }, actions.clearSearchTerm());
-
-      expect(actual).toEqual(expected);
-    });
-  });
-
   describe('search results', () => {
     describe('search results', () => {
       it('handles successful search', () => {
@@ -36,13 +27,6 @@ describe('searchModule', () => {
         expect(getModel(actual)).toEqual(getModel(expected));
         expect(getCmd(actual)).toEqual(getCmd(expected));
       }); 
-
-      it('clears the current search results', () => {
-        const expected = { searchResults: null };
-        const actual = reducer({ searchResults: searchResultsStubs }, actions.clearSearchResults());
-
-        expect(actual).toEqual(expected);
-      });
 
       it('handles search failure', () => {
         const error = { message: 'foo' };
@@ -75,19 +59,26 @@ describe('searchModule', () => {
         expect(getModel(actual)).toEqual(getModel(expected));
         expect(getCmd(actual)).toEqual(getCmd(expected));
       });
+
+      it('clears search state', () => {
+        const expected = {
+          searchTerm: null,
+          searchResults: null,
+          searchMetadata: null
+        };
+
+        const actual = reducer(
+          { searchTerm: 'foo', searchResults: {}, searchMetadata: {} },
+          actions.clearSearch()
+        );
+        expect(actual).toEqual(expected);
+      });
     });
 
     describe('search results metadata', () => {
       it('sets metadata for search results', () => {
         const expected = { searchMetadata: searchMetadataStubs };
-        const actual = reducer({}, actions.setSearchMetadata({ data: searchMetadataStubs }));
-
-        expect(actual).toEqual(expected);
-      });
-
-      it('clears metadata for search results', () => {
-        const expected = { searchMetadata: null };
-        const actual = reducer({ searchMetadata: searchMetadataStubs }, actions.clearSearchMetadata());
+        const actual = reducer({}, actions.onSearchMetadataSuccess({ data: searchMetadataStubs }));
 
         expect(actual).toEqual(expected);
       });

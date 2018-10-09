@@ -1,6 +1,6 @@
 import { createSelector, createStructuredSelector } from 'reselect';
 
-import { formatDuration } from '../utils';
+import { combineSearchData } from '../utils';
 
 function base(state) {
   return state.nowPlaying;
@@ -29,21 +29,10 @@ const relatedVideoMetadataSelector = createSelector(
 const relatedVideosSelector = createSelector(
   rawRelatedVideosSelector,
   relatedVideoMetadataSelector,
-  (relatedVideos, metadata) => relatedVideos.map(video => {
-    const meta = metadata.find(
-      metadatum => metadatum.id === video.id.videoId
-    );
-    return {
-      ...video,
-      ...meta,
-      id: meta ? meta.id : video.id.videoId,
-      contentDetails: {
-        duration: meta ? formatDuration(meta.contentDetails.duration) : ''
-      },
-      statistics: meta ? meta.statistics : {}
-    };
-  })
-)
+  (relatedVideos, metadata) => combineSearchData(
+    relatedVideos, metadata
+  )
+);
 
 export default createStructuredSelector({
   comments: commentsSelector,
