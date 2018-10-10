@@ -1,5 +1,5 @@
 import { createModule } from 'redux-modules';
-import { loop, Cmd } from 'redux-loop';
+import { loop, Cmd, liftState } from 'redux-loop';
 import axios from 'axios';
 
 import nowPlayingSelector from './selector';
@@ -10,6 +10,7 @@ const nowPlayingModule = createModule({
   name: 'nowPlaying',
   initialState: {},
   selector: nowPlayingSelector,
+  composes: [ liftState ],
   transformations: {
     clearCurrentVideo(state, action) {
       return {
@@ -36,6 +37,28 @@ const nowPlayingModule = createModule({
           }
         )
       )
+    },
+    getCurrentVideo(state, action) {
+      const { payload: id } = action;
+      const url = `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics,contentDetails&id=${id}&key=${KEY}`;
+      return loop(
+        {
+          ...state,
+          isLoading: true
+        },
+        Cmd.list([
+          Cmd.run(
+            axios.get,
+            {
+              args: [url],
+              successActionCreator: nowPlayingModule.actions.setCurrentVideo,
+              failActionCreator: nowPlayingModule.actions.onCurrentVideoFailure
+            }
+          ),
+          Cmd.action(nowPlayingModule.actions.getComments(id)),
+          Cmd.action(nowPlayingModule.actions.getRelatedVideos(id))
+        ])
+      );
     },
     getRelatedVideos(state, action) {
       const { payload: id } = action;
@@ -77,6 +100,15 @@ const nowPlayingModule = createModule({
       const { payload: error } = action;
       return {
         ...state,
+        isLoading: false,
+        error
+      };
+    },
+    onCurrentVideoFailure(state, action) {
+      const { payload: error } = action;
+      return {
+        ...state,
+        isLoading: false,
         error
       };
     },
@@ -108,17 +140,11 @@ const nowPlayingModule = createModule({
       );
     },
     setCurrentVideo(state, action) {
-      const { payload: currentVideo } = action;
-      return loop(
-        {
-          ...state,
-          currentVideo
-        },
-        Cmd.list([
-          Cmd.action(nowPlayingModule.actions.getComments(currentVideo.id)),
-          Cmd.action(nowPlayingModule.actions.getRelatedVideos(currentVideo.id))
-        ])
-      );
+      const { payload: { data: currentVideo } } = action;
+      return {
+        ...state,
+        currentVideo
+      };
     },
     setComments(state, action) {
       const { payload: { data: comments } } = action;
