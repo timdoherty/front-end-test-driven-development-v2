@@ -8,7 +8,7 @@ import { KEY } from '../constants';
 
 const nowPlayingModule = createModule({
   name: 'nowPlaying',
-  initialState: {},
+  initialState: { },
   selector: nowPlayingSelector,
   composes: [ liftState ],
   transformations: {
@@ -40,7 +40,7 @@ const nowPlayingModule = createModule({
     },
     getCurrentVideo(state, action) {
       const { payload: id } = action;
-      const url = `https://www.googleapis.com/youtube/v3/videos?part=statistics,contentDetails&id=${id}&key=${KEY}`;
+      const url = `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics,contentDetails&id=${id}&key=${KEY}`;
       return loop(
         {
           ...state,
@@ -52,6 +52,7 @@ const nowPlayingModule = createModule({
             {
               args: [url],
               successActionCreator: nowPlayingModule.actions.setCurrentVideo,
+              // TODO implement failure action
               failActionCreator: nowPlayingModule.actions.onCurrentVideoFailure
             }
           ),

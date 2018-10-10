@@ -9,29 +9,33 @@ import PlayerContainer from './Container';
 import Player from './Player';
 import nowPlayingModule from '../../module';
 
-const { actions } = nowPlayingModule;
+const { actions, selector } = nowPlayingModule;
 
 describe('<PlayerContainer/>', () => {
   function getInitialState() {
     return {
       nowPlaying: {
         currentVideo: {
-          id: 'foobarbaz',
-          snippet: {
-            title: 'Foo Bar Baz',
-            description: 'This is the Foo Bar Baz video.',
-            channelTitle: 'FooBarBaz channel'
-          },
-          statistics: {
-            viewCount: '100000000',
-            likeCount: '50000',
-            dislikeCount: '3',
-            favoriteCount: '1',
-            commentCount: '333'
-          },
-          contentDetails: {
-            duration: '00:05:32'
-          }
+          items: [
+            {
+              id: 'foobarbaz',
+              snippet: {
+                title: 'Foo Bar Baz',
+                description: 'This is the Foo Bar Baz video.',
+                channelTitle: 'FooBarBaz channel'
+              },
+              statistics: {
+                viewCount: '100000000',
+                likeCount: '50000',
+                dislikeCount: '3',
+                favoriteCount: '1',
+                commentCount: '333'
+              },
+              contentDetails: {
+                duration: '00:05:32'
+              }
+            }
+          ]
         },
         relatedVideos: { items: [] },
         comments: { items: [] }
@@ -59,19 +63,19 @@ describe('<PlayerContainer/>', () => {
         </MemoryRouter>
       </Provider>
     );
-    const expected = getInitialState().nowPlaying.currentVideo;
-    const actual = wrapper.find(Player).prop('video');
+    const expected = selector(getInitialState()).currentVideo.id;
+    const actual = wrapper.find(Player).prop('id');
     expect(actual).toEqual(expected);
   });
 
-  it('gets the current video on sartup', () => {
+  it('gets the current video on startup', () => {
     const wrapper = mount(
       <Provider store={store}>
         <MemoryRouter
-          initialEntries={[ '/nowPlaying/foobar' ]}
+          initialEntries={[ '/now-playing/foobar' ]}
           initialIndex={0}
         >
-          <Route path="/nowPlaying/:videoid" render={() => (
+          <Route path="/now-playing/:videoid" render={() => (
             <PlayerContainer/>
           )} />
         </MemoryRouter>

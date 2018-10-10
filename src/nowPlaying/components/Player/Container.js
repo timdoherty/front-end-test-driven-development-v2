@@ -23,9 +23,18 @@ class PlayerContainer extends Component {
     if (!currentVideo) {
       return null;
     }
-
+ 
     return (
-      <Player video={currentVideo} />
+      <Player
+        channelTitle={currentVideo.snippet.channelTitle}
+        commentCount={currentVideo.statistics.commentCount}
+        description={currentVideo.snippet.description}
+        dislikeCount={currentVideo.statistics.dislikeCount}
+        likeCount={currentVideo.statistics.likeCount}
+        id={currentVideo.id}
+        title={currentVideo.snippet.title}
+        viewCount={currentVideo.statistics.viewCount}
+      />
     );
   }
 }

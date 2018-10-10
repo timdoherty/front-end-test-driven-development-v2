@@ -17,6 +17,7 @@ function List(props) {
           key={item.etag}
           channelTitle={item.channelTitle}
           description={!!showDescription && item.description}
+          id={item.id}
           thumbnail={item.snippet.thumbnails[thumbnailSize]}
           viewCount={item.statistics.viewCount}
         />

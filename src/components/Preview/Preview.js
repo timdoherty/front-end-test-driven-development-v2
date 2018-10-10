@@ -14,7 +14,7 @@ function Preview(props) {
   } = props;
 
   return (
-    <Link to={`/nowPlaying/${id}`}>
+    <Link to={`/now-playing/${id}`}>
       <Card style={{
         height: `${thumbnail.height}px`,
         width: `${thumbnail.width}px`

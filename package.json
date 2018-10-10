@@ -4,7 +4,7 @@
   "author": "Tim Doherty <tim.doherty@procore.com>",
   "private": true,
   "dependencies": {
-    "@procore/core-icons": "^6.2.1",
+    "@procore/core-icons": "^6.4.1",
     "@procore/core-react": "^6.0.0",
     "axios": "^0.18.0",
     "babel-preset-env": "^1.7.0",
@@ -12,6 +12,7 @@
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
     "redux": "^4.0.0",
     "redux-loop": "^4.3.3",

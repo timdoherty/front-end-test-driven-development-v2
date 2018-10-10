@@ -18,7 +18,7 @@ describe('nowPlayingModule', () => {
   describe('current video', () => {
     it('gets the current video', () => {
       const id = 'foo';
-      const url = `https://www.googleapis.com/youtube/v3/videos?part=statistics,contentDetails&id=${id}&key=${KEY}`;
+      const url = `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics,contentDetails&id=${id}&key=${KEY}`;
       const expected = loop(
         { isLoading: true },
         Cmd.list([

@@ -8,7 +8,7 @@ function base(state) {
 
 const currentVideoSelector = createSelector(
   base,
-  base => base.currentVideo
+  base => base.currentVideo ? base.currentVideo.items[0] : null
 );
 
 const commentsSelector = createSelector(

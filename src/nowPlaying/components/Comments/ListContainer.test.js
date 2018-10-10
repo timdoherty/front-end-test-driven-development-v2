@@ -9,7 +9,7 @@ describe('<ListContainer/>', () => {
   function getInitialState() {
     return {
       nowPlaying: {
-        currentVideo: {},
+        currentVideo: { items: [] },
         relatedVideos: { items: [] },
         comments: commentsStub
       }

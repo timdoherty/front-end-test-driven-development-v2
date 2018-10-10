@@ -9,7 +9,7 @@ describe('nowPlayingSelector', () => {
 
   const state = {
     nowPlaying: {
-      currentVideo,
+      currentVideo: { items: [ currentVideo ]},
       comments: commentStubs,
       relatedVideos: relatedVideoStubs,
       relatedVideoMetadata: relatedVideoMetadataStubs

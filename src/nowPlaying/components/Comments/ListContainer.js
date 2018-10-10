@@ -13,7 +13,7 @@ function ListContainer(props) {
 }
 
 ListContainer.propTypes = {
-  comments: PropTypes.arrayOf(PropTypes.onject)
+  comments: PropTypes.arrayOf(PropTypes.object)
 };
 
 ListContainer.defaultProps = { comments: [] };
