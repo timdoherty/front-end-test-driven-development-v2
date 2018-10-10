@@ -35,7 +35,7 @@ describe('searchModule', () => {
 
         expect(actual).toEqual(expected);
       });
-      
+
       it('gets search results', () => {
         const state = { isLoading: false };
         const searchTerm = 'heisenberg';
