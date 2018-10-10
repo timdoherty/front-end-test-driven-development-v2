@@ -12,18 +12,18 @@ function fluxStandardAction(type) {
 }
 
 let constants = {
-  CLEAR_SEARCH: 'CLEAR_SEARCH',
-  DO_SEARCH: 'DO_SEARCH',
-  GET_SEARCH_METADATA: 'GET_SEARCH_METADATA',
-  ON_SEARCH_FAILURE: 'ON_SEARCH_FAILURE',
-  ON_SEARCH_METADATA_SUCCESS: 'ON_SEARCH_METADATA_SUCCESS',
-  ON_SEARCH_METADATA_FAILURE: 'ON_SEARCH_METADATA_FAILURE',
-  ON_SEARCH_SUCCESS: 'ON_SEARCH_SUCCESS'
+  CLEAR_SEARCH: 'search/CLEAR_SEARCH',
+  DO_SEARCH: 'search/DO_SEARCH',
+  GET_SEARCH_METADATA: 'search/GET_SEARCH_METADATA',
+  ON_SEARCH_FAILURE: 'search/ON_SEARCH_FAILURE',
+  ON_SEARCH_METADATA_SUCCESS: 'search/ON_SEARCH_METADATA_SUCCESS',
+  ON_SEARCH_METADATA_FAILURE: 'search/ON_SEARCH_METADATA_FAILURE',
+  ON_SEARCH_SUCCESS: 'search/ON_SEARCH_SUCCESS'
 };
 
-const actions = Object.keys(constants).reduce(
-  (accumulator, key) => {
-    accumulator[camelCase(key)] = fluxStandardAction(key);
+const actions = Object.entries(constants).reduce(
+  (accumulator, [key, value]) => {
+    accumulator[camelCase(key)] = fluxStandardAction(value);
     return accumulator;
   },
   {}
