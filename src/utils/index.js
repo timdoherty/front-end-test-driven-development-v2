@@ -16,7 +16,7 @@ export function combineSearchData(searchResults, searchMeta) {
         ...meta.contentDetails,
         duration: formatDuration(meta.contentDetails.duration)
       },
-      statistics: meta ? meta.statistics : {}
+      statistics: meta ? meta.statistics || {} : {}
     };
   });
 }
