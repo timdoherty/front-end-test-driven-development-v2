@@ -5,10 +5,6 @@ import searchMetadataStubs from '../search/stubs/searchMetadataStub';
 const coalescedResult = {
   "kind": "youtube#video",
   "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/RRBaiYaP7zQ0RWQ4WuRnxO5qR7w\"",
-  "id": {
-    "kind": "youtube#video",
-    "videoId": "2Gm7L3LEyz8"
-  },
   "snippet": {
     "publishedAt": "2017-09-09T02:09:57.000Z",
     "channelId": "UCTg2TIWiAgr0FduTohrzj1A",
