@@ -31,25 +31,25 @@ const thumbnailProptype = PropTypes.shape({
   height: PropTypes.number
 });
 
-List.propTypes = {
-  listItems: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-      snippet: PropTypes.shape({
-        title: PropTypes.string,
-        description: PropTypes.string,
-        channelTitle: PropTypes.string,
-        thumbnails: PropTypes.shape({
-          default: thumbnailProptype,
-          medium: thumbnailProptype,
-          high: thumbnailProptype
-        })
-      }),
-      statistics: PropTypes.shape({
-        viewCount: PropTypes.string
-      })
+export const previewPropType = PropTypes.shape({
+  id: PropTypes.string,
+  snippet: PropTypes.shape({
+    title: PropTypes.string,
+    description: PropTypes.string,
+    channelTitle: PropTypes.string,
+    thumbnails: PropTypes.shape({
+      default: thumbnailProptype,
+      medium: thumbnailProptype,
+      high: thumbnailProptype
     })
-  ),
+  }),
+  statistics: PropTypes.shape({
+    viewCount: PropTypes.string
+  })
+});
+
+List.propTypes = {
+  listItems: PropTypes.arrayOf(previewPropType),
   onListItemClicked: PropTypes.func,
   thumbnailSize: PropTypes.string,
   showDescription: PropTypes.bool
