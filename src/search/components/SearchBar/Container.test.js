@@ -1,6 +1,8 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import { MemoryRouter } from 'react-router';
 
 import SearchBarContainer from './Container';
 import SearchBar from './SearchBar';
@@ -33,23 +35,32 @@ describe('<SearchBarContainer/>', () => {
 
   describe('props', () => {
     it('correctly maps state to props', () => {
-      const wrapper = shallow(
-        <SearchBarContainer />,
-        { context: { store } }
+      const wrapper = mount(
+        <Provider store={store}>
+          <MemoryRouter>
+            <SearchBarContainer />
+          </MemoryRouter>
+        </Provider>
       );
 
-      expect(wrapper.dive().dive().find(SearchBar).prop('searchTerm')).toBe('foobarbaz');
+      expect(wrapper.find(SearchBar).prop('searchTerm')).toBe('foobarbaz');
     });
   });
 
   describe('dispatch', () => {
-    it('mounts the component', () => {
-      const wrapper = shallow(
-        <SearchBarContainer />,
-        { context: { store } }
+    it('performs a search and updates the web address when the search term changes', () => {
+      const wrapper = mount(
+        <Provider store={store}>
+          <MemoryRouter>
+            <SearchBarContainer />
+          </MemoryRouter>
+        </Provider>
       );
 
-      wrapper.dive().dive().find(SearchBar).props().onSearchChanged('foobarbaz');
+      wrapper.find(SearchBar).props().onSearchChanged('foobarbaz');
+      expect(
+        wrapper.find('Router').prop('history').location.pathname
+      ).toBe('/search/foobarbaz');
       expect(dispatch).toBeCalledWith(actions.doSearch('foobarbaz'));
     });
   })

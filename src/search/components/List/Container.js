@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connectModule } from 'redux-modules';
 
-import List from '../../../components/List';
+import List, { previewPropType } from '../../../components/List';
 import searchModule from '../../module';
 
 function SearchResultListContainer(props) {
@@ -14,7 +14,7 @@ function SearchResultListContainer(props) {
 }
 
 SearchResultListContainer.propTypes = {
-  searchResults: PropTypes.array.isRequired,
+  searchResults: PropTypes.arrayOf(previewPropType),
 };
 
 export default connectModule(searchModule)(SearchResultListContainer);
