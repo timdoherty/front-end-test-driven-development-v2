@@ -12,11 +12,12 @@ export function combineSearchData(searchResults, searchMeta) {
     return {
       ...result,
       ...meta,
+      id: result.id.videoId,
       contentDetails: {
         ...meta.contentDetails,
         duration: formatDuration(meta.contentDetails.duration)
       },
-      statistics: meta ? meta.statistics : {}
+      statistics: meta ? meta.statistics || {} : {}
     };
   });
 }
