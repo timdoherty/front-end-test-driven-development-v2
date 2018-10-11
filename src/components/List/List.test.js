@@ -32,10 +32,12 @@ describe('<List/>', () => {
       />
     );
 
-    expect(wrapper.find(Preview).at(0).prop('thumbnail')).toEqual(listItems[0].snippet.thumbnails.high);
+    expect(
+      wrapper.find(Preview).at(0).prop('thumbnail')
+    ).toEqual(listItems[0].snippet.thumbnails.high);
   });
 
-  it('provides an override to hide descriptions for individual items', () => {
+  it('provides an override to hide descriptions for list items', () => {
     const wrapper = shallow(
       <List
         listItems={listItems}
