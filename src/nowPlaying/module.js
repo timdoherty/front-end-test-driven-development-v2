@@ -40,7 +40,7 @@ const nowPlayingModule = createModule({
     },
     getCurrentVideo(state, action) {
       const { payload: id } = action;
-      const url = `https://www.googleapis.com/youtube/v3/videos?part=statistics,contentDetails&id=${id}&key=${KEY}`;
+      const url = `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics,contentDetails&id=${id}&key=${KEY}`;
       return loop(
         {
           ...state,
@@ -97,6 +97,14 @@ const nowPlayingModule = createModule({
       );
     },
     onCommentsFailure(state, action) {
+      const { payload: error } = action;
+      return {
+        ...state,
+        isLoading: false,
+        error
+      };
+    },
+    onCurrentVideoFailure(state, action) {
       const { payload: error } = action;
       return {
         ...state,

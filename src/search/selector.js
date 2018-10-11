@@ -1,5 +1,5 @@
 import { createSelector, createStructuredSelector } from 'reselect';
-import { combineSearchData } from '../utils';
+import { formatDuration } from '../utils';
 
 const baseSelector = state => state.search;
 
@@ -21,9 +21,19 @@ const searchMetadataSelector = createSelector(
 const searchResultsSelector = createSelector(
   rawSearchResultsSelector,
   searchMetadataSelector,
-  (results, metadata) => combineSearchData(
-    results.items, metadata.items
-  )
+  (results, metadata) => results.items.map(result => {
+    const meta = metadata.items.find(
+      datum => datum.id === result.id.videoId
+    );
+    return {
+      ...result,
+      ...meta,
+      contentDetails: {
+        duration: meta ? formatDuration(meta.contentDetails.duration) : ''
+      },
+      statistics: meta ? meta.statistics : {}
+    };
+  })
 );
 
 export default createStructuredSelector({
