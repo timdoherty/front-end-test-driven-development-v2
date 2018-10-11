@@ -31,7 +31,7 @@ class PlayerContainer extends Component {
 }
 
 PlayerContainer.propTypes = {
-  currentVideo: videoPropType
+  currentVideo: PropTypes.object
 };
 
 export default compose(

@@ -18,7 +18,7 @@ describe('nowPlayingModule', () => {
   describe('current video', () => {
     it('gets the current video', () => {
       const id = 'foo';
-      const url = `https://www.googleapis.com/youtube/v3/videos?part=statistics,contentDetails&id=${id}&key=${KEY}`;
+      const url = `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics,contentDetails&id=${id}&key=${KEY}`;
       const expected = loop(
         { isLoading: true },
         Cmd.list([
@@ -46,6 +46,17 @@ describe('nowPlayingModule', () => {
       };
 
       const actual = reducer({}, actions.setCurrentVideo({ data: searchResult }));
+      expect(getModel(actual)).toEqual(expected);
+    });
+
+    it('handles current video failure', () => {
+      const error = { not: 'good' };
+      const expected = {
+        isLoading: false,
+        error,
+      };
+
+      const actual = reducer({ isLoading: true }, actions.onCurrentVideoFailure(error));
       expect(getModel(actual)).toEqual(expected);
     });
 
