@@ -35,7 +35,9 @@ function Preview(props) {
 
 Preview.propTypes = {
   channelTitle: PropTypes.string,
-  description: PropTypes.string,
+  description: PropTypes.oneOfType([
+    PropTypes.string, PropTypes.bool
+  ]),
   thumbnail: PropTypes.shape({
     url: PropTypes.string,
     width: PropTypes.number,
