@@ -9,13 +9,15 @@ import SearchBar from './SearchBar';
 
 function SearchBarContainer(props) {
   const { actions: { doSearch }, history, ...rest } = props;
-  function doSearchWithRouteChange(searchTerm) {
+
+  function doSearchWithHistory(searchTerm) {
     doSearch(searchTerm);
     history.push(`/search/${searchTerm}`);
   }
+
   return (
     <SearchBar
-      onSearchChanged={doSearchWithRouteChange}
+      onSearchChanged={doSearchWithHistory}
       {...rest}
     />
   );

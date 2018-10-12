@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router';
@@ -48,7 +48,7 @@ describe('<SearchBarContainer/>', () => {
   });
 
   describe('dispatch', () => {
-    it('performs a search', () => {
+    it('performs a search and updates the web address when the search term changes', () => {
       const wrapper = mount(
         <Provider store={store}>
           <MemoryRouter>
@@ -58,6 +58,9 @@ describe('<SearchBarContainer/>', () => {
       );
 
       wrapper.find(SearchBar).props().onSearchChanged('foobarbaz');
+      expect(
+        wrapper.find('Router').prop('history').location.pathname
+      ).toBe('/search/foobarbaz');
       expect(dispatch).toBeCalledWith(actions.doSearch('foobarbaz'));
     });
   })

@@ -40,7 +40,10 @@ describe('<App/>', () => {
       return Promise.resolve({ data: metaResponse });
     });
 
-    wrapper.find('SearchBar').props().onSearchChanged('foobar');
+    wrapper
+      .find('SearchBar')
+      .props()
+      .onSearchChanged('foobar');
   }
 
   function mockNowPlayingRequests() {
@@ -57,26 +60,24 @@ describe('<App/>', () => {
     });
   }
 
-  function selectSearchResult(wrapper, resultIndex) {
-    const searchResult = wrapper.find('SearchResultListContainer')
-                         .prop('searchResults')[resultIndex];
-    const searchResultPreview = wrapper.find('SearchResultListContainer')
-                               .find('Preview')
-                               .at(resultIndex);
+  function clickPreviewLink(list, index, propName) {
+    const data = list.prop(propName)[index];
+    const link = list
+      .find('Preview')
+      .at(index)
+      .find('Link')
+      .find('a');
 
     axios.get.mockImplementationOnce(() => {
-      return Promise.resolve({ data: { items: [ searchResult ] } });
+      return Promise.resolve({ data: { items: [data] } });
     });
     mockNowPlayingRequests();
-    const searchResultLink = searchResultPreview.find('Link').find('a');
-    searchResultLink.simulate('click', { button: 0 });
+    link.simulate('click', { button: 0 });
   }
 
   describe('search', () => {
     it('responds to a search request', async () => {
-      const wrapper = mount(
-        <App />
-      );
+      const wrapper = mount(<App />);
 
       doSearch(wrapper);
 
@@ -86,16 +87,16 @@ describe('<App/>', () => {
       const searchBar = wrapper.find('SearchBar');
       expect(searchBar.prop('searchTerm')).toBe('foobar');
 
-      const searchResultList = wrapper.find('SearchResultListContainer')
-      expect(searchResultList.prop('searchResults').length).toBe(searchResultsStubs.items.length);
+      const searchResultList = wrapper.find('SearchResultListContainer');
+      expect(searchResultList.prop('searchResults').length).toBe(
+        searchResultsStubs.items.length
+      );
     });
   });
 
   describe('now playing', () => {
     it('plays a video when a search result is clicked', async () => {
-      const wrapper = mount(
-        <App />
-      );
+      const wrapper = mount(<App />);
 
       doSearch(wrapper);
       await asyncFlush();
@@ -104,11 +105,15 @@ describe('<App/>', () => {
       const expected = searchSelector({
         search: {
           searchResults: searchResultsStubs,
-          searchMetadata: searchMetadataStubs
-        }
+          searchMetadata: searchMetadataStubs,
+        },
       }).searchResults[1];
 
-      selectSearchResult(wrapper, 1);
+      clickPreviewLink(
+        wrapper.find('SearchResultListContainer'),
+        1,
+        'searchResults'
+      );
       await asyncFlush();
       wrapper.update();
 
@@ -118,46 +123,58 @@ describe('<App/>', () => {
       const commentsList = wrapper.find('Comment');
       expect(commentsList.length).toBe(commentsStubs.items.length);
 
-      const relatedVideosList = wrapper.find('RelatedVideosContainer')
-                                       .find('Preview');
+      const relatedVideosList = wrapper
+        .find('RelatedVideosContainer')
+        .find('Preview');
       expect(relatedVideosList.length).toBe(relatedVideosStubs.items.length);
-      wrapper.unmount()
+      wrapper.unmount();
     });
 
     it('sets a related video as the current video', async () => {
-      history.pushState({}, '', '/')
+      history.pushState({}, '', '/');
 
-      const wrapper = mount(
-        <App />
-      );
+      const wrapper = mount(<App />);
 
       doSearch(wrapper);
       await asyncFlush();
       wrapper.update();
 
-      selectSearchResult(wrapper, 1);
+      clickPreviewLink(
+        wrapper.find('SearchResultListContainer'),
+        1,
+        'searchResults'
+      );
       await asyncFlush();
       wrapper.update();
 
-      const relatedVideosList = wrapper.find('RelatedVideosContainer')
-                                       .find('Preview');
+      const relatedVideosList = wrapper
+        .find('RelatedVideosContainer')
+        .find('Preview');
 
       const expected = nowPlayingSelector({
         nowPlaying: {
           relatedVideos: relatedVideosStubs,
-          relatedVideoMetadata: relatedVideoMetadataStubs
-        }
+          relatedVideoMetadata: relatedVideoMetadataStubs,
+        },
       }).relatedVideos[1];
 
-      axios.get.mockImplementationOnce(() => {
-        return Promise.resolve({ data: { items: [ expected ] } });
-      });
+      // axios.get.mockImplementationOnce(() => {
+      //   return Promise.resolve({ data: { items: [expected] } });
+      // });
 
-      mockNowPlayingRequests();
-      relatedVideosList.at(1).find('Link').find('a').simulate('click', { button: 0 });
+      // mockNowPlayingRequests();
+      // relatedVideosList
+      //   .at(1)
+      //   .find('Link')
+      //   .find('a')
+      //   .simulate('click', { button: 0 });
+      clickPreviewLink(
+        wrapper.find('RelatedVideosContainer'),
+        1,
+        'relatedVideos'
+      );
       await asyncFlush();
       wrapper.update();
-
 
       const player = wrapper.find('Player');
       expect(player.prop('id')).toEqual(expected.id);

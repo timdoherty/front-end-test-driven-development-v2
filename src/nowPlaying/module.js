@@ -8,7 +8,7 @@ import { KEY } from '../constants';
 
 const nowPlayingModule = createModule({
   name: 'nowPlaying',
-  initialState: { },
+  initialState: {},
   selector: nowPlayingSelector,
   composes: [ liftState ],
   transformations: {
@@ -52,7 +52,6 @@ const nowPlayingModule = createModule({
             {
               args: [url],
               successActionCreator: nowPlayingModule.actions.setCurrentVideo,
-              // TODO implement failure action
               failActionCreator: nowPlayingModule.actions.onCurrentVideoFailure
             }
           ),
@@ -98,6 +97,14 @@ const nowPlayingModule = createModule({
       );
     },
     onCommentsFailure(state, action) {
+      const { payload: error } = action;
+      return {
+        ...state,
+        isLoading: false,
+        error
+      };
+    },
+    onCurrentVideoFailure(state, action) {
       const { payload: error } = action;
       return {
         ...state,

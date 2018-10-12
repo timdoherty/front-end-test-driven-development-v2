@@ -2,40 +2,42 @@ import { createSelector, createStructuredSelector } from 'reselect';
 
 import { combineSearchData } from '../utils';
 
-function base(state) {
-  return state.nowPlaying;
-}
+const baseSelector = state => state.nowPlaying;
+
+const currentVideoResponseSelector = state =>
+  baseSelector(state).currentVideo || {};
+
+const currentVideoItemsSelector = state =>
+  currentVideoResponseSelector(state).items || [];
 
 const currentVideoSelector = createSelector(
-  base,
-  base => base.currentVideo ? base.currentVideo.items[0] : null
+  currentVideoItemsSelector,
+  items => (items.length ? items[0] : null)
 );
 
 const commentsSelector = createSelector(
-  base,
-  base => base.comments ? base.comments.items : []
+  baseSelector,
+  base => (base.comments ? base.comments.items : [])
 );
 
 const rawRelatedVideosSelector = createSelector(
-  base,
-  base => base.relatedVideos ? base.relatedVideos.items : []
+  baseSelector,
+  base => (base.relatedVideos ? base.relatedVideos.items : [])
 );
 
 const relatedVideoMetadataSelector = createSelector(
-  base,
-  base => base.relatedVideoMetadata ? base.relatedVideoMetadata.items : []
+  baseSelector,
+  base => (base.relatedVideoMetadata ? base.relatedVideoMetadata.items : [])
 );
 
 const relatedVideosSelector = createSelector(
   rawRelatedVideosSelector,
   relatedVideoMetadataSelector,
-  (relatedVideos, metadata) => combineSearchData(
-    relatedVideos, metadata
-  )
+  (relatedVideos, metadata) => combineSearchData(relatedVideos, metadata)
 );
 
 export default createStructuredSelector({
   comments: commentsSelector,
   currentVideo: currentVideoSelector,
-  relatedVideos: relatedVideosSelector
+  relatedVideos: relatedVideosSelector,
 });

@@ -8,15 +8,11 @@ import nowPlayingModule from '../../module';
 function RelatedVideosContainer(props) {
   const { relatedVideos } = props;
 
-  return (
-    <List
-      listItems={relatedVideos}
-    />
-  );
+  return <List listItems={relatedVideos} />;
 }
 
 RelatedVideosContainer.propTypes = {
-  relatedVideos: PropTypes.arrayOf(PropTypes.object).isRequired
+  relatedVideos: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default connectModule(nowPlayingModule)(RelatedVideosContainer);

@@ -49,6 +49,17 @@ describe('nowPlayingModule', () => {
       expect(getModel(actual)).toEqual(expected);
     });
 
+    it('handles current video failure', () => {
+      const error = { not: 'good' };
+      const expected = {
+        isLoading: false,
+        error,
+      };
+
+      const actual = reducer({ isLoading: true }, actions.onCurrentVideoFailure(error));
+      expect(getModel(actual)).toEqual(expected);
+    });
+
     it('clears the current video', () => {
       const expected = {
         currentVideo: null,

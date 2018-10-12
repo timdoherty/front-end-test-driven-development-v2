@@ -5,11 +5,15 @@ import relatedVideoMetadataStubs from './stubs/relatedVideoMetadataStub';
 import { combineSearchData } from '../utils';
 
 describe('nowPlayingSelector', () => {
-  const currentVideo =   { foo: 'bar' };
+  const currentVideo = {
+    items: [
+      { foo: 'bar' }
+    ]
+  };
 
   const state = {
     nowPlaying: {
-      currentVideo: { items: [ currentVideo ]},
+      currentVideo,
       comments: commentStubs,
       relatedVideos: relatedVideoStubs,
       relatedVideoMetadata: relatedVideoMetadataStubs
@@ -18,7 +22,7 @@ describe('nowPlayingSelector', () => {
 
   describe('current video', () => {
     it('selects current video metadata', () => {
-      const expected = currentVideo;
+      const expected = currentVideo.items[0];
       const actual = nowPlayingSelector(state).currentVideo;
       expect(actual).toEqual(expected);
     })

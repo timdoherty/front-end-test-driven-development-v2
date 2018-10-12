@@ -23,10 +23,9 @@ class PlayerContainer extends Component {
     if (!currentVideo) {
       return null;
     }
- 
     return (
       <Player
-        channelTitle={currentVideo.snippet.channelTitle}
+        channelTitle={currentVideo.channelTitle}
         commentCount={currentVideo.statistics.commentCount}
         description={currentVideo.snippet.description}
         dislikeCount={currentVideo.statistics.dislikeCount}
@@ -40,7 +39,7 @@ class PlayerContainer extends Component {
 }
 
 PlayerContainer.propTypes = {
-  currentVideo: videoPropType
+  currentVideo: PropTypes.object
 };
 
 export default compose(
