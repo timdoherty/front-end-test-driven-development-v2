@@ -5,14 +5,6 @@ import { Input } from '@procore/core-react';
 import SearchBar from './SearchBar';
 
 describe('<SearchBar/>', () => {
-  beforeEach(() => {
-    // setup each test here (or use before() for all)
-  });
-
-  afterEach(() => {
-    // tear down each test here (or use after() for all)
-  });
-
   it('has somewhere to enter search text', () => {
     const wrapper = shallow(
       <SearchBar />

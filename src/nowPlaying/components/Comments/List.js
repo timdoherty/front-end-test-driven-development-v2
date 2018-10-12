@@ -10,7 +10,11 @@ function CommentsList(props) {
       {comments.map(comment => (
         <Comment
           key={comment.id}
-          comment={comment}
+          author={comment.snippet.topLevelComment.snippet.authorDisplayName}
+          avatar={comment.snippet.topLevelComment.snippet.authorProfileImageUrl}
+          commentText={comment.snippet.topLevelComment.textDisplay}
+          dislikes={comment.snippet.topLevelComment.dislikeCount}
+          likes={comment.snippet.topLevelComment.likeCount}
         />
       ))}
     </div>
