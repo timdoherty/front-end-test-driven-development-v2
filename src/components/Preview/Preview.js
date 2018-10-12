@@ -14,7 +14,7 @@ function Preview(props) {
   } = props;
 
   return (
-    <Link to={`/nowPlaying/${id}`}>
+    <Link to={`/now-playing/${id}`}>
       <Card style={{
         height: `${thumbnail.height}px`,
         width: `${thumbnail.width}px`
@@ -35,7 +35,9 @@ function Preview(props) {
 
 Preview.propTypes = {
   channelTitle: PropTypes.string,
-  description: PropTypes.string,
+  description: PropTypes.oneOfType([
+    PropTypes.string, PropTypes.bool
+  ]),
   thumbnail: PropTypes.shape({
     url: PropTypes.string,
     width: PropTypes.number,
