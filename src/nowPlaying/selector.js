@@ -1,41 +1,68 @@
 import { createSelector, createStructuredSelector } from 'reselect';
 
-import { combineSearchData } from '../utils';
+import { combineSearchData, formatDuration } from '../utils';
 
-function base(state) {
-  return state.nowPlaying;
-}
+const baseSelector = state => state.nowPlaying;
+
+const currentVideoResponseSelector = state =>
+  baseSelector(state).currentVideo || {};
+
+const currentVideoItemsSelector = state =>
+  currentVideoResponseSelector(state).items || [];
 
 const currentVideoSelector = createSelector(
-  base,
-  base => base.currentVideo
+  currentVideoItemsSelector,
+  items => {
+    if (!items.length) {
+      return null;
+    }
+    const item = items[0];
+    return {
+      channelTitle: item.snippet.channelTitle,
+      commentCount: item.statistics.commentCount,
+      description: item.snippet.description,
+      dislikeCount: item.statistics.dislikeCount,
+      duration: formatDuration(item.contentDetails.duration),
+      id: item.id,
+      likeCount: item.statistics.likeCount,
+      title: item.snippet.title,
+      viewCount: item.statistics.viewCount,
+    };
+  }
 );
 
-const commentsSelector = createSelector(
-  base,
-  base => base.comments ? base.comments.items : []
-);
+const commentsSelector = createSelector(baseSelector, base => {
+  const comments = base.comments ? base.comments.items : [];
+  return comments.map(comment => ({
+    id: comment.id,
+    authorDisplayName:
+      comment.snippet.topLevelComment.snippet.authorDisplayName,
+    authorProfileImageUrl:
+      comment.snippet.topLevelComment.snippet.authorProfileImageUrl,
+    textDisplay: comment.snippet.topLevelComment.snippet.textDisplay,
+    likeCount: comment.snippet.topLevelComment.snippet.likeCount,
+    dislikeCount: comment.snippet.topLevelComment.snippet.dislikeCount,
+  }));
+});
 
 const rawRelatedVideosSelector = createSelector(
-  base,
-  base => base.relatedVideos ? base.relatedVideos.items : []
+  baseSelector,
+  base => (base.relatedVideos ? base.relatedVideos.items : [])
 );
 
 const relatedVideoMetadataSelector = createSelector(
-  base,
-  base => base.relatedVideoMetadata ? base.relatedVideoMetadata.items : []
+  baseSelector,
+  base => (base.relatedVideoMetadata ? base.relatedVideoMetadata.items : [])
 );
 
 const relatedVideosSelector = createSelector(
   rawRelatedVideosSelector,
   relatedVideoMetadataSelector,
-  (relatedVideos, metadata) => combineSearchData(
-    relatedVideos, metadata
-  )
+  (relatedVideos, metadata) => combineSearchData(relatedVideos, metadata)
 );
 
 export default createStructuredSelector({
   comments: commentsSelector,
   currentVideo: currentVideoSelector,
-  relatedVideos: relatedVideosSelector
+  relatedVideos: relatedVideosSelector,
 });
