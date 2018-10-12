@@ -13,38 +13,38 @@ describe('<List/>', () => {
   const listItems = selector({
     search: {
       searchResults: searchResultStubs,
-      searchMetadata: searchMetadataStubs
-    }
+      searchMetadata: searchMetadataStubs,
+    },
   }).searchResults;
 
   it('displays a preview for each item', () => {
-    const wrapper = shallow(
-      <List listItems={listItems} />
-    );
+    const wrapper = shallow(<List listItems={listItems} />);
     expect(wrapper.find(Preview).length).toBe(listItems.length);
   });
 
   it('provides a thumbnail size overrride for each preview item', () => {
     const wrapper = shallow(
-      <List
-        listItems={listItems}
-        thumbnailSize="high"
-      />
+      <List listItems={listItems} thumbnailSize="high" />
     );
 
     expect(
-      wrapper.find(Preview).at(0).prop('thumbnail')
-    ).toEqual(listItems[0].snippet.thumbnails.high);
+      wrapper
+        .find(Preview)
+        .at(0)
+        .prop('thumbnail')
+    ).toEqual(listItems[0].thumbnails.high);
   });
 
   it('provides an override to hide descriptions for list items', () => {
     const wrapper = shallow(
-      <List
-        listItems={listItems}
-        showDescription={false}
-      />
+      <List listItems={listItems} showDescription={false} />
     );
 
-    expect(wrapper.find(Preview).at(0).prop('description')).toBe(false);
+    expect(
+      wrapper
+        .find(Preview)
+        .at(0)
+        .prop('description')
+    ).toBe(false);
   });
 });
