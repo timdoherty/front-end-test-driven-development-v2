@@ -69,7 +69,30 @@ describe('<App/>', () => {
       .find('a');
 
     axios.get.mockImplementationOnce(() => {
-      return Promise.resolve({ data: { items: [data] } });
+      return Promise.resolve({
+        data: {
+          items: [
+            {
+              id: data.id,
+              snippet: {
+                title: data.title,
+                description: data.description,
+                thumbnails: data.thumbnails,
+                channelTitle: data.channelTitle,
+              },
+              contentDetails: {
+                duration: data.duration,
+              },
+              statistics: {
+                viewCount: data.viewCount,
+                likeCount: data.likeCount,
+                dislikeCount: data.dislikeCount,
+                commentCount: data.commentCount,
+              },
+            },
+          ],
+        },
+      });
     });
     mockNowPlayingRequests();
     link.simulate('click', { button: 0 });

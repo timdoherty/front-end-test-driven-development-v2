@@ -11,14 +11,16 @@ class PlayerContainer extends Component {
   componentDidMount() {
     const {
       actions: { getCurrentVideo },
-      match: { params: { videoid } }
+      match: {
+        params: { videoid },
+      },
     } = this.props;
     if (!!videoid) {
       getCurrentVideo(videoid);
     }
   }
 
-  render () {
+  render() {
     const { currentVideo } = this.props;
     if (!currentVideo) {
       return null;
@@ -26,23 +28,23 @@ class PlayerContainer extends Component {
     return (
       <Player
         channelTitle={currentVideo.channelTitle}
-        commentCount={currentVideo.statistics.commentCount}
-        description={currentVideo.snippet.description}
-        dislikeCount={currentVideo.statistics.dislikeCount}
-        likeCount={currentVideo.statistics.likeCount}
+        commentCount={currentVideo.commentCount}
+        description={currentVideo.description}
+        dislikeCount={currentVideo.dislikeCount}
+        likeCount={currentVideo.likeCount}
         id={currentVideo.id}
-        title={currentVideo.snippet.title}
-        viewCount={currentVideo.statistics.viewCount}
+        title={currentVideo.title}
+        viewCount={currentVideo.viewCount}
       />
     );
   }
 }
 
 PlayerContainer.propTypes = {
-  currentVideo: PropTypes.object
+  currentVideo: PropTypes.object,
 };
 
 export default compose(
   withRouter,
-  connectModule(nowPlayingModule),
+  connectModule(nowPlayingModule)
 )(PlayerContainer);

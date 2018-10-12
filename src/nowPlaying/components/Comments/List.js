@@ -10,11 +10,11 @@ function CommentsList(props) {
       {comments.map(comment => (
         <Comment
           key={comment.id}
-          author={comment.snippet.topLevelComment.snippet.authorDisplayName}
-          avatar={comment.snippet.topLevelComment.snippet.authorProfileImageUrl}
-          commentText={comment.snippet.topLevelComment.textDisplay}
-          dislikes={comment.snippet.topLevelComment.dislikeCount}
-          likes={comment.snippet.topLevelComment.likeCount}
+          author={comment.authorDisplayName}
+          avatar={comment.authorProfileImageUrl}
+          commentText={comment.textDisplay}
+          dislikes={comment.dislikeCount}
+          likes={comment.likeCount}
         />
       ))}
     </div>
@@ -22,7 +22,7 @@ function CommentsList(props) {
 }
 
 CommentsList.propTypes = {
-  comments: PropTypes.arrayOf(PropTypes.object)
+  comments: PropTypes.arrayOf(PropTypes.object),
 };
 
 CommentsList.defaultProps = { comments: [] };

@@ -1,6 +1,6 @@
 import { createSelector, createStructuredSelector } from 'reselect';
 
-import { combineSearchData } from '../utils';
+import { combineSearchData, formatDuration } from '../utils';
 
 const baseSelector = state => state.nowPlaying;
 
@@ -12,13 +12,38 @@ const currentVideoItemsSelector = state =>
 
 const currentVideoSelector = createSelector(
   currentVideoItemsSelector,
-  items => (items.length ? items[0] : null)
+  items => {
+    if (!items.length) {
+      return null;
+    }
+    const item = items[0];
+    return {
+      channelTitle: item.snippet.channelTitle,
+      commentCount: item.statistics.commentCount,
+      description: item.snippet.description,
+      dislikeCount: item.statistics.dislikeCount,
+      duration: formatDuration(item.contentDetails.duration),
+      id: item.id,
+      likeCount: item.statistics.likeCount,
+      title: item.snippet.title,
+      viewCount: item.statistics.viewCount,
+    };
+  }
 );
 
-const commentsSelector = createSelector(
-  baseSelector,
-  base => (base.comments ? base.comments.items : [])
-);
+const commentsSelector = createSelector(baseSelector, base => {
+  const comments = base.comments ? base.comments.items : [];
+  return comments.map(comment => ({
+    id: comment.id,
+    authorDisplayName:
+      comment.snippet.topLevelComment.snippet.authorDisplayName,
+    authorProfileImageUrl:
+      comment.snippet.topLevelComment.snippet.authorProfileImageUrl,
+    textDisplay: comment.snippet.topLevelComment.snippet.textDisplay,
+    likeCount: comment.snippet.topLevelComment.snippet.likeCount,
+    dislikeCount: comment.snippet.topLevelComment.snippet.dislikeCount,
+  }));
+});
 
 const rawRelatedVideosSelector = createSelector(
   baseSelector,

@@ -14,8 +14,8 @@ function List(props) {
           channelTitle={item.channelTitle}
           description={!!showDescription && item.description}
           id={item.id}
-          thumbnail={item.snippet.thumbnails[thumbnailSize]}
-          viewCount={item.statistics.viewCount}
+          thumbnail={item.thumbnails[thumbnailSize]}
+          viewCount={item.viewCount}
         />
       ))}
     </div>

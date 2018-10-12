@@ -64,8 +64,15 @@ describe('<PlayerContainer/>', () => {
       </Provider>
     );
     const expected = getInitialState().nowPlaying.currentVideo.items[0];
-    const actual = wrapper.find(Player).prop('id');
-    expect(actual).toEqual(expected.id);
+    const actual = wrapper.find(Player).props();
+    expect(actual.id).toEqual(expected.id);
+    expect(actual.channelTitle).toEqual(expected.snippet.channelTitle);
+    expect(actual.commentCount).toEqual(expected.statistics.commentCount);
+    expect(actual.description).toEqual(expected.snippet.description);
+    expect(actual.dislikeCount).toEqual(expected.statistics.dislikeCount);
+    expect(actual.likeCount).toEqual(expected.statistics.likeCount);
+    expect(actual.title).toEqual(expected.snippet.title);
+    expect(actual.viewCount).toEqual(expected.statistics.viewCount);
   });
 
   it('gets the current video on sartup', () => {
