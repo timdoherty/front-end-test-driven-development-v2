@@ -7,15 +7,13 @@ import nowPlayingModule from '../../module';
 
 function ListContainer(props) {
   const { comments } = props;
-  return (
-    <List comments={comments} />
-  );
+  return <List comments={comments} />;
 }
 
 ListContainer.propTypes = {
-  comments: PropTypes.arrayOf(PropTypes.onject)
+  comments: PropTypes.arrayOf(PropTypes.object),
 };
 
 ListContainer.defaultProps = { comments: [] };
 
-export default connectModule(nowPlayingModule)(ListContainer)
+export default connectModule(nowPlayingModule)(ListContainer);
