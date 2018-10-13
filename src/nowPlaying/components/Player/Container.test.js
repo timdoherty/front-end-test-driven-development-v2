@@ -16,26 +16,30 @@ describe('<PlayerContainer/>', () => {
     return {
       nowPlaying: {
         currentVideo: {
-          id: 'foobarbaz',
-          snippet: {
-            title: 'Foo Bar Baz',
-            description: 'This is the Foo Bar Baz video.',
-            channelTitle: 'FooBarBaz channel'
-          },
-          statistics: {
-            viewCount: '100000000',
-            likeCount: '50000',
-            dislikeCount: '3',
-            favoriteCount: '1',
-            commentCount: '333'
-          },
-          contentDetails: {
-            duration: '00:05:32'
-          }
+          items: [
+            {
+              id: 'foobarbaz',
+              snippet: {
+                title: 'Foo Bar Baz',
+                description: 'This is the Foo Bar Baz video.',
+                channelTitle: 'FooBarBaz channel',
+              },
+              statistics: {
+                viewCount: '100000000',
+                likeCount: '50000',
+                dislikeCount: '3',
+                favoriteCount: '1',
+                commentCount: '333',
+              },
+              contentDetails: {
+                duration: '00:05:32',
+              },
+            },
+          ],
         },
         relatedVideos: { items: [] },
-        comments: { items: [] }
-      }
+        comments: { items: [] },
+      },
     };
   }
 
@@ -43,11 +47,11 @@ describe('<PlayerContainer/>', () => {
   let dispatch;
 
   beforeEach(() => {
-    const reducer = state => state; 
+    const reducer = state => state;
     dispatch = jest.fn();
     store = {
       ...createStore(reducer, getInitialState()),
-      dispatch
+      dispatch,
     };
   });
 
@@ -59,21 +63,26 @@ describe('<PlayerContainer/>', () => {
         </MemoryRouter>
       </Provider>
     );
-    const expected = getInitialState().nowPlaying.currentVideo;
-    const actual = wrapper.find(Player).prop('video');
-    expect(actual).toEqual(expected);
+    const expected = getInitialState().nowPlaying.currentVideo.items[0];
+    const actual = wrapper.find(Player).props();
+    expect(actual.id).toEqual(expected.id);
+    expect(actual.channelTitle).toEqual(expected.snippet.channelTitle);
+    expect(actual.commentCount).toEqual(expected.statistics.commentCount);
+    expect(actual.description).toEqual(expected.snippet.description);
+    expect(actual.dislikeCount).toEqual(expected.statistics.dislikeCount);
+    expect(actual.likeCount).toEqual(expected.statistics.likeCount);
+    expect(actual.title).toEqual(expected.snippet.title);
+    expect(actual.viewCount).toEqual(expected.statistics.viewCount);
   });
 
   it('gets the current video on sartup', () => {
     const wrapper = mount(
       <Provider store={store}>
-        <MemoryRouter
-          initialEntries={[ '/nowPlaying/foobar' ]}
-          initialIndex={0}
-        >
-          <Route path="/nowPlaying/:videoid" render={() => (
-            <PlayerContainer/>
-          )} />
+        <MemoryRouter initialEntries={['/nowPlaying/foobar']} initialIndex={0}>
+          <Route
+            path="/nowPlaying/:videoid"
+            render={() => <PlayerContainer />}
+          />
         </MemoryRouter>
       </Provider>
     );
