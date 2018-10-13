@@ -83,6 +83,6 @@ describe('<Preview/>', () => {
   it('links to the right video', () => {
     const wrapper = render();
 
-    expect(wrapper.find(Link).prop('to')).toBe(`/nowPlaying/${id}`);
+    expect(wrapper.find(Link).prop('to')).toBe(`/now-playing/${id}`);
   });
 });
