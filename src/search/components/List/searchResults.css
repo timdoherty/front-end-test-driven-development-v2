@@ -1,0 +1,22 @@
+.search-results .meta {
+  flex-direction: row;
+  color: #888;
+  font-size: 0.8rem;
+  font-weight: 100;
+  text-align: left;
+}
+
+.search-results .title {
+  color: #111111;
+  font-size: 1.0rem;
+  font-weight: 400;
+}
+
+.search-results .stats :not(:first-child)::before {
+  content: "| "
+}
+
+.search-results .stats span {
+  margin-right: 5px;
+}
+

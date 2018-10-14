@@ -4,12 +4,17 @@ import { connectModule } from 'redux-modules';
 
 import List, { previewPropType } from '../../../components/List';
 import searchModule from '../../module';
+import './searchResults.css';
 
 function SearchResultListContainer(props) {
   const { searchResults } = props;
 
   return (
-    <List listItems={searchResults} />
+    <List
+      className="search-results"
+      listItems={searchResults}
+      thumbnailSize="medium"
+    />
   );
 }
 

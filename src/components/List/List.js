@@ -7,7 +7,7 @@ function List(props) {
   const { listItems, thumbnailSize, showDescription } = props;
 
   return (
-    <div>
+    <div className={props.className}>
       {listItems.map(item => (
         <Preview
           key={item.etag}
