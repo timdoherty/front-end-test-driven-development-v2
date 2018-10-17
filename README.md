@@ -4,7 +4,7 @@
 ### Overview
 Your client has commissioned you to build a Youtube player. She likes Youtube but wants her own player built on their API, with just the basics: the ability to search for videos and play them while viewing comments and related videos.
 
-In this tutorial we will build a Youtube player for your client using React and Redux from the ground up using Test Driven Development (TDD). We will start by writing acceptance criteria for the player, then write test cases and implement the product via TDD.
+In this tutorial we will build a Youtube player for your client using React and Redux from the ground up using [Test Driven Development](https://en.wikipedia.org/wiki/Test-driven_development) (TDD). We will start by writing acceptance criteria for the player, then write test cases and implement the product via TDD.
 
 I've made a few decisions for you, to make your life easier and/or because they help keep the focus on testing, where it belongs:
 
