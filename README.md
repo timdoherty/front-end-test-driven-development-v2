@@ -8,8 +8,9 @@ In this tutorial we will build a Youtube player for your client using React and 
 
 I've made a few decisions for you, to make your life easier and/or because they help keep the focus on testing, where it belongs:
 
-- The application is scaffolded with [Create React App](https://github.com/facebook/create-react-app) so that you don't have to configure anything in order to start testing. Create React App also preconfigures [Jest](https://jestjs.io/docs/en/getting-started) which is arguably the best test framework around.
-- The tutorial uses the [Enzyme test renderer](http://airbnb.io/enzyme/) from Airbnb. Enzyme has a robust API for testing components, with some helpful asbtractions for separating behavioral and presentational concerns.
+- The application is scaffolded with [Create React App](https://github.com/facebook/create-react-app) so that you don't have to configure anything in order to start testing.
+- Create React App preconfigures [Jest](https://jestjs.io/docs/en/getting-started), a performant and full-featured testing framework from Facebook.
+- The tutorial uses the [Enzyme test renderer](http://airbnb.io/enzyme/) from Airbnb. Enzyme has a robust API for rendering components, with some helpful asbtractions for separating behavioral and presentational concerns.
 - The tutorial uses [Redux Loop](https://redux-loop.js.org/) for handling asynchronous Redux actions. Aside from other good reasons to recommend Redux Loop, the primary reason for using it here is that it has an excellent [testing story](https://redux-loop.js.org/docs/tutorial/Testing.html).
 - The tutorial uses [Redux Modules](https://mboperator.gitbooks.io/redux-modules/content/) to reduce the typical boilerplate required for Redux actions and reducers. To soften the introduction, we'll start with vanilla Redux and refactor to Redux Modules with green specs.
 
@@ -31,6 +32,7 @@ This tutorial is about Test Driven Development, so we will be writing and runnin
 This respository is split into distinct steps. Each step includes the following information in this README file:
 - A recap of the previous step (where applicable)
 - An objective for the current step, i.e., what you will be trying to achieve.
+- A list of resources relevant to the current step (where applicable)
 - A list of high-level TODO items for the current step, to help guide your efforts.
 
 Each step also includes the completed code for the previous step, where applicable.
@@ -52,6 +54,11 @@ Take a few minutes to look at [Youtube.com](https://www.youtube.com/) along with
 
 Write out some acceptance criteria that answer the questions that pertain to your client's requirements. The best starting point for good test cases is a set of verifiable acceptance criteria.
 
+Some example criteria might include:
+- The application has a place for a user to enter a search term
+- When the user enters a search term and presses the enter key, a list of search results is displayed
+- etc.
+
 ## Step 1
 
 ### Objective
@@ -59,7 +66,7 @@ The recommended best practice when building Redux applications is to start by de
 
 We'll follow this practice using our acceptance criteria and the relevant Youtube APIs to design and build our application state via TDD.
 
-The nice thing about testing your Redux code is that reducers are pure functions and thus very easy to test.
+The nice thing about Redux is that reducers are [pure functions](https://en.wikipedia.org/wiki/Pure_function) and thus very easy to test.
 We'll start with some simple synchronous actions and reducers, and tackle the actual API requests in a later step
 
 ### TODO:
