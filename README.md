@@ -10,18 +10,20 @@ I've made a few decisions for you, to make your life easier and/or because they 
 
 - The application is scaffolded with [Create React App](https://github.com/facebook/create-react-app) so that you don't have to configure anything in order to start testing. Create React App also preconfigures [Jest](https://jestjs.io/docs/en/getting-started) which is arguably the best test framework around.
 - The tutorial uses the [Enzyme test renderer](http://airbnb.io/enzyme/) from Airbnb. Enzyme has a robust API for testing components, with some helpful asbtractions for separating behavioral and presentational concerns.
-- The tutorial uses [Redux Modules](https://mboperator.gitbooks.io/redux-modules/content/) to reduce the typical boilerplate required for Redux actions and reducers.
 - The tutorial uses [Redux Loop](https://redux-loop.js.org/) for handling asynchronous Redux actions. Aside from other good reasons to recommend Redux Loop, the primary reason for using it here is that it has an excellent [testing story](https://redux-loop.js.org/docs/tutorial/Testing.html).
+- The tutorial uses [Redux Modules](https://mboperator.gitbooks.io/redux-modules/content/) to reduce the typical boilerplate required for Redux actions and reducers. To soften the introduction, we'll start with vanilla Redux and refactor to Redux Modules with green specs.
 
 ### Prerequisites
 This tutorial assumes a working knowledge of JavaScript and the [React](https://reactjs.org/) view library, as well as at least a rudimentary understanding of [Redux](https://redux.js.org/)
 
 ### Resources
-- [Youtube Developers Page](https://developers.google.com/youtube/) 
+- [React](https://reactjs.org/)
+- [Redux](https://redux.js.org/)
+- [Redux Loop](https://redux-loop.js.org/)
+- [Redux Modules](https://mboperator.gitbooks.io/redux-modules/content/)
 - [Jest Test Framework](https://jestjs.io/docs/en/getting-started)
 - [Enzyme Test Renderer](http://airbnb.io/enzyme/)
-- [Redux Modules](https://mboperator.gitbooks.io/redux-modules/content/)
-- [Redux Loop](https://redux-loop.js.org/)
+- [Youtube Developers Page](https://developers.google.com/youtube/)
 
 ### About This Tutorial
 This tutorial is about Test Driven Development, so we will be writing and running lots of tests. To start the test runner, simply run "yarn test" from the repository root.
@@ -53,17 +55,21 @@ Write out some acceptance criteria that answer the questions that pertain to you
 ## Step 1
 
 ### Objective
-The recommended best practice when building Redux applications is to start by designing your state. We'll follow this practice using our acceptance criteria and the relevant Youtube APIs to desing and build our application state via TDD.
+The recommended best practice when building Redux applications is to start by designing your state.
 
-The nice thing about testing Redux reducers and selectors is that they are pure functions and thus very easy to test. We'll start with some simple synchronous actions and reducers, then we'll learn how to test and sequence asynchronous actions and reducers with Redux Loop.
+We'll follow this practice using our acceptance criteria and the relevant Youtube APIs to design and build our application state via TDD.
+
+The nice thing about testing your Redux code is that reducers are pure functions and thus very easy to test.
+We'll start with some simple synchronous actions and reducers, and tackle the actual API requests in a later step
 
 ### TODO:
 - High level test cases written in plain english (BDD-style)
+  - Start with your acceptance criteria
+    - ex: "it does a search"
+    - ex: "it handles a successful search"
+    - etc.
 - Run the tests and watch them fail
-- Make the tests pass by implementing search bar state
+- Make the tests pass by implementing search state
+  - Don't worry about making the actual API requests just yet, leave a TODO placeholder for now
 - Refactor as needed while keeping the tests green
 - Introduction to testing reducers
-- Introduction to testing selectors
-- Introduction to Redux Modules
-- Introduction to Redux Loop
-
