@@ -35,7 +35,7 @@ This respository is split into distinct steps. Each step includes the following 
 - A list of resources relevant to the current step (where applicable)
 - A list of high-level TODO items for the current step, to help guide your efforts.
 
-Each step also includes the completed code for the previous step, where applicable.
+Each step also includes a reference implementation for the previous step, where applicable. Your code need not match the reference implementation, which is simply one possible solution to the step at hand. The point here is not to produce any specific implementation, but simply to flex your TDD muscles to produce something that satisfies your acceptance criteria.
 
 When starting a new step, you should kill and restart the test runner, in order to pick up new files added since the last step.
 
