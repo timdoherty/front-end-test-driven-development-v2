@@ -8,20 +8,23 @@ In this tutorial we will build a Youtube player for your client using React and 
 
 I've made a few decisions for you, to make your life easier and/or because they help keep the focus on testing, where it belongs:
 
-- The application is scaffolded with [Create React App](https://github.com/facebook/create-react-app) so that you don't have to configure anything in order to start testing. Create React App also preconfigures [Jest](https://jestjs.io/docs/en/getting-started) which is arguably the best test framework around.
-- The tutorial uses the [Enzyme test renderer](http://airbnb.io/enzyme/) from Airbnb. Enzyme has a robust API for testing components, with some helpful asbtractions for separating behavioral and presentational concerns.
-- The tutorial uses [Redux Modules](https://mboperator.gitbooks.io/redux-modules/content/) to reduce the typical boilerplate required for Redux actions and reducers.
+- The application is scaffolded with [Create React App](https://github.com/facebook/create-react-app) so that you don't have to configure anything in order to start testing.
+- Create React App preconfigures [Jest](https://jestjs.io/docs/en/getting-started), a performant and full-featured testing framework from Facebook.
+- The tutorial uses the [Enzyme test renderer](http://airbnb.io/enzyme/) from Airbnb. Enzyme has a robust API for rendering components, with some helpful asbtractions for separating behavioral and presentational concerns.
 - The tutorial uses [Redux Loop](https://redux-loop.js.org/) for handling asynchronous Redux actions. Aside from other good reasons to recommend Redux Loop, the primary reason for using it here is that it has an excellent [testing story](https://redux-loop.js.org/docs/tutorial/Testing.html).
+- The tutorial uses [Redux Modules](https://mboperator.gitbooks.io/redux-modules/content/) to reduce the typical boilerplate required for Redux actions and reducers. To soften the introduction, we'll start with vanilla Redux and refactor to Redux Modules with green specs.
 
 ### Prerequisites
 This tutorial assumes a working knowledge of JavaScript and the [React](https://reactjs.org/) view library, as well as at least a rudimentary understanding of [Redux](https://redux.js.org/)
 
 ### Resources
-- [Youtube Developers Page](https://developers.google.com/youtube/) 
+- [React](https://reactjs.org/)
+- [Redux](https://redux.js.org/)
+- [Redux Loop](https://redux-loop.js.org/)
+- [Redux Modules](https://mboperator.gitbooks.io/redux-modules/content/)
 - [Jest Test Framework](https://jestjs.io/docs/en/getting-started)
 - [Enzyme Test Renderer](http://airbnb.io/enzyme/)
-- [Redux Modules](https://mboperator.gitbooks.io/redux-modules/content/)
-- [Redux Loop](https://redux-loop.js.org/)
+- [Youtube Developers Page](https://developers.google.com/youtube/)
 
 ### About This Tutorial
 This tutorial is about Test Driven Development, so we will be writing and running lots of tests. To start the test runner, simply run "yarn test" from the repository root.
@@ -29,6 +32,7 @@ This tutorial is about Test Driven Development, so we will be writing and runnin
 This respository is split into distinct steps. Each step includes the following information in this README file:
 - A recap of the previous step (where applicable)
 - An objective for the current step, i.e., what you will be trying to achieve.
+- A list of resources relevant to the current step (where applicable)
 - A list of high-level TODO items for the current step, to help guide your efforts.
 
 Each step also includes the completed code for the previous step, where applicable.
@@ -50,21 +54,32 @@ Take a few minutes to look at [Youtube.com](https://www.youtube.com/) along with
 
 Write out some acceptance criteria that answer the questions that pertain to your client's requirements. The best starting point for good test cases is a set of verifiable acceptance criteria.
 
+Some example criteria might include:
+- The application has a place for a user to enter a search term
+- When the user enters a search term and presses the enter key, a list of search results is displayed
+- etc.
+
 ## Step 1
 
 ### Objective
-The first thing we're going to need is a search bar. What does a search bar do? How will we know if it's done? Hopefully we've answered these questions while building our acceptance criteria, and we'll use those throughout the tutorial to start writing our test cases. 
+The recommended best practice when building Redux applications is to start by designing your state.
 
-Recommended best practice when building Redux applications is to start by designing your state. We'll follow this practice in miniature by designing the relevant portions of state as we go, starting with our search bar state.
+We'll follow this practice using our acceptance criteria and the relevant Youtube APIs to design and build our application state via TDD.
 
-The nice thing about testing Redux reducers and selectors is that they are pure functions and thus very easy to test.
+The nice thing about Redux is that reducers are [pure functions](https://en.wikipedia.org/wiki/Pure_function) and thus very easy to test.
+We'll start with some simple synchronous actions and reducers, and tackle the actual API requests in a later step
 
 ### TODO:
 - High level test cases written in plain english (BDD-style)
+  - Start with your acceptance criteria
+    - ex: "it does a search"
+    - ex: "it handles a successful search"
+    - etc.
 - Run the tests and watch them fail
-- Make the tests pass by implementing search bar state
+- Make the tests pass by implementing search state
+  - Don't worry about making the actual API requests just yet, leave a TODO placeholder for now
 - Refactor as needed while keeping the tests green
-- Introduction to Redux Modules
+- Introduction to testing reducers
 
 ## Step 2
 
@@ -72,14 +87,14 @@ The nice thing about testing Redux reducers and selectors is that they are pure 
 - Good test cases come from well-defined acceptance criteria
 - TDD consists of a short, repeated development cycle
 - BDD (Behavior Driven Development) style tests help to decouple the what from the how in your tests
-- Testing reducers and selectors is relatively straightforward since they're pure functions with no side effects
+- Testing reducers is relatively straightforward since they're pure functions with no side effects
 
 ### Objective
-Now that we've designed and built our Redux state for our search bar feature, let's write a search bar component. 
-In this step we'll introduce some new tools and concepts for testing React components, as well as an approach for building components via TDD.
+One of the legitimate criticisms of Redux is that it involves a lot of boilerplate code to define your actions and reducers.
+
+Let's introduce a utility function to generate action creators for us, thereby reducing some of the boilerplate code. This will be a stepping stone toward introducing Redux Modules, which will significantly reduce our boilerplate code, and will help explain what that library does. We'll do this while our tests are running and passing, illustrating the "refactor" part of the TDD red/green/refactor cycle.
 
 ### TODO:
-- High level test cases written in plain english (BDD-style)
-- Introduction to the Enzyme test renderer for React
-- Write a search bar component using "Test Driven Component Development" (TDCD)
-- Repeat the TDD cycle from step 1
+- Write a "fluxStandardAction" utility function that returns an action creator when given an action constant
+- Keep your tests passing while you refactor your code to use the new utility function
+- Replace all your named action creator functions with action creators generated by the new utility method
