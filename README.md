@@ -206,6 +206,7 @@ Let's write some selectors for reading our search state, in vanilla JavaScript, 
 ### TODO:
 - High level test cases written in plain english (BDD-style)
   - What do you need to read from state, and in what shape?
+    - ex: "it reads the current search term"
 - Run the tests and watch them fail
 - Make the tests pass by implementing vanilla JS selectors that read the state you give them
 - Refactor as needed while keeping your tests green
