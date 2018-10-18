@@ -69,11 +69,20 @@ We'll follow this practice using our acceptance criteria and the relevant Youtub
 The nice thing about Redux is that reducers are [pure functions](https://en.wikipedia.org/wiki/Pure_function) and thus very easy to test.
 We'll start with some simple synchronous actions and reducers, and tackle the actual API requests in a later step
 
+### Resources
+- [Youtube Search Endpoint](https://developers.google.com/youtube/v3/docs/search/list)
+- [Youtube Search Response](https://developers.google.com/youtube/v3/docs/search/list#response)
+- [Youtube Search Resource Representation](https://developers.google.com/youtube/v3/docs/search#resource-representation)
+- [Youtube Videos Endpoint](https://developers.google.com/youtube/v3/docs/videos/list)
+- [Youtube Videos Response](https://developers.google.com/youtube/v3/docs/videos/list#response)
+- [Youtube Video Resource Representation](https://developers.google.com/youtube/v3/docs/videos#resource-representation)
+
 ### TODO:
 - High level test cases written in plain english (BDD-style)
   - Start with your acceptance criteria
     - ex: "it does a search"
     - ex: "it handles a successful search"
+    - ex: "it handles search failure"
     - etc.
 - Run the tests and watch them fail
 - Make the tests pass by implementing search state
