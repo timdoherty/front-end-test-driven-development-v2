@@ -234,7 +234,7 @@ The [Reselect](https://github.com/reduxjs/reselect) library allows us to create 
   ```js
     import searchSelector from '/selector';
 
-    const searchModule = createSelector({
+    const searchModule = createModule({
       name: 'search',
       // ...
       selector: searchSelector
