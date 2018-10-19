@@ -263,6 +263,21 @@ you return an instruction - a loop - that tells the middleware:
 
 Since the loop returned from your reducer is just an object, the reducer is still a pure function. This makes testing asynchronous actions as simple as testing pure functions.
 
+```js
+import { loop, Cmd, getCmd, getModel } from 'redux-loop';
+
+it('does something', () => {
+  const expected = loop(
+    /* state transformation */,
+    /* command */
+  );
+
+  const actual = reducer(<state>, <action>);
+  expect(getModel(actual)).toEqual(getModel(expected));
+  expect(getCmd(actual)).toEqual(getCmd(expected));
+});
+```
+
 ### Resources
 - [Redux Loop](https://redux-loop.js.org/)
 - [Testing Loop Reducer Results](https://redux-loop.js.org/docs/tutorial/Testing.html)
