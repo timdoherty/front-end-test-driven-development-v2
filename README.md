@@ -13,6 +13,7 @@ I've made a few decisions for you, to make your life easier and/or because they 
 - The tutorial uses the [Enzyme test renderer](http://airbnb.io/enzyme/) from Airbnb. Enzyme has a robust API for rendering components, with some helpful asbtractions for separating behavioral and presentational concerns.
 - The tutorial uses [Redux Loop](https://redux-loop.js.org/) for handling asynchronous Redux actions. Aside from other good reasons to recommend Redux Loop, the primary reason for using it here is that it has an excellent [testing story](https://redux-loop.js.org/docs/tutorial/Testing.html).
 - The tutorial uses [Redux Modules](https://mboperator.gitbooks.io/redux-modules/content/) to reduce the typical boilerplate required for Redux actions and reducers. To soften the introduction, we'll start with vanilla Redux and refactor to Redux Modules with green specs.
+- The tutorial uses [React Router](https://reacttraining.com/react-router/) to produce a Single Page Application (SPA) experience for your client
 
 ### Prerequisites
 This tutorial assumes a working knowledge of JavaScript and the [React](https://reactjs.org/) view library, as well as at least a rudimentary understanding of [Redux](https://redux.js.org/)
@@ -22,6 +23,7 @@ This tutorial assumes a working knowledge of JavaScript and the [React](https://
 - [Redux](https://redux.js.org/)
 - [Redux Loop](https://redux-loop.js.org/)
 - [Redux Modules](https://mboperator.gitbooks.io/redux-modules/content/)
+- [React Router](https://reacttraining.com/react-router/)
 - [Jest Test Framework](https://jestjs.io/docs/en/getting-started)
 - [Enzyme Test Renderer](http://airbnb.io/enzyme/)
 - [Youtube Developers Page](https://developers.google.com/youtube/)
