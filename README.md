@@ -349,4 +349,17 @@ We'll be able to drastically change the presentation of our components, all whil
 - Separation of concerns makes component development simpler by letting us focus on one concern at a time
 
 ### Objective
-Now that we have our search bar component, we need to connect it to our application state in order to be useful.
+Now that we have our search bar component, let's connect it to our Redux store so it can read from and interact with our application state.
+Let's follow the container/presenter pattern and write a connected container component that will render our search bar presenter.
+First we'll accomplish this with the [React bindings for Redux](https://github.com/reduxjs/react-redux) library, then in the next step we'll see how Redux Modules can also reduce the
+boilerplate involved in this common task.
+
+### Resources
+- [Redux - Usage with React](https://redux.js.org/basics/usagewithreact)
+- [React Bindings for Redux](https://github.com/reduxjs/react-redux)
+
+### TODO:
+- High level test cases written in plain English (BDD-style)
+  - ex: "it reads the current search term"-
+- Run the tests and watch them fail
+- Make the tests pass by connecting your container component to Redux with the "connect" method
