@@ -349,4 +349,37 @@ We'll be able to drastically change the presentation of our components, all whil
 - Separation of concerns makes component development simpler by letting us focus on one concern at a time
 
 ### Objective
-Now that we have our search bar component, we need to connect it to our application state in order to be useful.
+Now that we have our search bar component, let's connect it to our Redux store so it can read from and interact with our application state.
+Let's follow the container/presenter pattern and write a connected container component that will render our search bar presenter.
+First we'll accomplish this with the [React bindings for Redux](https://github.com/reduxjs/react-redux) library, then in the next step we'll see how Redux Modules can reduce the
+boilerplate involved in this common task.
+
+We're also going to include client-side routing in our application, to provide an SPA experience for your client. When the search term changes, in addition toi interacting with Redux,
+we'll also update the application's URL. To do this, we'll decorate our container with React Router's [withRouter](https://reacttraining.com/react-router/web/api/withRouter) higher order component to get access to the router history.
+
+### Resources
+- [Redux - Usage with React](https://redux.js.org/basics/usagewithreact)
+- [React Bindings for Redux](https://github.com/reduxjs/react-redux)
+- [React Router withRouter HoC](https://reacttraining.com/react-router/web/api/withRouter)
+
+### TODO:
+- High level test cases written in plain English (BDD-style)
+  - ex: "it reads the current search term"-
+- Run the tests and watch them fail
+- Make the tests pass by connecting your container component to Redux with the "connect" method
+
+### Step 10
+
+### Recap: What did we learn?
+- Testing connected components requires some new tools and techniques
+- Testing routing components requires some new tools and techniques
+
+### Objective
+Now that we have a connected component, let's see how Redux Modules can help reduce the boilerplate involved. We'll refactor our
+container component to use [connectModule](https://mboperator.gitbooks.io/redux-modules/content/docs/api_reference/) while keeping our specs green.
+
+### Resources
+- [connectModule](https://mboperator.gitbooks.io/redux-modules/content/docs/api_reference/)
+
+### TODO
+- Replace your connect call with connectModule, while keeping your specs green

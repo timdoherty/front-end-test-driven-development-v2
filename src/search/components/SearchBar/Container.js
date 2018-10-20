@@ -28,13 +28,13 @@ SearchBarContainer.propTypes = {
   }),
 };
 
-const { actions } = searchModule;
-
 function mapStateToProps(state) {
   return {
     searchTerm: state.search.searchTerm,
   };
 }
+
+const { actions } = searchModule;
 
 function mapDispatchToProps(dispatch) {
   return {
