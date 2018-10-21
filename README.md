@@ -383,3 +383,24 @@ container component to use [connectModule](https://mboperator.gitbooks.io/redux-
 
 ### TODO
 - Replace your connect call with connectModule, while keeping your specs green
+
+## Step11
+
+### Recap: What did we learn?
+- Redux Modules can also reduce the boilerplate required to connect React components to Redux
+- A suite of passing tests helps us refactor our code with confidence that it still works
+- We can change the implementation details of code under test without breaking its public interface 
+
+### Objective
+Our next component will be a video preview, which we'll use for both search results and related videos on the now playing page.
+We will again use the TDCD approach, focusing solely on data and behavior of the component with no concern for how it looks.
+
+### Resources
+- [Enzyme Test Renderer](http://airbnb.io/enzyme/)
+
+### TODO
+- High level test cases written in plain English (BDD-style)
+  - ex: "it has a thumbnail image"
+  - ex: "it displays the author's name"
+- Run the tests and watch them fail
+- Make the tests pass by implementing a video preview component using TDCD
