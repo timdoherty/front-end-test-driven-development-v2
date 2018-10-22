@@ -7,23 +7,27 @@ function Preview(props) {
   const {
     channelTitle,
     description,
+    duration,
     id,
     thumbnail,
     title,
-    viewCount
+    viewCount,
   } = props;
 
   return (
     <Link to={`/now-playing/${id}`}>
-      <Card style={{
-        height: `${thumbnail.height}px`,
-        width: `${thumbnail.width}px`
-      }}>
+      <Card
+        style={{
+          height: `${thumbnail.height}px`,
+          width: `${thumbnail.width}px`,
+        }}
+      >
         <img
           src={thumbnail.url}
           height={thumbnail.height}
           width={thumbnail.width}
         />
+        <span>{duration}</span>
       </Card>
       <span>{title}</span>
       <span>{channelTitle}</span>
@@ -35,16 +39,14 @@ function Preview(props) {
 
 Preview.propTypes = {
   channelTitle: PropTypes.string,
-  description: PropTypes.oneOfType([
-    PropTypes.string, PropTypes.bool
-  ]),
+  description: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   thumbnail: PropTypes.shape({
     url: PropTypes.string,
     width: PropTypes.number,
-    height: PropTypes.number
+    height: PropTypes.number,
   }),
   title: PropTypes.string,
-  viewCount: PropTypes.string
+  viewCount: PropTypes.string,
 };
 
 Preview.defaultProps = {
@@ -53,10 +55,10 @@ Preview.defaultProps = {
   thumbnail: {
     url: '',
     height: 0,
-    width: 0
+    width: 0,
   },
   title: '',
-  viewCount: ''
+  viewCount: '',
 };
 
 export default Preview;
