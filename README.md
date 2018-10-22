@@ -395,81 +395,6 @@ container component to use [connectModule](https://mboperator.gitbooks.io/redux-
 Our next component will be a video preview, which we'll use for both search results and related videos on the now playing page.
 We will again use the TDCD approach, focusing solely on data and behavior of the component with no concern for how it looks.
 
-<<<<<<< HEAD
-### TODO:
-- High level test cases written in plain english (BDD-style)
-- Write a connected comment list component using "Test Driven Component Development" (TDCD)
-- Repeat the TDD cycle
-
-## Step 12
-
-### Recap: What did we learn?
-- Build muscle memory around component TDD
-- Reinforcement of the TDCD approach to building React components
-- Reinforcement of verifying data agnostic of presentational concerns
-
-### Objective
-Now let's reuse our thumbnail preview in a related video component. It seems like our related videos use the same search API as our search results, so this is an opportunity to refactor and reuse our search result component into a more general purpose preview component
-
-### TODO:
-- High level test cases written in plain english (BDD-style)
-- Write a preview component using "Test Driven Component Development" (TDCD)
-- Start by adding functionality to our existing search result component
-- Then copy the search result component to a general purpose component
-- Change our search result list to use the new general purpose component, while keeping our tests green
-- Remove the search result component
-- Repeat the TDD cycle
-
-## Step 13
-
-### Recap: What did we learn?
-- Build muscle memory around component TDD
-- Reinforcement of the TDCD approach to building React components
-- Reinforcement of refactoring with green tests
-
-### Objective
-Now that we've refactored our original search result component into a reusable preview component, let's build a connected list container for related videos
-
-### TODO:
-- High level test cases written in plain english (BDD-style)
-- Write a connected related videos list component using "Test Driven Component Development" (TDCD)
-- Repeat the TDD cycle
-
-## Step 14
-
-### Recap: What did we learn?
-- Build muscle memory around component TDD
-- Reinforcement of the TDCD approache to building React components
-- Reinforcement of refactoring with green tests
-
-### Objective
-Now we have all the basic building blocks - fully tested - that we need in order to build our Youtube player. Let's start putting things together by building a layout component and writing some integration tests to make sure everything works when put together.
-
-I've provided some plumbing code for you, to connect your application component to Redux via Redux Modules and to configure the store, so you can focus on testing.
-
-### TODO:
-- High level test cases written in plain english (BDD-style)
-- Write an layout component using "Test Driven Component Development" (TDCD)
-- Write an integration test suite, to verify all our components work together
-- Introduction to module mocking with Jest
-- Introduction to mocking API requests
-- Repeat the TDD cycle
-
-## Step 15
-
-### Recap: What did we learn?
-- Mocking components with Jest
-- Stubbing API requests
-- Integration testing with a complete Redux store
-- Integration testing async code
-
-### Objective
-In our final step we'll put fit and finish on our fully tested application and make it look like a Youtube player. At this point we should be able to run the application in a browser, and everything should work together as described. Why shoudn't it, when we have tests to prove that it does? It's going to look like crap, so now we'll illustrate one of the main benefits of TDCD: if we've written our component tests correctly, and stick to their contract, we should be able to drastically alter the look and feel of the application, all while are tests are green.
-
-### TODO
-- CSS and markup adjustments for fit and finish
-- Try to refactor the look and feel of your application while keeping your tests green!
-=======
 ### Resources
 - [Enzyme Test Renderer](http://airbnb.io/enzyme/)
 
@@ -479,4 +404,70 @@ In our final step we'll put fit and finish on our fully tested application and m
   - ex: "it displays the author's name"
 - Run the tests and watch them fail
 - Make the tests pass by implementing a video preview component using TDCD
->>>>>>> 789c882... update readme for step11; add duration to preview component
+
+## Step 12
+
+### Recap: What did we learn?
+- Build muscle memory on the TDCD approach to building components
+- We can build a functioning component - and have confidence that it works - without ever looking at it
+- Separation of concerns makes component development simpler by letting us focus on one concern at a time
+
+### Objective
+Now that we have a video preview component, we also need a list component that will render a list of search results or related videos
+
+### TODO:
+- High level test cases written in plain English (BDD-style)
+- Run the tests and watch them fail
+- Make the tests pass by implementing a preview list component via TDCD
+
+## Step 13
+
+### Recap: What did we learn?
+- Build muscle memory on the TDCD approach to building components
+- We can build a functioning component - and have confidence that it works - without ever looking at it
+- Separation of concerns makes component development simpler by letting us focus on one concern at a time
+
+### Objective
+Now that we have resuable video preview and list components, let's put them to use by connecting them to our search results application state to display a list of search results.
+
+### Resources
+- [Redux - Usage with React](https://redux.js.org/basics/usagewithreact)
+- [connectModule](https://mboperator.gitbooks.io/redux-modules/content/docs/api_reference/)
+
+### TODO:
+- High level test cases written in plain English (BDD-style)
+- Run the tests and watch them fail
+- Make the tests pass by writing a connected container component for search results
+
+## Step 14
+
+### Recap: What did we learn?
+- Build muscle memory around testing connected components
+- We can create specialized components by connecting a general purpose component to a specific portion of application state
+
+### Overview
+We've now built all the components we need for our search page, and all the techniques we should need to build our now playing components using the TDCD approach.
+This step will be a self-paced repeat of what you've learned so far building components and connected containers, in order to build a video player component.
+
+### Resources
+- [Youtube IFrame Embedded Player](https://developers.google.com/youtube/player_parameters#Manual_IFrame_Embeds)
+
+### TODO:
+- High level test cases written in plain English (BDD-style)
+- Run the tests and watch them fail
+- Make the tests pass by writing a player component, and a connected container component, for the currently playing video
+
+## Step 15
+
+### Recap: What did we learn?
+- Build muscle memory on TDCD
+- Build muscle memory testing connected components
+- Build muscle memor on general TDD principles
+
+### Objective
+Next up we will need a component to display an individual comment for the current video.
+
+### TODO:
+- High level tests cases written in plain English (BDD-style)
+- Run the tests and watch them fail
+- Make the tests pass by building a comment component using TDCD
