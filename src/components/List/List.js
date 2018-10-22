@@ -13,8 +13,10 @@ function List(props) {
           key={item.etag}
           channelTitle={item.channelTitle}
           description={!!showDescription && item.description}
+          duration={item.duration}
           id={item.id}
           thumbnail={item.thumbnails[thumbnailSize]}
+          title={item.title}
           viewCount={item.viewCount}
         />
       ))}
@@ -29,20 +31,13 @@ const thumbnailProptype = PropTypes.shape({
 });
 
 export const previewPropType = PropTypes.shape({
+  description: PropTypes.string,
+  channelTitle: PropTypes.string,
+  duration: PropTypes.string,
   id: PropTypes.string,
-  snippet: PropTypes.shape({
-    title: PropTypes.string,
-    description: PropTypes.string,
-    channelTitle: PropTypes.string,
-    thumbnails: PropTypes.shape({
-      default: thumbnailProptype,
-      medium: thumbnailProptype,
-      high: thumbnailProptype,
-    }),
-  }),
-  statistics: PropTypes.shape({
-    viewCount: PropTypes.string,
-  }),
+  thumbnail: thumbnailProptype,
+  title: PropTypes.string,
+  viewCount: PropTypes.string,
 });
 
 List.propTypes = {
