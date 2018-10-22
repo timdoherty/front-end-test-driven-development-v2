@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import './Preview.css';
 
 function Preview(props) {
+<<<<<<< HEAD
   const { channelTitle, description, id, thumbnail, title, viewCount } = props;
 
   return (
@@ -33,6 +34,37 @@ function Preview(props) {
           <div className="description">{description}</div>
         </div>
       </div>
+=======
+  const {
+    channelTitle,
+    description,
+    duration,
+    id,
+    thumbnail,
+    title,
+    viewCount,
+  } = props;
+
+  return (
+    <Link to={`/now-playing/${id}`}>
+      <Card
+        style={{
+          height: `${thumbnail.height}px`,
+          width: `${thumbnail.width}px`,
+        }}
+      >
+        <img
+          src={thumbnail.url}
+          height={thumbnail.height}
+          width={thumbnail.width}
+        />
+        <span>{duration}</span>
+      </Card>
+      <span>{title}</span>
+      <span>{channelTitle}</span>
+      <span>{`${viewCount} views`}</span>
+      <span>{description}</span>
+>>>>>>> 789c882... update readme for step11; add duration to preview component
     </Link>
   );
 }
