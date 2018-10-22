@@ -8,6 +8,7 @@ function SearchBar(props) {
   return (
     <Input
       value={searchTerm}
+      onChange={() => {}}
       onKeyUp={({ key, target: { value } }) => {
         if (key === 'Enter' && !!value) {
           onSearchChanged(value);
