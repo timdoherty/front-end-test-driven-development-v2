@@ -22,6 +22,23 @@ describe('<List/>', () => {
     expect(wrapper.find(Preview).length).toBe(listItems.length);
   });
 
+  it('provides video information to a list item', () => {
+    const wrapper = shallow(<List listItems={listItems} />);
+    const expected = listItems[0];
+    const actual = wrapper
+      .find(Preview)
+      .first()
+      .props();
+
+    expect(actual.channelTitle).toBe(expected.channelTitle);
+    expect(actual.description).toBe(expected.description);
+    expect(actual.duration).toBe(expected.duration);
+    expect(actual.id).toBe(expected.id);
+    expect(actual.thumbnail).toEqual(expected.thumbnails.default);
+    expect(actual.title).toBe(expected.title);
+    expect(actual.viewCount).toBe(expected.viewCount);
+  });
+
   it('provides a thumbnail size overrride for each preview item', () => {
     const wrapper = shallow(
       <List listItems={listItems} thumbnailSize="high" />
