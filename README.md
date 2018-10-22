@@ -404,3 +404,18 @@ We will again use the TDCD approach, focusing solely on data and behavior of the
   - ex: "it displays the author's name"
 - Run the tests and watch them fail
 - Make the tests pass by implementing a video preview component using TDCD
+
+## Step 12
+
+### Recap: What did we learn?
+- Build muscle memory on the TDCD approach to building components
+- We can build a functioning component - and have confidence that it works - without ever looking at it
+- Separation of concerns makes component development simpler by letting us focus on one concern at a time
+
+### Objective
+Now that we have a video preview component, we also need a list component that will render a list of search results or related videos
+
+### TODO:
+- High level test cases written in plain English (BDD-style)
+- Run the tests and watch them fail
+- Make the tests pass by implementing a preview list component via TDCD
