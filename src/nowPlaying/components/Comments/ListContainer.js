@@ -2,12 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connectModule } from 'redux-modules';
 
-import List from './List';
+import Comment from './Comment';
 import nowPlayingModule from '../../module';
 
 function ListContainer(props) {
   const { comments } = props;
-  return <List comments={comments} />;
+  return (
+    <div>
+      {comments.map(comment => (
+        <Comment
+          key={comment.id}
+          author={comment.authorDisplayName}
+          avatar={comment.authorProfileImageUrl}
+          commentText={comment.textDisplay}
+          dislikes={comment.dislikeCount}
+          likes={comment.likeCount}
+        />
+      ))}
+    </div>
+  );
 }
 
 ListContainer.propTypes = {

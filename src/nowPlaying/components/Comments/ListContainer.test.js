@@ -5,6 +5,7 @@ import { createStore } from 'redux';
 import ListContainer from './ListContainer';
 import commentsStub from '../../stubs/commentsStub';
 import nowPlayingSelector from '../../selector';
+import Comment from './Comment';
 
 describe('<ListContainer/>', () => {
   function getInitialState() {
@@ -25,11 +26,17 @@ describe('<ListContainer/>', () => {
   });
 
   describe('props', () => {
-    it('correctly maps state to props', () => {
+    it('displays a comment for each item in the list', () => {
       const wrapper = shallow(<ListContainer />, { context: { store } });
       const expected = nowPlayingSelector(getInitialState()).comments;
       const actual = wrapper.prop('comments');
       expect(actual).toEqual(expected);
+      expect(
+        wrapper
+          .dive()
+          .dive()
+          .find(Comment).length
+      ).toBe(expected.length);
     });
   });
 });
