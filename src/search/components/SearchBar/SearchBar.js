@@ -20,10 +20,12 @@ function SearchBar(props) {
 
 SearchBar.propTypes = {
   onSearchChanged: PropTypes.func,
+  searchTerm: PropTypes.string,
 };
 
 SearchBar.defaultProps = {
   onSearchChanged: Function.prototype,
+  searchTerm: '',
 };
 
 export default SearchBar;
