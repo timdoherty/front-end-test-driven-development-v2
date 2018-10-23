@@ -485,3 +485,22 @@ Now that we have a component to display individual comments, let's build a conne
 - High level test cases written in plain English (BDD-style)
 - Run the tests and watch them fail
 - Make the tests pass by building a connected list component using TDCD
+
+## Step 17
+
+### Recap: What did we learn?
+- Build muscle memory on TDCD
+- Build muscle memory testing connected components
+- Build muscle memory on general TDD principles
+
+### Objective
+Let's reuse our video preview and list components by connecting them to our related videos application state to display a list of related videos.
+
+### Resources
+- [Redux - Usage with React](https://redux.js.org/basics/usagewithreact)
+- [connectModule](https://mboperator.gitbooks.io/redux-modules/content/docs/api_reference/)
+
+### TODO:
+- High level test cases written in plain English (BDD-style)
+- Run the tests and watch them fail
+- Make the tests pass by writing a connected container component for related videos
