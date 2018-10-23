@@ -467,6 +467,10 @@ This step will be a self-paced repeat of what you've learned so far building com
 ### Objective
 Next up we will need a component to display an individual comment for the current video.
 
+### Resources
+- [Redux - Usage with React](https://redux.js.org/basics/usagewithreact)
+- [connectModule](https://mboperator.gitbooks.io/redux-modules/content/docs/api_reference/)
+
 ### TODO:
 - High level tests cases written in plain English (BDD-style)
 - Run the tests and watch them fail
