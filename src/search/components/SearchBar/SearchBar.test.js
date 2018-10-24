@@ -44,13 +44,16 @@ describe('<SearchBar/>', () => {
   describe('when the user clicks the search button', () => {
     it('reacts when there is a search term', () => {
       const onSearchChangedMock = jest.fn();
+      const searchTerm = 'fluffy unicorns';
       const wrapper = shallow(
-        <SearchBar onSearchChanged={onSearchChangedMock} />
+        <SearchBar
+          onSearchChanged={onSearchChangedMock}
+          searchTerm={searchTerm}
+        />
       );
 
-      wrapper.find(Input).simulate('change', { target: { value: 'foo' } });
       wrapper.find(Button).simulate('click');
-      expect(onSearchChangedMock).toBeCalledWith('foo');
+      expect(onSearchChangedMock).toBeCalledWith(searchTerm);
     });
 
     it('does not react when there is no search term', () => {
