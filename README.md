@@ -537,3 +537,20 @@ and also learn how to mock API requests using Jest.
 - Introduction to integration testing with Enzyme
 - We can verify the functional correctness of our application without ever looking at it in a browser
 - Build muscle memory on general TDD principles
+
+### Objective
+Our application is now fully functional, we know because we have tests verifying each individual component, and a suite of integration
+tests verifying that they all work as expected when put together. All this and we haven't even looked at the application running a browser.
+
+Let's take a moment to do that now. You will need a valid Google developer key in order to make
+actual requests to the Youtube APIs, so if you haven't done so yet now's the time to sign up for a free key.
+
+Once you have your key, and have replaced the dummy key in your constants file, run ```yarn start``` from your command line.
+
+It should look like crap. But, it should also work!
+
+Now that we're visually reassured that our client's application works, let's make it look presentable. Let's keep our tests running, and do some visual refactoring while keeping our specs green!
+
+### TODO:
+- Change the markup and CSS for the application while keeping your running specs green
+- Be creative! Your client wants a custom Youtube player, it doesn't need to look like the Youtube website
