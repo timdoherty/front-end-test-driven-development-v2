@@ -7,21 +7,25 @@ export default class SearchBar extends Component {
   static get propTypes() {
     return {
       onSearchChanged: PropTypes.func,
+      searchTerm: PropTypes.string,
     };
   }
 
   static get defaultProps() {
     return {
       onSearchChanged: Function.prototype,
+      searchTerm: '',
     };
   }
 
-  constructor() {
-    super();
-    this.state = { searchTerm: '' };
+  constructor(props) {
+    super(props);
+
     this.onSearchTermChanged = this.onSearchTermChanged.bind(this);
-    this.onSearch = this.onSearch.bind(this);
+    this.doSearch = this.doSearch.bind(this);
     this.onSearchTermKeyUp = this.onSearchTermKeyUp.bind(this);
+
+    this.state = { searchTerm: props.searchTerm || '' };
   }
 
   componentDidMount() {
@@ -31,7 +35,7 @@ export default class SearchBar extends Component {
     }
   }
 
-  onSearch() {
+  doSearch() {
     if (!!this.state.searchTerm) {
       this.props.onSearchChanged(this.state.searchTerm);
     }
@@ -43,12 +47,13 @@ export default class SearchBar extends Component {
 
   onSearchTermKeyUp({ key }) {
     if (key === 'Enter') {
-      this.onSearch();
+      this.doSearch();
     }
   }
 
   render() {
     const { onSearchChanged, searchTerm } = this.props;
+
     return (
       <div>
         <Input
@@ -56,7 +61,7 @@ export default class SearchBar extends Component {
           onChange={this.onSearchTermChanged}
           onKeyUp={this.onSearchTermKeyUp}
         />
-        <Button variant="secondary" onClick={this.onSearch}>
+        <Button variant="secondary" onClick={this.doSearch}>
           <Icon icon="search" />
         </Button>
       </div>
