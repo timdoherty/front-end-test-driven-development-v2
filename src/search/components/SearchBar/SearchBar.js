@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import { compose } from 'ramda';
+import { Input, Button } from '@procore/core-react';
 
-import { Input, Button, Icon } from '@procore/core-react';
+import searchModule from '../../module';
 
-class SearchBar extends Component {
+const { actions } = searchModule;
+
+export class SearchBar extends Component {
   static get propTypes() {
     return {
+      history: PropTypes.shape({
+        push: PropTypes.func,
+      }),
       onSearchChanged: PropTypes.func,
       searchTerm: PropTypes.string,
     };
@@ -14,6 +22,7 @@ class SearchBar extends Component {
 
   static get defaultProps() {
     return {
+      history: { push() {} },
       onSearchChanged: Function.prototype,
       searchTerm: '',
     };
@@ -60,4 +69,24 @@ class SearchBar extends Component {
   }
 }
 
-export const SearchBarWithRouter = withRouter(SearchBar);
+function mapStateToProps(state) {
+  return {
+    searchTerm: state.search.searchTerm,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    onSearchChanged(searchTerm) {
+      return dispatch(actions.doSearch(searchTerm));
+    },
+  };
+}
+
+export default compose(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  ),
+  withRouter
+)(SearchBar);
