@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
-
+import { connect } from 'react-redux';
 import { Input, Button, Icon } from '@procore/core-react';
+
+import searchModule from '../../module';
+
+const { actions } = searchModule;
 
 class SearchBar extends Component {
   static get propTypes() {
@@ -60,4 +64,22 @@ class SearchBar extends Component {
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    searchTerm: state.search.searchTerm,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    onSearchChanged(searchTerm) {
+      return dispatch(actions.doSearch(searchTerm));
+    },
+  };
+}
 export const SearchBarWithRouter = withRouter(SearchBar);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SearchBarWithRouter);
