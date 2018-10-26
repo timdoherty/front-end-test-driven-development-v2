@@ -1,81 +1,131 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow, mount } from 'enzyme';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router';
 
-import { SearchBarWithRouter as SearchBar } from './SearchBar';
+import SearchBarContainer, { SearchBar } from './SearchBar';
+import searchModule from '../../module';
+
+const { actions } = searchModule;
 
 describe('<SearchBar/>', () => {
-  let wrapper;
+  describe('presenter', () => {
+    let wrapper;
+    const historyMock = {
+      push: jest.fn(),
+    };
 
-  function render(props) {
-    return mount(
-      <MemoryRouter>
-        <SearchBar {...props} />
-      </MemoryRouter>
-    );
-  }
+    beforeEach(() => {
+      historyMock.push.mockClear();
+    });
 
-  it('has somewhere to enter search text', () => {
-    wrapper = render({});
-    expect(wrapper.find('Input').exists()).toBe(true);
+    function render(props) {
+      return shallow(<SearchBar {...props} history={historyMock} />);
+    }
+
+    it('has somewhere to enter search text', () => {
+      wrapper = render({});
+      expect(wrapper.find('Input').exists()).toBe(true);
+    });
+
+    it('initializes with the current search term', () => {
+      const searchTerm = 'foobar';
+      wrapper = render({ searchTerm });
+      expect(wrapper.find('Input').prop('value')).toBe(searchTerm);
+    });
+
+    describe('when the user presses enter', () => {
+      it('responds when there is a search term', () => {
+        const doSearchMock = jest.fn();
+        const searchTerm = 'foo';
+        wrapper = render({ actions: { doSearch: doSearchMock } });
+
+        wrapper
+          .find('Input')
+          .simulate('change', { target: { value: searchTerm } });
+        wrapper.find('Input').simulate('keyup', { key: 'Enter' });
+
+        expect(doSearchMock).toBeCalledWith(searchTerm);
+        expect(historyMock.push).toHaveBeenCalledWith(`/search/${searchTerm}`);
+      });
+
+      it('does not respond when there is no search term', () => {
+        const doSearchMock = jest.fn();
+        wrapper = render({ actions: { doSearch: doSearchMock } });
+
+        wrapper
+          .find('Input')
+          .simulate('keyup', { key: 'Enter', target: { value: '' } });
+
+        expect(doSearchMock).not.toBeCalled();
+      });
+    });
+
+    describe('when the user clicks the search button', () => {
+      it('responds when there is a search term', () => {
+        const doSearchMock = jest.fn();
+        const searchTerm = 'fluffy unicorns';
+        wrapper = render({ actions: { doSearch: doSearchMock }, searchTerm });
+
+        wrapper.find('Button').simulate('click');
+
+        expect(doSearchMock).toBeCalledWith(searchTerm);
+        expect(historyMock.push).toHaveBeenCalledWith(`/search/${searchTerm}`);
+      });
+
+      it('does not respond when there is no search term', () => {
+        const doSearchMock = jest.fn();
+        wrapper = render({ actions: { doSearch: doSearchMock } });
+
+        wrapper.find('Button').simulate('click');
+
+        expect(doSearchMock).not.toBeCalled();
+      });
+    });
   });
 
-  it('initializes with the current search term', () => {
-    const searchTerm = 'foobar';
-    wrapper = render({ searchTerm });
-    expect(wrapper.find('Input').prop('value')).toBe(searchTerm);
-  });
+  describe('container', () => {
+    let wrapper;
+    let store;
+    let dispatch;
+    const searchTerm = 'the one ring';
 
-  describe('when the user presses enter', () => {
-    it('responds when there is a search term', () => {
-      const onSearchChangedMock = jest.fn();
-      const searchTerm = 'foo';
-      wrapper = render({ onSearchChanged: onSearchChangedMock });
+    beforeEach(() => {
+      dispatch = jest.fn();
+      const reducer = state => state;
+      store = {
+        ...createStore(reducer, { search: { searchTerm } }),
+        dispatch,
+      };
+    });
 
+    function render(props) {
+      return mount(
+        <Provider store={store}>
+          <MemoryRouter>
+            <SearchBarContainer />
+          </MemoryRouter>
+        </Provider>
+      );
+    }
+
+    it('has a search term', () => {
+      wrapper = render();
+      expect(wrapper.find('SearchBar').prop('searchTerm')).toBe(searchTerm);
+    });
+
+    it('responds when the user initiates a search', () => {
+      wrapper = render();
       wrapper
-        .find('Input')
-        .simulate('change', { target: { value: searchTerm } });
-      wrapper.find('Input').simulate('keyup', { key: 'Enter' });
+        .find('SearchBar')
+        .instance()
+        .doSearch();
 
-      expect(onSearchChangedMock).toBeCalledWith(searchTerm);
+      expect(dispatch).toHaveBeenCalledWith(actions.doSearch(searchTerm));
       expect(wrapper.find('Router').prop('history').location.pathname).toBe(
         `/search/${searchTerm}`
       );
-    });
-
-    it('does not respond when there is no search term', () => {
-      const onSearchChangedMock = jest.fn();
-      wrapper = render({ onSearchChanged: onSearchChangedMock });
-
-      wrapper
-        .find('Input')
-        .simulate('keyup', { key: 'Enter', target: { value: '' } });
-
-      expect(onSearchChangedMock).not.toBeCalled();
-    });
-  });
-
-  describe('when the user clicks the search button', () => {
-    it('responds when there is a search term', () => {
-      const onSearchChangedMock = jest.fn();
-      const searchTerm = 'fluffy unicorns';
-      wrapper = render({ onSearchChanged: onSearchChangedMock, searchTerm });
-
-      wrapper.find('Button').simulate('click');
-
-      expect(onSearchChangedMock).toBeCalledWith(searchTerm);
-      expect(wrapper.find('Router').prop('history').location.pathname).toBe(
-        `/search/${searchTerm}`
-      );
-    });
-
-    it('does not respond when there is no search term', () => {
-      const onSearchChangedMock = jest.fn();
-      wrapper = render({ onSearchChanged: onSearchChangedMock });
-
-      wrapper.find('Button').simulate('click');
-
-      expect(onSearchChangedMock).not.toBeCalled();
     });
   });
 });
