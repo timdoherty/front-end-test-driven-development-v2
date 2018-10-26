@@ -350,7 +350,6 @@ We'll be able to drastically change the presentation of our components, all whil
 
 ### Objective
 Now that we have our search bar component, let's connect it to our Redux store so it can read from and interact with our application state.
-Let's follow the container/presenter pattern and write a connected container component that will render our search bar presenter.
 First we'll accomplish this with the [React bindings for Redux](https://github.com/reduxjs/react-redux) library, then in the next step we'll see how Redux Modules can reduce the
 boilerplate involved in this common task.
 
@@ -364,6 +363,7 @@ we'll also update the application's URL. To do this, we'll decorate our containe
 
 ### TODO:
 - High level test cases written in plain English (BDD-style)
-  - ex: "it reads the current search term"-
+  - ex: "it has a search term"-
+  - ex: "it responds and redirects when the user starts a search"
 - Run the tests and watch them fail
-- Make the tests pass by connecting your container component to Redux with the "connect" method
+- Make the tests pass by connecting your search bar component to Redux with the "connect" method
