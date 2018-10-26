@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router';
 
 import { Input, Button, Icon } from '@procore/core-react';
 
-export default class SearchBar extends Component {
+class SearchBar extends Component {
   static get propTypes() {
     return {
       onSearchChanged: PropTypes.func,
@@ -21,23 +22,17 @@ export default class SearchBar extends Component {
   constructor(props) {
     super(props);
 
-    this.onSearchTermChanged = this.onSearchTermChanged.bind(this);
     this.doSearch = this.doSearch.bind(this);
+    this.onSearchTermChanged = this.onSearchTermChanged.bind(this);
     this.onSearchTermKeyUp = this.onSearchTermKeyUp.bind(this);
 
     this.state = { searchTerm: props.searchTerm || '' };
   }
 
-  componentDidMount() {
-    const { searchTerm } = this.props;
-    if (!!searchTerm) {
-      this.setState({ searchTerm });
-    }
-  }
-
   doSearch() {
     if (!!this.state.searchTerm) {
       this.props.onSearchChanged(this.state.searchTerm);
+      this.props.history.push(`/search/${this.state.searchTerm}`);
     }
   }
 
@@ -52,8 +47,6 @@ export default class SearchBar extends Component {
   }
 
   render() {
-    const { onSearchChanged, searchTerm } = this.props;
-
     return (
       <div>
         <Input
@@ -61,10 +54,10 @@ export default class SearchBar extends Component {
           onChange={this.onSearchTermChanged}
           onKeyUp={this.onSearchTermKeyUp}
         />
-        <Button variant="secondary" onClick={this.doSearch}>
-          <Icon icon="search" />
-        </Button>
+        <Button variant="secondary" onClick={this.doSearch} />
       </div>
     );
   }
 }
+
+export const SearchBarWithRouter = withRouter(SearchBar);
