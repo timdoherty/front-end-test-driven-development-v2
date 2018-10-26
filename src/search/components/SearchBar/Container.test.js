@@ -16,8 +16,8 @@ describe('<SearchBarContainer/>', () => {
       search: {
         searchTerm: 'foobarbaz',
         searchResults: { items: [] },
-        searchMetadata: { items: [] }
-      }
+        searchMetadata: { items: [] },
+      },
     };
   }
 
@@ -25,16 +25,16 @@ describe('<SearchBarContainer/>', () => {
   let dispatch;
 
   beforeEach(() => {
-    const reducer = state => state; 
+    const reducer = state => state;
     dispatch = jest.fn();
     store = {
       ...createStore(reducer, getInitialState()),
-      dispatch
+      dispatch,
     };
   });
 
   describe('props', () => {
-    it('correctly maps state to props', () => {
+    it('has a search term', () => {
       const wrapper = mount(
         <Provider store={store}>
           <MemoryRouter>
@@ -57,11 +57,14 @@ describe('<SearchBarContainer/>', () => {
         </Provider>
       );
 
-      wrapper.find(SearchBar).props().onSearchChanged('foobarbaz');
-      expect(
-        wrapper.find('Router').prop('history').location.pathname
-      ).toBe('/search/foobarbaz');
+      wrapper
+        .find(SearchBar)
+        .props()
+        .onSearchChanged('foobarbaz');
+      expect(wrapper.find('Router').prop('history').location.pathname).toBe(
+        '/search/foobarbaz'
+      );
       expect(dispatch).toBeCalledWith(actions.doSearch('foobarbaz'));
     });
-  })
+  });
 });
