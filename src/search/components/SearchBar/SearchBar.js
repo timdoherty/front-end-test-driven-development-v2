@@ -6,14 +6,14 @@ import { Input, Button, Icon } from '@procore/core-react';
 export class SearchBar extends Component {
   static get propTypes() {
     return {
-      onSearchChanged: PropTypes.func,
+      doSearch: PropTypes.func,
       searchTerm: PropTypes.string,
     };
   }
 
   static get defaultProps() {
     return {
-      onSearchChanged: Function.prototype,
+      doSearch: Function.prototype,
       searchTerm: '',
     };
   }
@@ -30,7 +30,7 @@ export class SearchBar extends Component {
 
   doSearch() {
     if (!!this.state.searchTerm) {
-      this.props.onSearchChanged(this.state.searchTerm);
+      this.props.doSearch(this.state.searchTerm);
       this.props.history.push(`/search/${this.state.searchTerm}`);
     }
   }
