@@ -12,18 +12,20 @@ const { actions, selector } = searchModule;
 export class SearchBar extends Component {
   static get propTypes() {
     return {
+      actions: PropTypes.shape({
+        doSearch: PropTypes.func,
+      }),
       history: PropTypes.shape({
         push: PropTypes.func,
       }),
-      onSearchChanged: PropTypes.func,
       searchTerm: PropTypes.string,
     };
   }
 
   static get defaultProps() {
     return {
+      actions: { doSearch() {} },
       history: { push() {} },
-      onSearchChanged: Function.prototype,
       searchTerm: '',
     };
   }
