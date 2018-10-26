@@ -7,14 +7,16 @@ import { Input, Button, Icon } from '@procore/core-react';
 class SearchBar extends Component {
   static get propTypes() {
     return {
-      onSearchChanged: PropTypes.func,
+      actions: PropTypes.shape({
+        doSearch: PropTypes.func,
+      }),
       searchTerm: PropTypes.string,
     };
   }
 
   static get defaultProps() {
     return {
-      onSearchChanged: Function.prototype,
+      actions: { doSearch() {} },
       searchTerm: '',
     };
   }
