@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router';
 
 import { Input, Button, Icon } from '@procore/core-react';
 
-class SearchBar extends Component {
+export class SearchBar extends Component {
   static get propTypes() {
     return {
       onSearchChanged: PropTypes.func,
@@ -59,5 +58,3 @@ class SearchBar extends Component {
     );
   }
 }
-
-export const SearchBarWithRouter = withRouter(SearchBar);

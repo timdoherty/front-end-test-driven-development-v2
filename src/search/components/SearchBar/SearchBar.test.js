@@ -1,18 +1,20 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import { MemoryRouter } from 'react-router';
+import { shallow } from 'enzyme';
 
-import { SearchBarWithRouter as SearchBar } from './SearchBar';
+import { SearchBar } from './SearchBar';
 
 describe('<SearchBar/>', () => {
   let wrapper;
+  const historyMock = {
+    push: jest.fn(),
+  };
+
+  beforeEach(() => {
+    historyMock.push.mockClear();
+  });
 
   function render(props) {
-    return mount(
-      <MemoryRouter>
-        <SearchBar {...props} />
-      </MemoryRouter>
-    );
+    return shallow(<SearchBar {...props} history={historyMock} />);
   }
 
   it('has somewhere to enter search text', () => {
@@ -38,9 +40,7 @@ describe('<SearchBar/>', () => {
       wrapper.find('Input').simulate('keyup', { key: 'Enter' });
 
       expect(onSearchChangedMock).toBeCalledWith(searchTerm);
-      expect(wrapper.find('Router').prop('history').location.pathname).toBe(
-        `/search/${searchTerm}`
-      );
+      expect(historyMock.push).toHaveBeenCalledWith(`/search/${searchTerm}`);
     });
 
     it('does not respond when there is no search term', () => {
@@ -64,9 +64,7 @@ describe('<SearchBar/>', () => {
       wrapper.find('Button').simulate('click');
 
       expect(onSearchChangedMock).toBeCalledWith(searchTerm);
-      expect(wrapper.find('Router').prop('history').location.pathname).toBe(
-        `/search/${searchTerm}`
-      );
+      expect(historyMock.push).toHaveBeenCalledWith(`/search/${searchTerm}`);
     });
 
     it('does not respond when there is no search term', () => {
