@@ -12,18 +12,20 @@ const { actions } = searchModule;
 export class SearchBar extends Component {
   static get propTypes() {
     return {
+      actions: PropTypes.shape({
+        doSearch: PropTypes.func,
+      }),
       history: PropTypes.shape({
         push: PropTypes.func,
       }),
-      onSearchChanged: PropTypes.func,
       searchTerm: PropTypes.string,
     };
   }
 
   static get defaultProps() {
     return {
+      actions: { doSearch() {} },
       history: { push() {} },
-      onSearchChanged: Function.prototype,
       searchTerm: '',
     };
   }
@@ -40,7 +42,7 @@ export class SearchBar extends Component {
 
   doSearch() {
     if (!!this.state.searchTerm) {
-      this.props.onSearchChanged(this.state.searchTerm);
+      this.props.actions.doSearch(this.state.searchTerm);
       this.props.history.push(`/search/${this.state.searchTerm}`);
     }
   }
@@ -77,8 +79,10 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    onSearchChanged(searchTerm) {
-      return dispatch(actions.doSearch(searchTerm));
+    actions: {
+      doSearch(searchTerm) {
+        return dispatch(actions.doSearch(searchTerm));
+      },
     },
   };
 }

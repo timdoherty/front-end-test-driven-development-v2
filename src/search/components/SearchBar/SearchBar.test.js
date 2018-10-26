@@ -37,50 +37,50 @@ describe('<SearchBar/>', () => {
 
     describe('when the user presses enter', () => {
       it('responds when there is a search term', () => {
-        const onSearchChangedMock = jest.fn();
+        const doSearchMock = jest.fn();
         const searchTerm = 'foo';
-        wrapper = render({ onSearchChanged: onSearchChangedMock });
+        wrapper = render({ actions: { doSearch: doSearchMock } });
 
         wrapper
           .find('Input')
           .simulate('change', { target: { value: searchTerm } });
         wrapper.find('Input').simulate('keyup', { key: 'Enter' });
 
-        expect(onSearchChangedMock).toBeCalledWith(searchTerm);
+        expect(doSearchMock).toBeCalledWith(searchTerm);
         expect(historyMock.push).toHaveBeenCalledWith(`/search/${searchTerm}`);
       });
 
       it('does not respond when there is no search term', () => {
-        const onSearchChangedMock = jest.fn();
-        wrapper = render({ onSearchChanged: onSearchChangedMock });
+        const doSearchMock = jest.fn();
+        wrapper = render({ actions: { doSearch: doSearchMock } });
 
         wrapper
           .find('Input')
           .simulate('keyup', { key: 'Enter', target: { value: '' } });
 
-        expect(onSearchChangedMock).not.toBeCalled();
+        expect(doSearchMock).not.toBeCalled();
       });
     });
 
     describe('when the user clicks the search button', () => {
       it('responds when there is a search term', () => {
-        const onSearchChangedMock = jest.fn();
+        const doSearchMock = jest.fn();
         const searchTerm = 'fluffy unicorns';
-        wrapper = render({ onSearchChanged: onSearchChangedMock, searchTerm });
+        wrapper = render({ actions: { doSearch: doSearchMock }, searchTerm });
 
         wrapper.find('Button').simulate('click');
 
-        expect(onSearchChangedMock).toBeCalledWith(searchTerm);
+        expect(doSearchMock).toBeCalledWith(searchTerm);
         expect(historyMock.push).toHaveBeenCalledWith(`/search/${searchTerm}`);
       });
 
       it('does not respond when there is no search term', () => {
-        const onSearchChangedMock = jest.fn();
-        wrapper = render({ onSearchChanged: onSearchChangedMock });
+        const doSearchMock = jest.fn();
+        wrapper = render({ actions: { doSearch: doSearchMock } });
 
         wrapper.find('Button').simulate('click');
 
-        expect(onSearchChangedMock).not.toBeCalled();
+        expect(doSearchMock).not.toBeCalled();
       });
     });
   });
