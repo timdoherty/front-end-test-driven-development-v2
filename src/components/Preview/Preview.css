@@ -5,6 +5,7 @@
 }
 
 .thumbnail {
+  position: relative;
   margin-right: 5px;
 }
 
@@ -16,3 +17,11 @@
   margin-bottom: 10px;
 }
 
+.duration {
+  background-color: black;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 0.7rem;
+}

@@ -39,6 +39,22 @@ export class SearchBar extends Component {
     this.state = { searchTerm: props.searchTerm || '' };
   }
 
+  componentDidMount() {
+    const {
+      match: { params },
+    } = this.props;
+
+    if (
+      params.path === 'search' &&
+      !!params.pathParam &&
+      params.pathParam !== this.state.searchTerm
+    ) {
+      this.setState({ searchTerm: params.pathParam }, () => {
+        this.doSearch();
+      });
+    }
+  }
+
   doSearch() {
     if (!!this.state.searchTerm) {
       this.props.actions.doSearch(this.state.searchTerm);

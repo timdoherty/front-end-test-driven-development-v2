@@ -13,7 +13,7 @@ function RelatedVideosContainer(props) {
     <List
       className="related-videos"
       listItems={relatedVideos}
-      hideDescription={true}
+      showDescription={false}
     />
   );
 }

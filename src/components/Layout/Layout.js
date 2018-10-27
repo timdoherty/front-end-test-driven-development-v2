@@ -10,26 +10,34 @@ import RelatedVideos from '../../nowPlaying/components/RelatedVideos';
 function Layout(props) {
   return (
     <div>
-      <SearchBar />
-      <Route path='/search/:searchTerm' render={({ match }) => (
-        <SearchResultsListContainer key={match.params.searchTerm} />
-      )}/>
-      <Route path='/now-playing/:videoid' render={({ match }) => {
-        return (
-          <div style={{ display: 'flex' }}>
-            <div style={{ flex: 1 }}>
-              <Player key={match.params.videoid}/>
-              <Comments />
+      <Route
+        path="/:path?/:pathParam?"
+        render={({ match }) => <SearchBar key={match.params.pathParam} />}
+      />
+      <Route
+        path="/search/:searchTerm"
+        render={({ match }) => (
+          <SearchResultsListContainer key={match.params.searchTerm} />
+        )}
+      />
+      <Route
+        path="/now-playing/:videoid"
+        render={({ match }) => {
+          return (
+            <div style={{ display: 'flex' }}>
+              <div style={{ flex: 1 }}>
+                <Player key={match.params.videoid} />
+                <Comments />
+              </div>
+              <div style={{ flex: '0 0 400px' }}>
+                <RelatedVideos />
+              </div>
             </div>
-            <div style={{ flex: '0 0 400px'}}>
-              <RelatedVideos />
-            </div>
-          </div>
-        )
-      }} />
+          );
+        }}
+      />
     </div>
   );
-} 
+}
 
 export default Layout;
-

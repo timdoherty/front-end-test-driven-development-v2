@@ -31,7 +31,7 @@ function Preview(props) {
             height={thumbnail.height}
             width={thumbnail.width}
           />
-          <div>{duration}</div>
+          <div className="duration">{duration}</div>
         </Card>
         <div className="meta">
           <div className="title">{title}</div>
