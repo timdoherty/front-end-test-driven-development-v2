@@ -1,6 +1,7 @@
 .related-videos {
   text-align: left;
   font-size: 0.7rem;
+  color: #888;
 }
 
 .related-videos .stats {
@@ -9,4 +10,8 @@
 
 .related-videos .meta :not(:first-child) {
   color: #888;
+}
+
+.related-videos .title {
+  color: #111;
 }

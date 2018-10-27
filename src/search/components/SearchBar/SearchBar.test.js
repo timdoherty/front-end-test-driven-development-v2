@@ -21,7 +21,13 @@ describe('<SearchBar/>', () => {
     });
 
     function render(props) {
-      return shallow(<SearchBar {...props} history={historyMock} />);
+      return shallow(
+        <SearchBar
+          history={historyMock}
+          match={{ path: '', params: '' }}
+          {...props}
+        />
+      );
     }
 
     it('has somewhere to enter search text', () => {
@@ -33,6 +39,18 @@ describe('<SearchBar/>', () => {
       const searchTerm = 'foobar';
       wrapper = render({ searchTerm });
       expect(wrapper.find('Input').prop('value')).toBe(searchTerm);
+    });
+
+    it('responds when given a search url', () => {
+      const searchTerm = 'Gandalf';
+      const doSearchMock = jest.fn();
+      wrapper = render({
+        actions: { doSearch: doSearchMock },
+        match: { params: { path: 'search', pathParam: searchTerm } },
+      });
+
+      expect(doSearchMock).toBeCalledWith(searchTerm);
+      expect(historyMock.push).toHaveBeenCalledWith(`/search/${searchTerm}`);
     });
 
     describe('when the user presses enter', () => {
