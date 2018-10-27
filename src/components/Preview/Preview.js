@@ -20,6 +20,7 @@ function Preview(props) {
     <Link to={`/now-playing/${id}`}>
       <div className="preview-container">
         <Card
+          className="thumbnail"
           style={{
             height: `${thumbnail.height}px`,
             width: `${thumbnail.width}px`,

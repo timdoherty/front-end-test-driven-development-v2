@@ -58,7 +58,14 @@ export class SearchBar extends Component {
 
   render() {
     return (
-      <div style={{ display: 'flex' }}>
+      <div
+        style={{
+          width: '50%',
+          padding: '20px',
+          margin: 'auto',
+          display: 'flex',
+        }}
+      >
         <Input
           value={this.state.searchTerm}
           onChange={this.onSearchTermChanged}
