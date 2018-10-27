@@ -1,0 +1,25 @@
+.comment-container {
+  display: flex;
+  text-align: left;
+  font-size: 0.8rem;
+}
+
+.comment-container div {
+  margin: 5px;
+}
+
+.comment-container div :first-child {
+  font-weight: 400;
+}
+
+.comment-container div :not(:first-child) {
+  color: #888;
+}
+
+.comment-container img {
+  opacity: 0.5;
+  vertical-align: middle;
+  margin: 5px;
+  height: 16px;
+  width: 16px;
+}

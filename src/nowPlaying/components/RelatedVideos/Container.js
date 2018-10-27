@@ -4,11 +4,18 @@ import { connectModule } from 'redux-modules';
 
 import List from '../../../components/List';
 import nowPlayingModule from '../../module';
+import './RelatedVideos.css';
 
 function RelatedVideosContainer(props) {
   const { relatedVideos } = props;
 
-  return <List listItems={relatedVideos} />;
+  return (
+    <List
+      className="related-videos"
+      listItems={relatedVideos}
+      hideDescription={true}
+    />
+  );
 }
 
 RelatedVideosContainer.propTypes = {

@@ -18,23 +18,29 @@ function Preview(props) {
 
   return (
     <Link to={`/now-playing/${id}`}>
-      <Card
-        style={{
-          height: `${thumbnail.height}px`,
-          width: `${thumbnail.width}px`,
-        }}
-      >
-        <img
-          src={thumbnail.url}
-          height={thumbnail.height}
-          width={thumbnail.width}
-        />
-        <span>{duration}</span>
-      </Card>
-      <span>{title}</span>
-      <span>{channelTitle}</span>
-      <span>{`${viewCount} views`}</span>
-      <span>{description}</span>
+      <div className="preview-container">
+        <Card
+          style={{
+            height: `${thumbnail.height}px`,
+            width: `${thumbnail.width}px`,
+          }}
+        >
+          <img
+            src={thumbnail.url}
+            height={thumbnail.height}
+            width={thumbnail.width}
+          />
+          <div>{duration}</div>
+        </Card>
+        <div className="meta">
+          <div className="title">{title}</div>
+          <div className="stats" style={{ display: 'flex' }}>
+            <span>{channelTitle}</span>
+            <span>{`${viewCount} views`}</span>
+          </div>
+          <div className="description">{description}</div>
+        </div>
+      </div>
     </Link>
   );
 }

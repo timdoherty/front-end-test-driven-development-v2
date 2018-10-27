@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { connectModule } from 'redux-modules';
 import { withRouter } from 'react-router';
 import { compose } from 'ramda';
-import { Input, Button } from '@procore/core-react';
+
+import { Input, Button, Icon } from '@procore/core-react';
 
 import searchModule from '../../module';
 
@@ -57,13 +58,19 @@ export class SearchBar extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{ display: 'flex' }}>
         <Input
           value={this.state.searchTerm}
           onChange={this.onSearchTermChanged}
           onKeyUp={this.onSearchTermKeyUp}
         />
-        <Button variant="secondary" onClick={this.doSearch} />
+        <Button
+          style={{ backgroundColor: '#eee' }}
+          variant="secondary"
+          onClick={this.doSearch}
+        >
+          <Icon icon="search" />
+        </Button>
       </div>
     );
   }
