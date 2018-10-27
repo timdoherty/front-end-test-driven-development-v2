@@ -42,8 +42,13 @@ describe('<App/>', () => {
 
     wrapper
       .find('SearchBar')
-      .props()
-      .onSearchChanged('foobar');
+      .find('Input')
+      .simulate('change', { target: { value: 'foobar' } });
+
+    wrapper
+      .find('SearchBar')
+      .instance()
+      .doSearch();
   }
 
   function mockNowPlayingRequests() {
