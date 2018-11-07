@@ -333,11 +333,13 @@ We'll be able to drastically change the presentation of our components, all whil
 
 ### Resources
 - [Enzyme Test Renderer](https://airbnb.io/enzyme/docs/api/)
+- [React Router withRouter HoC](https://reacttraining.com/react-router/web/api/withRouter)
 
 ### TODO:
 - High level test cases written in plain english (BDD-style)
   - What should our search bar do?
     - ex: "it has somewhere for a user to enter search terms"
+    - ex: "it responds and changes the web address when the user clicks the search button"
 - Run the tests and watch them fail
 - Make the tests pass by implementing a search bar component using TDCD
 
