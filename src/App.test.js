@@ -47,8 +47,8 @@ describe('<App/>', () => {
 
     wrapper
       .find('SearchBar')
-      .instance()
-      .doSearch();
+      .find('Input')
+      .simulate('keyup', { key: 'Enter' });
   }
 
   function mockNowPlayingRequests() {
@@ -115,10 +115,10 @@ describe('<App/>', () => {
       const searchBar = wrapper.find('SearchBar');
       expect(searchBar.prop('searchTerm')).toBe('foobar');
 
-      const searchResultList = wrapper.find('SearchResultListContainer');
-      expect(searchResultList.prop('searchResults').length).toBe(
-        searchResultsStubs.items.length
-      );
+      const searchResultList = wrapper
+        .find('SearchResultListContainer')
+        .find('Preview');
+      expect(searchResultList.length).toBe(searchResultsStubs.items.length);
     });
   });
 
@@ -175,10 +175,6 @@ describe('<App/>', () => {
       await asyncFlush();
       wrapper.update();
 
-      const relatedVideosList = wrapper
-        .find('RelatedVideosContainer')
-        .find('Preview');
-
       const expected = nowPlayingSelector({
         nowPlaying: {
           relatedVideos: relatedVideosStubs,
@@ -186,16 +182,6 @@ describe('<App/>', () => {
         },
       }).relatedVideos[1];
 
-      // axios.get.mockImplementationOnce(() => {
-      //   return Promise.resolve({ data: { items: [expected] } });
-      // });
-
-      // mockNowPlayingRequests();
-      // relatedVideosList
-      //   .at(1)
-      //   .find('Link')
-      //   .find('a')
-      //   .simulate('click', { button: 0 });
       clickPreviewLink(
         wrapper.find('RelatedVideosContainer'),
         1,
