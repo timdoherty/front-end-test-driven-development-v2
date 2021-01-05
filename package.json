@@ -6,7 +6,7 @@
   "dependencies": {
     "@procore/core-icons": "^6.4.1",
     "@procore/core-react": "^6.0.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "babel-preset-env": "^1.7.0",
     "moment": "^2.22.2",
     "react": "^16.4.2",
